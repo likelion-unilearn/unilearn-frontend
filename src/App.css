@@ -1,4 +1,4 @@
-#body{
+body{
   background-color: #dedede;
   overflow:hidden;
   margin: 0; 
@@ -17,23 +17,4 @@
   justify-content: center;
   align-items: center;
   
-}
-
-#logo{
-  width: 110px;
-  height: 30px;
-  position: relative;
-  margin-top: 13px;
-  left: 50%; 
-  transform: translateX(-50%);
-
-}
-
-#alarm{
-  width: 20px;
-  height: 22px;
-  background:#ffffff;
-  border: none;
-  position: relative;
-  margin-left: 55%;
 }

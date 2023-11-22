@@ -1,7 +1,7 @@
-import alarm from './img/alarm.png';
-import unilearn from './img/unilearn.png';
 import './App.css';
 import NoneStudyJoin from './NoneStudyJoin';
+import Header from './HeaderNavComponent/Header';
+import Nav from './HeaderNavComponent/Nav';
 
 function App() {
 
@@ -9,14 +9,12 @@ function App() {
 <div id="body">
       <div id="iphone-frame">
       <div id="logo-container">
-      <img id='logo' src={unilearn} alt="unilearn" />
-        <button id="alarm">
-          <img src={alarm} alt="alarm" style={{ width: '18px', height: '20px'}} />
-        </button>
+      <Header/>
         < NoneStudyJoin></NoneStudyJoin>
       </div>
       </div>
-      </div>
+      <Nav/>
+</div>
   );
 }
 
