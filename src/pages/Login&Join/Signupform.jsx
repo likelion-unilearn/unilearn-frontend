@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import unilearnLogo from '../../img/unilearn.png'; 
 import backButton from '../../img/back.png';
 
+
 const Index = styled.div`
   display: flex;
   justify-content: center;
@@ -42,6 +43,43 @@ const StyledBackButton = styled.img`
   left: 27px;
   top: 66px;
   cursor: pointer;
+`;
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const LoginForm = styled.form`
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top : 200px;
+`;
+
+const InputField = styled.input`
+  width: 100%;
+  height: 50px;
+  padding: 1px 6px;
+  border-radius: 5px;
+  border: 1px solid #e7e7e7;
+  background-color: #e7e7e7;
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-align: center; 
+`;
+const SubmitButton = styled.button`
+  width: 90%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #547980;
+  background-color: #547980;
+  font-size: 16px;
+  color: #eeeef0;
+  cursor: pointer;
+  margin-top: 15px;
 `;
 
 const BackButton = ({ onClick }) => {
@@ -122,61 +160,52 @@ const SignUpForm = () => {
         textAlign: 'center',
         color: '#231E1E',
       }}>회원가입</p>
-      <div className="login-container">
-        <form className="login-form" onSubmit={handleFormSubmit}>
-          <div className="form-login">
-            <input
-              type="text"
-              id="username"
-              placeholder="아이디"
-              value={username}
-              onChange={handleUsernameChange}
-            />
-          </div>
-          <div className="form-password">
-            <input
-              type="password"
-              id="password"
-              placeholder="비밀번호"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-          </div>
-          <div className="form-password">
-            <input
+   <FormContainer>
+        <LoginForm onSubmit={handleFormSubmit}>
+          <InputField
+            type="text"
+            id="username"
+            placeholder="아이디"
+            value={username}
+            onChange={handleUsernameChange}
+          />
+          <InputField
+            type="password"
+            id="password"
+            placeholder="비밀번호"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+           <InputField
               type="password"
               id="confirmPassword"
               placeholder="비밀번호 확인"
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
             />
-          </div>
-          <div className="form-login">
-            <input
+          <InputField
               type="text"
               id="fullName"
               placeholder="이름"
               value={fullName}
               onChange={handleFullNameChange}
             />
-          </div>
-          <div className="form-login">
-            <input
+          <InputField
               type="text"
               id="nickname"
               placeholder="닉네임"
               value={nickname}
               onChange={handleNicknameChange}
             />
-          </div>
+          </LoginForm>
           {passwordMismatch && (
             <p style={{ color: 'red' }}>비밀번호가 일치하지 않습니다.</p>
           )}
-          <button type="submit">다음</button>
-        </form>
-      </div>
-
+           <SubmitButton type="submit">다음</SubmitButton>
+      
+          </FormContainer>
     </Index>
+
   );
 };
 
