@@ -51,7 +51,7 @@ const InputContainer = styled.div`
   align-items: center;
   padding: 20px;
   position: absolute;
-  width: 240px;
+  width: 200px;
   height: auto;
   left: calc(50% - 240px/2 - 59px);
   top: 296px;
@@ -64,10 +64,11 @@ const Input2Container = styled.div`
   align-items: center;
   padding: 20px;
   position: absolute;
-  width: 240px;
+  width: 200px;
   height: auto;
   left: calc(50% - 240px/2 - 59px);
   top: 350px;
+  margin-top:10px;
 `;
 
 const Input = styled.input`
@@ -93,18 +94,23 @@ const SubmitButton = styled.button`
   background: #E8EFE9;
   border-radius: 5px;
   border:none;
+  
 `;
 
 const ConfirmButton = styled.button`
-  display: ${props => (props.isCodeSent ? 'block' : 'none')};
+  display: block;
   width: 96px;
   height: 48px;
-  background: #E8EFE9;
+  background: ${props => (props.isClicked ? '#547980' : '#E8EFE9')};
   border-radius: 5px;
   border:none;
   position: absolute;
+  top: 20px;
   left: calc(50% - 96px/2 + 181px);
+  cursor: ${props => (props.isClicked ? 'default' : 'pointer')}; // 클릭된 후에는 커서가 바뀌도록
 `;
+
+// AuthButton 컴포넌트
 const AuthButton = styled.button`
   display: ${props => (props.visible ? 'block' : 'none')};
   width: 240px;
@@ -135,6 +141,8 @@ const SignupVerification = () => {
   const [isCodeSent, setIsCodeSent] = useState(false);
   const [isCodeVerified, setIsCodeVerified] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const [isAuthVisible, setIsAuthVisible] = useState(false);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -150,6 +158,8 @@ const SignupVerification = () => {
   };
 
   const handleVerifyCode = () => {
+    setIsClicked(true);
+    setIsAuthVisible(true);
     setIsVerified(true);
   };
 
@@ -191,7 +201,7 @@ const SignupVerification = () => {
                 width: '112px',
                 height: '22px',
                 left: '250px',
-                top: '35px',
+                top: '10px',
                 fontFamily: 'Almarai',
                 fontStyle: 'normal',
                 fontWeight: '600',
@@ -218,14 +228,15 @@ const SignupVerification = () => {
                 onChange={handleVerificationCodeChange}
               />
               {isCodeVerified && !isVerified && (
-                <ConfirmButton
-                  type="button"
-                  onClick={handleVerifyCode}
-                  isCodeSent={isCodeSent}
-                >
-                  확인
-                </ConfirmButton>
-              )}
+      <ConfirmButton
+        type="button"
+        onClick={handleVerifyCode}
+        isClicked={isClicked}
+        disabled={!isCodeVerified}
+      >
+        확인
+      </ConfirmButton>
+    )}
            
                   {isCodeVerified && (
         <AuthButton
