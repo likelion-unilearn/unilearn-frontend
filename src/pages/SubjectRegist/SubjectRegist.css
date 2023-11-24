@@ -1,0 +1,21 @@
+.input{
+    width: 255px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #9EB7AB;
+    background: #FFF;
+}
+.registBtn{
+    width: 292px;
+    height: 48px;
+    border-radius: 5px;
+    background: #9EB7AB;
+    border-style: none;
+    color: #FFF;
+    font-size: 15px;
+    font-weight: bold;
+    cursor:pointer;
+    position: absolute;
+    top:80%;
+    margin-left: 50px;
+}
