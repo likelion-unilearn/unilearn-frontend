@@ -1,0 +1,141 @@
+.pageName{
+    text-align: center;
+}
+
+.under{
+    width: 69px;
+    height: 2px;
+    background: #DDE2DF;
+    margin: auto;
+    position: relative;
+    top: -10px;
+}
+
+.border{
+    width: 390.001px;
+    height: 1px;
+    background:#E1E9E2;
+    position: absolute;
+    top:130px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.recer{
+    color: #615151;
+    font-family: Inter;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 500;
+    border-style: none;
+    background-color: #fff;
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.photo{
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo, .profile {
+    flex: 1;
+}
+
+.profile {
+    margin-right: 130px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #353535;
+}
+
+.profile p {
+    margin: 5px 0;
+    white-space: nowrap; 
+}
+
+.user{
+    font-size: 15px;
+}
+
+.major, .academicNumber{
+    font-size: 10px;
+}
+
+
+.temper{
+    text-align: center;
+}
+
+.introduce-text{
+    margin-left: 30px;
+    color: #7B7878;
+    font-family: Noto Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.333px;
+}
+
+.container {
+    display: flex; 
+    align-items: center;
+}
+
+
+.introduce{
+    border-radius: 10px;
+    border: 0.5px solid #9EB7AB;
+    background: #FFF;
+    width: 326px;
+    height: 94px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.modify{
+    margin-left: 230px;
+    border-style: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.studyList{
+    width: 390px;
+    height: 70px;
+    background-color: transparent;
+    border: 1px solid #EAEAEA;
+    font-size: 16px;
+    position: absolute;
+    top: 500px;
+    cursor: pointer;
+}
+
+.subjectList{
+    width: 390px;
+    height: 70px;
+    background-color: transparent;
+    border: 1px solid #EAEAEA;
+    font-size: 16px;
+    position: absolute;
+    top: 570px;
+    cursor: pointer;
+}
+
+.studyRecruit{
+    width: 390px;
+    height: 70px;
+    background-color: transparent;
+    border: 1px solid #EAEAEA;
+    font-size: 16px;
+    position: absolute;
+    top: 640px;
+    cursor: pointer;
+}

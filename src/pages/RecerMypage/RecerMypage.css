@@ -1,0 +1,68 @@
+.pageName{
+    text-align: center;
+}
+
+.under{
+    width: 69px;
+    height: 2px;
+    background: #DDE2DF;
+    margin: auto;
+    position: relative;
+    top: -10px;
+}
+
+.border{
+    width: 390.001px;
+    height: 1px;
+    background:#E1E9E2;
+    position: absolute;
+    top:130px;
+}
+
+.text-container{
+    font-size: 15px;
+    text-align: left;
+    margin-left: 25px;
+    margin-top: 35px;
+}
+
+.majorInput, .academicNumInput{
+    border-radius: 5px;
+    border: 0.5px solid #9EB7AB;
+    background: #FFF;
+    width: 311px;
+    height: 48px;
+}
+
+.cer1{
+    text-align: center;
+}
+
+.studentCard{
+    width: 311px;
+    height: 175px;
+    border-radius: 5px;
+    border: 0.5px solid #9EB7AB;
+    background: #FFF;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7b7b7b;
+}
+
+.approvalBtn{
+    width: 311px;
+    height: 48px;
+    border-radius: 5px;
+    border-style: none;
+    background: #C2D6C5;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    color: #7B7878;
+    font-weight: bold;
+}
