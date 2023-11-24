@@ -76,6 +76,10 @@ font-size: 13px;
 line-height: 21px;
 letter-spacing: -0.025em;
 color: #000000;
+height:180px;
+  overflow-y: auto; 
+  &::-webkit-scrollbar {
+  width:0px;
 `
 const SpeakText=styled.div`
 width: 300px;
@@ -91,6 +95,7 @@ color: #000000;
 flex: none;
 order: 0;
 flex-grow: 0;
+
 `
 
 const Speak=styled.div`
@@ -116,7 +121,8 @@ display: flex;
   font-size: 13px;
   line-height: 20px; 
   color: #000000;
-  text-align: left;
+  &::-webkit-scrollbar {
+  width:0px;
   resize: none; 
   overflow-y: auto;
   overflow-wrap: break-word;
@@ -375,7 +381,8 @@ function Studyjoin() {
         <Info> 
           <InfoDiv>
           <StudyInfo>{studyData.studyName}</StudyInfo>
-          <StudyInfoText>{studyData.studyDescription}</StudyInfoText>
+          <StudyInfoText>{studyData.studyDescription}
+         </StudyInfoText>
             </InfoDiv></Info>
             <Speak>
             <SpeakText>스터디장에게 하고싶은 한마디</SpeakText>

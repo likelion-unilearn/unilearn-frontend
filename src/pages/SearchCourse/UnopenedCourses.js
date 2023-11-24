@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import ButtonB from "./BoradComponent/ButtonB";
-import simg from './img/search.png';
+import ButtonB from "../../BoradComponent/ButtonB";
+import simg from '../../img/search.png';
+import plus from '../../img/plusB.png';
 
 const SearchContainer = styled.div`
   position: absolute;
@@ -47,6 +48,10 @@ const FrameA2=styled.div`
   background: #FFFFFF;
   border: 2px solid #C2D6C5;
   border-radius: 10px;
+  max-height: 580px;
+  overflow-y: auto; 
+  &::-webkit-scrollbar {
+  width:0px;
 `;
 
 const FrameA1=styled.div``;
@@ -120,8 +125,20 @@ const PostButton=styled.button`
   line-height: 20px;
   letter-spacing: 0.024em;
 `;
+const PlusButton=styled.button`
+position: absolute;
+top:730px;
+left:340px;
+background-image: url(${plus}); 
+padding:20px;
+border:none;
+background-color: white;
+cursor: pointer;
+background-size: 30px;
+background-repeat: no-repeat;
+`
 
-function FrameD() {
+function UnopenedCourses() {
   const [filter, setFilter] = useState('');
   const [studyData, setStudyData] = useState([]);
 
@@ -178,8 +195,9 @@ function FrameD() {
           />
         ))}
       </FrameA2>
+      <PlusButton></PlusButton>
     </div>
   );
 }
 
-export default FrameD;
+export default UnopenedCourses;

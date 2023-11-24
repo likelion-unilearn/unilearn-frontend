@@ -1,7 +1,21 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import ButtonC from "./BoradComponent/ButtonC";
+import ButtonC from "../../BoradComponent/ButtonC";
 import axios from "axios";
+import plus from '../../img/plusB.png';
+
+const PlusButton=styled.button`
+position: absolute;
+top:730px;
+left:340px;
+background-image: url(${plus}); 
+padding:20px;
+border:none;
+background-color: white;
+cursor: pointer;
+background-size: 30px;
+background-repeat: no-repeat;
+`
 
 const TitleLineA = styled.div`
   position: absolute;
@@ -51,11 +65,15 @@ const TitleLineB = styled.div`
 const Main = styled.div`
   position: absolute;
   width: 350px;
-  height: 580px;
+  height: 570px;
   left: 50%;
   transform: translateX(-50%);
   top: 150px;
   background: #ffffff;
+  max-height: 570px;
+  overflow-y: auto; 
+  &::-webkit-scrollbar {
+  width:0px;
 `;
 
 function StudyBoard() {
@@ -97,6 +115,7 @@ function StudyBoard() {
           />
         ))}
       </Main>
+      <PlusButton></PlusButton>
     </div>
   );
 }
