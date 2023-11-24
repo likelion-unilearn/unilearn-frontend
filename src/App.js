@@ -1,25 +1,33 @@
 import './App.css';
-import NoneStudyJoin from './NoneStudyJoin';
-import Header from './HeaderNavComponent/Header';
-import Nav from './HeaderNavComponent/Nav';
-import MypageInfo from './pages/Mypage/MypageInfo';
-import RecerMypage from './pages/RecerMypage/RecerMypage';
-import SubjectList from './pages/SubjectList/SubjectList';
-import SubjectRegist from './pages/SubjectRegist/SubjectRegist';
-
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom"; 
+import Loginform from "./pages/Login&Join/Loginform";
+import Signupform from "./pages/Login&Join/Signupform";
+import SignupVerification from "./pages/Login&Join/SignupVerification";
 
 function App() {
+  const pageStyle = {
+    backgroundColor: '#bababa',
+  };
 
   return (
-<div id="body">
+    
+    <div id="body">
       <div id="iphone-frame">
-      <div id="logo-container">
-      <Header/>
-        <SubjectRegist/>
+      <BrowserRouter>
+      <div>
+        <Routes>
+          <Route path="/Login" element={<Loginform />} />
+          <Route path="/Signupform" element={<Signupform />} />
+          <Route path="/SignupVerification" element={< SignupVerification />} />
+    
+        </Routes>
       </div>
+    </BrowserRouter>
+
       </div>
-      <Nav/>
-</div>
+   
+    </div>
   );
 }
 
