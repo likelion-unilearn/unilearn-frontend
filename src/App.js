@@ -8,13 +8,6 @@ import SignupVerification from "./pages/Login&Join/SignupVerification";
 import MystudyList from "./pages/Study/MystudyList";
 
 
-import './App.css';
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom"; 
-import Loginform from "./pages/Login&Join/Loginform";
-import Signupform from "./pages/Login&Join/Signupform";
-import SignupVerification from "./pages/Login&Join/SignupVerification";
-
 function App() {
   const pageStyle = {
     backgroundColor: '#bababa',
@@ -43,3 +36,4 @@ function App() {
 }
 
 export default App;
+
