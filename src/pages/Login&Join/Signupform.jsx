@@ -4,7 +4,20 @@ import { useNavigate } from 'react-router-dom';
 import unilearnLogo from '../../img/unilearn.png'; 
 import backButton from '../../img/back.png';
 
-
+const Title = styled.p`
+  position: absolute;
+  width: 59px;
+  height: 19px;
+  left: calc(50% - 59px/2 + 0.5px);
+  top: 138px;
+  font-family: 'Abhaya Libre ExtraBold';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #231E1E;
+`;
 const Index = styled.div`
   display: flex;
   justify-content: center;
@@ -146,20 +159,7 @@ const SignUpForm = () => {
         <UnilearnImage src={unilearnLogo} alt="Unilearn" />
         <BackButton onClick={handleBackClick} />
       </Top>
-      <p style={{
-        position: 'absolute',
-        width: '59px',
-        height: '19px',
-        left: 'calc(50% - 59px/2 + 0.5px)',
-        top: '138px',
-        fontFamily: 'Abhaya Libre ExtraBold',
-        fontStyle: 'normal',
-        fontWeight: '800',
-        fontSize: '16px',
-        lineHeight: '19px',
-        textAlign: 'center',
-        color: '#231E1E',
-      }}>회원가입</p>
+      <Title>회원가입</Title>
    <FormContainer>
         <LoginForm onSubmit={handleFormSubmit}>
           <InputField
