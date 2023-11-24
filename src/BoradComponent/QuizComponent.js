@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-//버튼 D참고해서 할것
+
 const Postdiv=styled.div`
 position: relative;
 width: 390px;
@@ -54,6 +54,9 @@ line-height: 23px;
 letter-spacing: -0.025em;
 color: #000000;
 overflow-wrap: break-word;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 `
 const PostLine=styled.div`
 position: relative;
@@ -63,18 +66,18 @@ height: 0px;
 border: 1px solid #EFEFEF;
 `
 
-function PostComponent() {
+function QuizComponent() {
     return (
       <div>
       <Postdiv>
         <Profile></Profile>
         <Nickname>유니런(닉네임 데이터)</Nickname>
         <PostTitle>과제 관련 제목 데이터</PostTitle>
-        <Postcontent>들어오는 데이터에 따라서 길이가 달라지도록 설정해</Postcontent>
+        <Postcontent>데이터가 들어와도 넓이에 맞춰서 텍스트가 보임 이렇게</Postcontent>
         <PostLine></PostLine>
       </Postdiv>
       </div>
     );
   }
   
-  export default PostComponent;
+  export default QuizComponent;

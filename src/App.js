@@ -1,4 +1,3 @@
-
 import './App.css';
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"; 
@@ -6,7 +5,6 @@ import Loginform from "./pages/Login&Join/Loginform";
 import Signupform from "./pages/Login&Join/Signupform";
 import SignupVerification from "./pages/Login&Join/SignupVerification";
 import MystudyList from "./pages/Study/MystudyList";
-
 
 function App() {
   const pageStyle = {
@@ -36,4 +34,3 @@ function App() {
 }
 
 export default App;
-

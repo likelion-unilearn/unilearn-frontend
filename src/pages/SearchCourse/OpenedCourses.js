@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import ButtonA from "./BoradComponent/ButtonA";
-import simg from './img/search.png';
+import ButtonA from "../../BoradComponent/ButtonA";
+import simg from '../../img/search.png';
+import plus from '../../img/plusA.png';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -62,8 +63,12 @@ top: 136px;
 background: #FFFFFF;
 border: 2px solid #FFD6D6;
 border-radius: 10px;
-
+max-height: 580px;
+overflow-y: auto; 
+&::-webkit-scrollbar {
+  width:0px;
 `
+
 const FrameA1=styled.div`
 
 `
@@ -120,9 +125,20 @@ font-size: 13px;
 line-height: 18px;
 color: #000000;
 `
+const PlusButton=styled.button`
+position: absolute;
+top:730px;
+left:340px;
+background-image: url(${plus}); 
+padding:20px;
+border:none;
+background-color: white;
+cursor: pointer;
+background-size: 30px;
+background-repeat: no-repeat;
+`
 
-
-function FrameA() {
+function OpenedCourses() {
   const [filter, setFilter] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('subjectName');
   const [courseData, setCourseData] = useState([]);
@@ -157,7 +173,7 @@ function FrameA() {
           <FrameButtonB>비개설 과목</FrameButtonB>
         </FrameA1>
         <FrameA2>
-        <SearchContainer>
+         <SearchContainer>
         <SearchButton></SearchButton>
         <SearchInput
             type="text"
@@ -182,11 +198,12 @@ function FrameA() {
             <p>subjectMajor={course.subject_major}</p>
             <p>subjectYear= {course.subject_year}</p>
           </ButtonA>
-        ))}
+         ))} 
           </FrameA2>
+          <PlusButton/>
       </div>
     );
   }
   
-  export default FrameA;
+  export default OpenedCourses;
   
