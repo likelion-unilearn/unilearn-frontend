@@ -135,7 +135,6 @@ const MystudyList = () => {
   }, []);
 
   return (
-    <Body>
       <IphoneFrame>
         <Header />
         <Top>
@@ -159,7 +158,6 @@ const MystudyList = () => {
         </Board>
         <Nav />
       </IphoneFrame>
-    </Body>
   );
 };
 
