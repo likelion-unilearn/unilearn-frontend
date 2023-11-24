@@ -5,6 +5,8 @@ import Loginform from "./pages/Login&Join/Loginform";
 import Signupform from "./pages/Login&Join/Signupform";
 import SignupVerification from "./pages/Login&Join/SignupVerification";
 import MystudyList from "./pages/Study/MystudyList";
+import StudyDetail from "./pages/Study/StudyDetail";
+
 
 function App() {
   const pageStyle = {
@@ -23,6 +25,8 @@ function App() {
           <Route path="/Signupform" element={<Signupform />} />
           <Route path="/SignupVerification" element={< SignupVerification />} />
           <Route path="/MystudyList" element={< MystudyList />} />
+          <Route path="/StudyDetail/:id" element={< StudyDetail />} />
+          
     
         </Routes>
 

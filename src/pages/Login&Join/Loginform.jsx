@@ -19,7 +19,25 @@ const BackButton = ({ onClick }) => {
     <StyledBackButton src={backButton} alt="Back" onClick={onClick} />
   );
 };
+const Body = styled.body`
+  background-color: #dedede;
+  overflow: hidden;
+  margin: 0; 
+  padding: 0;
+  height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const IphoneFrame = styled.div`
+  width: 390px;
+  height: 844px;
+  background: #ffffff;
+  position: relative;
+  justify-content: center;
+  align-items: center;
 
+`;
 const Index = styled.div`
   display: flex;
   justify-content: center;
