@@ -52,6 +52,10 @@ function App() {
           <Route path="/Studyjoin" element={< Studyjoin />} />
           <Route path="/NoneStudyJoin" element={< NoneStudyJoin />} />
           <Route path="/QuizCommentView" element={< QuizCommentView />} />
+          <Route path="/MypageInfo" element={< MypageInfo />}/>
+          <Route path="/RecerMypage" element={< RecerMypage />}/>
+          <Route path='/SubjectList' element={<SubjectList/>}/>
+          <Route path='/SubjectRegist' element={<SubjectRegist/>}/>
           
     
         </Routes>
