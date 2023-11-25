@@ -170,7 +170,13 @@ function ClassBoard() {
   useEffect(()=>{
     const fetchQuiz=async()=>{
       try{
-        const response=await axios.get('/api/quiz');
+        const response=await axios.get('/api/quiz',
+        {
+          headers: {
+            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+          },
+        }
+        );
         setquiz(response.data.slice(0,6));
       }catch(error){
         console.error('퀴즈게시판 에러!',error);
@@ -179,11 +185,15 @@ function ClassBoard() {
     fetchQuiz();
   },[]);
 
+
   useEffect(() => {
     const fetchAssignments = async () => {
       try {
-        const response = await axios.get('/api/assignments');
-        
+        const response = await axios.get('/api/assignments',{
+          headers: {
+            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+          },
+        });
         setAssignments(response.data.slice(0, 6));
       } catch (error) {
         console.error('과제 게시판 에러!', error);
@@ -192,7 +202,6 @@ function ClassBoard() {
 
     fetchAssignments();
   }, []); 
-
 
     return (
       <div id="body">

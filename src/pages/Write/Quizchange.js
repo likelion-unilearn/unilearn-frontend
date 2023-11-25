@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from "../../HeaderNavComponent/Header";
 import Nav from "../../HeaderNavComponent/Nav";
-import {useNavigate} from "react-router-dom";
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-
 const Framediv=styled.div`
 position:relative;
 
@@ -118,20 +117,37 @@ overflow-wrap: break-word;
     border-color: #000000;
 }
 `
-function QuizWrite() {
+function Quizchange() {
   const userNickname = "사용자 닉네임 데이터"; 
   const [content, setContent] = useState('');
   const navigate = useNavigate();
-  
+  const quizId = location.state?.quizId;
+
+
+  useEffect(() => {
+    // 해당 퀴즈의 정보를 가져와서 content에 설정
+    const fetchQuizData = async () => {
+      try {
+        const response = await axios.get(`/api/quiz/${quizId}`, {
+          headers: {
+            Authorization: "YOUR_AUTH_TOKEN", // 토큰값 넣어야함!!
+          },
+        });
+        setContent(response.data.content);
+      } catch (error) {
+        console.error("Error fetching quiz data:", error);
+      }
+    };
+
+    fetchQuizData();
+  }, [quizId]);
+
   const handleComplete = async () => {
     try {
-      // API 호출 및 데이터 전송
-      await axios.post(
-        '/api/quiz/create',
+      await axios.put(
+        `/api/quiz/${quizId}`,
         {
-          title: title,
           content: content,
-          author: userNickname,
         },
         {
           headers: {
@@ -144,9 +160,11 @@ function QuizWrite() {
       // 완료 후 페이지 이동
       navigate('/Quiz');
     } catch (error) {
-      console.error('Error creating post:', error);
+      console.error('Error updating quiz:', error);
     }
   };
+     
+
   
     return (
       <div id="body">
@@ -155,16 +173,17 @@ function QuizWrite() {
       <Framediv>
         <Title>퀴즈 피드</Title>
        <Back onClick={()=>{navigate("/Quiz");}}>{'<'}</Back> 
-       <Content>게시글 작성</Content>
-       <Complete  onClick={handleComplete}>완료</Complete>
+       <Content>게시글 수정</Content>
+       <Complete  onClick={handleComplete}>수정</Complete>
        <Line></Line>
       </Framediv>
       <WriteFrame>
         <Profile></Profile>
         <Nickname>{userNickname}</Nickname>
-        <Posttext  placeholder="퀴즈에 대한 내용을 작성해보세요."
-        value={content}
-        onChange={(e) => setContent(e.target.value)}></Posttext>
+        <Posttext
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          ></Posttext>
       </WriteFrame>
       <></>
       <Nav></Nav>
@@ -173,5 +192,5 @@ function QuizWrite() {
     );
   }
   
-  export default QuizWrite;
+  export default Quizchange;
   

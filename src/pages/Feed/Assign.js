@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import PostComponent from "../../BoradComponent/PostComponent";
 import {useNavigate} from "react-router-dom";
 import Header from "../../HeaderNavComponent/Header";
 import Nav from "../../HeaderNavComponent/Nav";
-
+import axios from 'axios'; 
 
 const Tiltlediv=styled.div`
 height:60px;
@@ -97,6 +97,25 @@ z-index=1;
 
 function Assign() {
   const navigate = useNavigate();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get("/api/assignments", {
+          headers: {
+            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+          },
+        });
+        const data = response.data;
+        setPosts(data); // API 응답 데이터를 상태에 설정
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    fetchPosts();
+  }, []);
+ 
     return (
       <div id="body">
       <div id="iphone-frame">
@@ -109,14 +128,13 @@ function Assign() {
       <TitleB onClick={()=>{navigate("/Quiz");}}>퀴즈 피드</TitleB>
       </Tiltlediv>
       <PostAssign>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
+      {posts.map(post => (
+            <PostComponent
+              key={post.id}
+              id={post.id}
+              content={post.content}
+            />
+          ))}
       </PostAssign>
       <WriteButton onClick={()=>{navigate("/AssignWrite");}}>글 작성하기</WriteButton>
       <Nav></Nav>

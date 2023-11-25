@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from "../../HeaderNavComponent/Header";
 import Nav from "../../HeaderNavComponent/Nav";
 import {useNavigate} from "react-router-dom";
+import axios from 'axios';
+
 
 const Framediv=styled.div`
 position:relative;
@@ -118,7 +120,34 @@ overflow-wrap: break-word;
 }
 `
 function AssignWrite() {
+  const [content, setContent] = useState('');
   const navigate = useNavigate();
+  const userNickname = "사용자 닉네임 데이터"; 
+
+  const handleComplete = async () => {
+    try {
+      await axios.post(
+        '/api/assignments',
+        {
+          title: title,
+          content: content,
+          author: userNickname,
+        },
+        {
+          headers: {
+            Authorization: 'YOUR_AUTH_TOKEN', 
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      navigate('/Assign');
+    } catch (error) {
+      console.error('Error creating post:', error);
+    }
+  };
+
+
     return (
       <div id="body">
       <div id="iphone-frame">
@@ -127,13 +156,16 @@ function AssignWrite() {
         <Title>과제 피드</Title>
        <Back onClick={()=>{navigate("/Assign");}}>{'<'}</Back> 
        <Content>게시글 작성</Content>
-       <Complete onClick={()=>{navigate("/Assign");}} >완료</Complete>
+       <Complete  onClick={handleComplete} >완료</Complete>
        <Line></Line>
       </Framediv>
       <WriteFrame>
         <Profile></Profile>
-        <Nickname>닉네임 데이터</Nickname>
-        <Posttext  placeholder="과제에 대한 내용을 작성해 보세요."></Posttext>
+        <Nickname>{userNickname}</Nickname>
+        <Posttext  placeholder="과제에 대한 내용을 작성해 보세요."
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        ></Posttext>
       </WriteFrame>
       <></>
       <Nav></Nav>
