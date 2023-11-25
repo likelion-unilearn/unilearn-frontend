@@ -1,10 +1,13 @@
 import './MypageInfo.css';
 import temper from '../../img/temper.png';
+import Header from '../../HeaderNavComponent/Header';
+import Nav from '../../HeaderNavComponent/Nav';
 
 
 function MypageInfo(){
     return(
         <div>
+            <Header/>
             <h4 className="pageName">마이페이지</h4>
             <div className="under"> </div>
             <div className="border" style={{width: '390.001px', height: '1px', background: '#E1E9E2'}}></div>
@@ -41,6 +44,7 @@ function MypageInfo(){
             <button className="subjectList">수강 과목</button>
             <button className="studyRecruit">스터디 모집</button>
 
+        <Nav/>
         </div>
 
     );
