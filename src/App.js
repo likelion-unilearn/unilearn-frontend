@@ -44,6 +44,7 @@ function App() {
           <Route path="/Quiz" element={< Quiz />} />
           <Route path="/Assign" element={< Assign />} />
           <Route path="/QuizWrite" element={< QuizWrite />} />
+          <Route path="/Quizchange" element={< Quizchange />} />
           <Route path="/AssignWrite" element={< AssignWrite />} />
           <Route path="/OpenedCourses" element={< OpenedCourses />} />
           <Route path="/UnopenedCourses" element={< UnopenedCourses />} />
