@@ -1,8 +1,11 @@
 import './SubjectRegist.css'
+import Header from '../../HeaderNavComponent/Header';
+import Nav from '../../HeaderNavComponent/Nav';
 
 function SubjectRegist(){
     return(
         <div>
+            <Header/>
             <h4 className="pageName">수강과목</h4>
             <div className="under"> </div>
 
@@ -12,6 +15,7 @@ function SubjectRegist(){
                 <b>개설학과</b>&nbsp;
                 <input
                 type="text"
+                id='department'
                 className="input"
                 placeholder="개설학과를 입력해주세요"
                 ></input>
@@ -21,8 +25,9 @@ function SubjectRegist(){
                 <b>수강년도</b>&nbsp;
                 <input
                 type="text"
+                id="year"
                 className="input"
-                placeholder="수강년도를  입력해주세요 "
+                placeholder="수강년도를  입력해주세요"
                 ></input>
             </div><br/><br/>
 
@@ -30,6 +35,7 @@ function SubjectRegist(){
                 <b>수강학기</b>&nbsp;
                 <input
                 type="text"
+                id='semester'
                 className="input"
                 placeholder="수강학기를 입력해주세요"
                 ></input>
@@ -39,6 +45,7 @@ function SubjectRegist(){
                 <b>교수님</b>&nbsp;&nbsp;&nbsp;&nbsp;
                 <input
                 type="text"
+                id='professor'
                 className="input"
                 placeholder="교수님 성함을 입력해주세요"
                 ></input>
@@ -48,12 +55,14 @@ function SubjectRegist(){
                 <b>과목명</b>&nbsp;&nbsp;&nbsp;&nbsp;
                 <input
                 type="text"
+                id='sbj_name'
                 className="input"
                 placeholder="과목명을 입력해주세요"
                 ></input>
             </div>
             
             <button className='registBtn'>수강 정보 등록하기</button>
+        <Nav/>
         </div>
 
         

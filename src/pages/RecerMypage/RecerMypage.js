@@ -1,8 +1,11 @@
 import './RecerMypage.css';
+import Header from '../../HeaderNavComponent/Header';
+import Nav from '../../HeaderNavComponent/Nav';
 
 function RecerMypage(){
     return(
         <div>
+            <Header/>
             <h4 className="pageName">학생증인증</h4>
             <div className="under"> </div>
             <div className="border" style={{width: '390.001px', height: '1px', background: '#E1E9E2'}}></div>
@@ -19,7 +22,7 @@ function RecerMypage(){
             <input
                 type="text"
                 className="majorInput"
-                placeholder="학과를 입력해주세요."
+                placeholder="학과를 입력해주세요"
                 ></input>
             </div>
             <br/>
@@ -29,17 +32,17 @@ function RecerMypage(){
             <input
                 type="text"
                 className="academicNumInput"
-                placeholder="학번을 입력해주세요."
+                placeholder="학번을 입력해주세요"
                 ></input>
             </div>
             <br/><br/>
 
-            <div className='studentCard'>학생증을 올려주세요.</div>
+            <div className='studentCard'>학생증을 올려주세요</div>
 
             <br/><br/>
             <button className='approvalBtn'>승인신청 하기</button>
 
-
+        <Nav/>
         </div>
 
     );
