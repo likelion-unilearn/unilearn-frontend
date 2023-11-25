@@ -63,14 +63,14 @@ height: 0px;
 border: 1px solid #EFEFEF;
 `
 
-function PostComponent() {
+function PostComponent({ id, title, content }) {
     return (
       <div>
       <Postdiv>
         <Profile></Profile>
-        <Nickname>유니런(닉네임 데이터)</Nickname>
-        <PostTitle>과제 관련 제목 데이터</PostTitle>
-        <Postcontent>들어오는 데이터에 따라서 길이가 달라지도록 설정해</Postcontent>
+        <Nickname>{id}</Nickname>
+        <PostTitle>{title}</PostTitle>
+        <Postcontent>{content}</Postcontent>
         <PostLine></PostLine>
       </Postdiv>
       </div>
