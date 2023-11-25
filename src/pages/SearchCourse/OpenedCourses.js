@@ -4,6 +4,9 @@ import simg from '../../img/search.png';
 import plus from '../../img/plusA.png';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
+import {useNavigate} from "react-router-dom";
 
 
 const SearchContainer = styled.div`
@@ -142,6 +145,7 @@ function OpenedCourses() {
   const [filter, setFilter] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('subjectName');
   const [courseData, setCourseData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -166,11 +170,13 @@ function OpenedCourses() {
   };
 
     return (
-      <div>
+      <div id="body">
+      <div id="iphone-frame">
+        <Header></Header>
         <FrameA1>
           <FrameText>서울여자대학교</FrameText>
           <FrameButtonA>개설 과목</FrameButtonA>
-          <FrameButtonB>비개설 과목</FrameButtonB>
+          <FrameButtonB onClick={()=>{navigate("/UnopenedCourses");}}>비개설 과목</FrameButtonB>
         </FrameA1>
         <FrameA2>
          <SearchContainer>
@@ -201,6 +207,8 @@ function OpenedCourses() {
          ))} 
           </FrameA2>
           <PlusButton/>
+          <Nav></Nav>
+      </div>
       </div>
     );
   }

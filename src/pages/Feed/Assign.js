@@ -1,6 +1,10 @@
 import React from "react";
 import styled from 'styled-components';
 import PostComponent from "../../BoradComponent/PostComponent";
+import {useNavigate} from "react-router-dom";
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
+
 
 const Tiltlediv=styled.div`
 height:60px;
@@ -75,17 +79,34 @@ height: 25px;
 border:none;
 border-radius:30px;
 background:#FFEFEF;
+z-index: 1;
+`
 
+const Back=styled.button`
+position:absolute;
+top:90px;
+left:10px;
+border:none;
+background-color:#ffffff;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 17px;
+z-index=1;
 `
 
 function Assign() {
+  const navigate = useNavigate();
     return (
-      <div>
+      <div id="body">
+      <div id="iphone-frame">
+      <Header></Header>
         <Tiltlediv>
       <TitleLineA/>
       <TitleA>과제 피드</TitleA>
+      <Back onClick={()=>{navigate("/ClassBoard");}}>{'<'}</Back> 
       <TitleLineB></TitleLineB>
-      <TitleB>퀴즈 피드</TitleB>
+      <TitleB onClick={()=>{navigate("/Quiz");}}>퀴즈 피드</TitleB>
       </Tiltlediv>
       <PostAssign>
       <PostComponent></PostComponent>
@@ -97,7 +118,9 @@ function Assign() {
       <PostComponent></PostComponent>
       <PostComponent></PostComponent>
       </PostAssign>
-      <WriteButton>글 작성하기</WriteButton>
+      <WriteButton onClick={()=>{navigate("/AssignWrite");}}>글 작성하기</WriteButton>
+      <Nav></Nav>
+      </div>
       </div>
     );
   }
