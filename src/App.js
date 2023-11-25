@@ -29,7 +29,6 @@ function App() {
       <BrowserRouter>
       <div>
         <Routes>
-        <Route index element={<Loginform />}/>
           <Route path="/Login" element={<Loginform />} />
           <Route path="/Signupform" element={<Signupform />} />
           <Route path="/SignupVerification" element={< SignupVerification />} />
@@ -49,7 +48,6 @@ function App() {
           
     
         </Routes>
-
       </div>
     </BrowserRouter>
 
