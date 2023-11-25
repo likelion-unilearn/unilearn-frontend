@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Commenter from '../../BoradComponent/Commenter';
 import Header from "../../HeaderNavComponent/Header";
 import Nav from "../../HeaderNavComponent/Nav";
+import {useNavigate} from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+
 
 const Framediv=styled.div`
 position:relative;
@@ -35,6 +39,22 @@ const Complete=styled.button`
 position:absolute;
 top:54px;
 left:300px;
+border:none;
+background-color:#ffffff;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 900;
+font-size: 12px;
+border:none;
+height:20px;
+width:80px;
+color:#8B8B8B;
+`
+
+const Change=styled.button`
+position:absolute;
+top:54px;
+left:230px;
 border:none;
 background-color:#ffffff;
 font-family: 'Inter';
@@ -92,8 +112,8 @@ font-size: 13px;
 
 const Posttext=styled.div`
 position: absolute;
-top:90px;
-left:30px;
+top:60px;
+left:40px;
 width: 335px;
 height: 500px;
 font-family: 'Inter';
@@ -105,59 +125,143 @@ letter-spacing: -0.025em;
 color: #000000;
 text-align: left;
 `
-const PostTitle=styled.div`
-position: absolute;
-top:60px;
-left:30px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 800;
-font-size: 13px;
-line-height: 28px;
-letter-spacing: -0.025em;
-`
 
 const PostLine=styled.div`
 position: absolute;
 width: 388px;
 height: 0px;
-left:-30px;
+left:-70px;
 border: 1px solid #EFEFEF;
 `
 const Wr=styled.div`
 position:relative;
 `
 
+const Postarea=styled.div`
+position: absolute;
+top: 740px;
+left:20px;
+width: 350px;
+height: 30px;
+border: 1px solid #C4C4C4;
+`
+const Post=styled.textarea`
+position: absolute;
+width: 300px;
+height: 25px;
+z-index:1;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 28px;
+border-radius:5px;
+border:none;
+letter-spacing: -0.025em;
+color: #000000;
+text-align: left;
+  resize: none; 
+  overflow-y: auto;
+  max-height: 660px;
+overflow-y: auto; 
+&::-webkit-scrollbar {
+width:0px;
+}
+overflow-wrap: break-word;
+&:focus {
+    outline: none;
+    border-color: #000000;
+}
+`
+const Postbtn=styled.button`
+position: absolute;
+left:311px;
+width: 38px;
+height: 30px;
+border:none;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+background:#FFE2E2;
+`
 
-function QuizWrite() {
+function QuizCommentView() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const quizId = location.state?.quizId;
+  const [quizData, setQuizData] = useState({}); // 받아온 퀴즈 데이터를 저장한 state임
+
+
+  
+
+  useEffect(() => {
+    const fetchQuizData = async () => {
+      try {
+        const response = await axios.get(`/api/quiz/${quizId}`, {
+          headers: {
+            Authorization: "YOUR_AUTH_TOKEN", // 토큰값 넣어야함!!
+          },
+        });
+        setQuizData(response.data); // API 응답 데이터를 상태에 설정
+      } catch (error) {
+        console.error("Error fetching quiz data:", error);
+      }
+    };
+    fetchQuizData();
+  }, [quizId]);
+
+  const handleDeleteQuiz = async () => {
+    try {
+      await axios.delete(`/api/quiz/${quizId}`, {
+        headers: {
+          Authorization: "YOUR_AUTH_TOKEN", // 토큰값 넣어야함!!
+        },
+      });
+      
+      console.log("삭제 성공");
+      navigate("/Assign"); 
+    } catch (error) {
+      console.error("삭제 에러", error);
+    }
+  };
+
     return (
       <div id="body">
       <div id="iphone-frame">
         <Header></Header>
       <Framediv>
-        <Title>퀴즈 피드</Title>
-       <Back>{'<'}</Back> 
-       <Complete>삭제하기</Complete>
-       <Line></Line>
+      <Title>퀴즈 피드</Title>
+      <Back onClick={() => { navigate("/Assign"); }}>{'<'}</Back>
+          <Complete onClick={handleDeleteQuiz}>삭제하기</Complete>
+          <Change>수정하기</Change>
+          <Line></Line>
       </Framediv>
       <WriteFrame>
         <Wr>
         <Profile></Profile>
-        <Nickname>닉네임 데이터</Nickname>
-        <PostTitle>제목데이터</PostTitle>
-        <Posttext>게시글내용데이터게시글내용데이터게시게시글내용글내용데이터게시게시글내용데이터게시글내용데이터게시글내용데이터게시글내용데이터게시글내용데이터게시글내용데이터게글내용데이터게시글내용데이터게시글내용데이터게시글내용데이터게시글내용데이터게시글내용데이터게시글내용데이터
+        <Nickname>{quizData.author}</Nickname>
+        <Posttext>{quizData.content}
             <PostLine></PostLine>
             <Commenter></Commenter>
-            
+            <Commenter></Commenter>
+            <Commenter></Commenter>
+            <Commenter></Commenter>
+            <Commenter></Commenter>
+            <Commenter></Commenter>
+            <Commenter></Commenter>
         </Posttext>
         </Wr>
-       
       </WriteFrame>
-    
+      <Postarea>
+        <Post></Post>
+        <Postbtn>작성</Postbtn>
+        </Postarea>
+        
       <Nav></Nav>
       </div>
       </div>
     );
   }
   
-  export default QuizWrite;
+  export default QuizCommentView;

@@ -4,7 +4,7 @@ import PostComponent from "../../BoradComponent/PostComponent";
 import {useNavigate} from "react-router-dom";
 import Header from "../../HeaderNavComponent/Header";
 import Nav from "../../HeaderNavComponent/Nav";
-
+import axios from 'axios'; 
 
 const Tiltlediv=styled.div`
 height:60px;
@@ -128,12 +128,10 @@ function Assign() {
       <TitleB onClick={()=>{navigate("/Quiz");}}>퀴즈 피드</TitleB>
       </Tiltlediv>
       <PostAssign>
-        <PostComponent></PostComponent>
       {posts.map(post => (
             <PostComponent
               key={post.id}
               id={post.id}
-              title={post.title}
               content={post.content}
             />
           ))}

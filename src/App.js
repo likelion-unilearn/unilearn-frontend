@@ -16,7 +16,8 @@ import ClassBoard from './pages/Board/ClassBoard';
 import StudyBoard from './pages/Board/StudyBoard';
 import Studyjoin from './pages/StudyJoins/Studyjoin';
 import NoneStudyJoin from './pages/StudyJoins/NoneStudyJoin';
-import  QuizCommentView from './pages/CommentView/QuizCommentView'
+import  QuizCommentView from './pages/CommentView/QuizCommentView';
+import Quizchange from './pages/Write/Quizchange';
 function App() {
   const pageStyle = {
     backgroundColor: '#bababa',
@@ -46,6 +47,7 @@ function App() {
           <Route path="/Studyjoin" element={< Studyjoin />} />
           <Route path="/NoneStudyJoin" element={< NoneStudyJoin />} />
           <Route path="/QuizCommentView" element={< QuizCommentView />} />
+          <Route path="/Quizchange" element={< Quizchange />} />
           
     
         </Routes>
