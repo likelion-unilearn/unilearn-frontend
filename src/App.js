@@ -17,6 +17,7 @@ import StudyBoard from './pages/Board/StudyBoard';
 import Studyjoin from './pages/StudyJoins/Studyjoin';
 import NoneStudyJoin from './pages/StudyJoins/NoneStudyJoin';
 import QuizCommentView from './pages/CommentView/QuizCommentView';
+import Quizchange from './pages/Write/Quizchange';;
 import MypageInfo from './pages/Mypage/MypageInfo';
 import RecerMypage from './pages/RecerMypage/RecerMypage';
 import SubjectList from './pages/SubjectList/SubjectList';
@@ -44,6 +45,7 @@ function App() {
           <Route path="/Quiz" element={< Quiz />} />
           <Route path="/Assign" element={< Assign />} />
           <Route path="/QuizWrite" element={< QuizWrite />} />
+          <Route path="/Quizchange" element={< Quizchange />} />
           <Route path="/AssignWrite" element={< AssignWrite />} />
           <Route path="/OpenedCourses" element={< OpenedCourses />} />
           <Route path="/UnopenedCourses" element={< UnopenedCourses />} />
@@ -57,6 +59,7 @@ function App() {
           <Route path='/SubjectList' element={<SubjectList/>}/>
           <Route path='/SubjectRegist' element={<SubjectRegist/>}/>
           <Route path='/RecruitStudy' element={<RecruitStudy/>}/>
+
         </Routes>
 
       </div>

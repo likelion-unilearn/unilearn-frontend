@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import QuizComponent from "../../BoradComponent/QuizComponent";
 import Header from "../../HeaderNavComponent/Header";
 import Nav from "../../HeaderNavComponent/Nav";
 import {useNavigate} from "react-router-dom";
+import axios from 'axios'; 
 
 const Tiltlediv=styled.div`
 height:60px;
@@ -93,6 +94,28 @@ z-index=1;
 `
 function Quiz() {
   const navigate = useNavigate();
+
+  
+  const [quizs, setQuiz] = useState([]);
+
+  useEffect(() => {
+    const QuizPosts = async () => {
+      try {
+        const response = await axios.get("/api/quiz", {
+          headers: {
+            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+          },
+        });
+        const data = response.data;
+        setQuiz(data); // API 응답 데이터를 상태에 설정
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    QuizPosts();
+  }, []);
+
+
     return (
       <div id="body">
       <div id="iphone-frame">
@@ -105,12 +128,13 @@ function Quiz() {
       <Back onClick={()=>{navigate("/ClassBoard");}}>{'<'}</Back> 
       </Tiltlediv> 
       <PostAssign>
-      <QuizComponent onClick={()=>{navigate("/QuizCommentView");}}></QuizComponent>
-      <QuizComponent></QuizComponent>
-      <QuizComponent></QuizComponent>
-      <QuizComponent></QuizComponent>
-      <QuizComponent></QuizComponent>
-      <QuizComponent></QuizComponent>
+      {quizs.map(quiz => (
+            <QuizComponent onClick={()=>{ navigate('/QuizCommentView', { state: { quizId: quiz.id } });;}}
+            key={quiz.id}
+            id={quiz.id}
+            content={quiz.content}
+            ></QuizComponent>
+          ))}
       </PostAssign>
       <WriteButton onClick={()=>{navigate("/QuizWrite");}}>글 작성하기</WriteButton>
      <Nav></Nav>

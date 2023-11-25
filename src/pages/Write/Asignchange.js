@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from "../../HeaderNavComponent/Header";
 import Nav from "../../HeaderNavComponent/Nav";
-import {useNavigate} from "react-router-dom";
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-
 const Framediv=styled.div`
 position:relative;
 
@@ -118,35 +117,56 @@ overflow-wrap: break-word;
     border-color: #000000;
 }
 `
-function QuizWrite() {
-  const userNickname = "사용자 닉네임 데이터"; 
-  const [content, setContent] = useState('');
-  const navigate = useNavigate();
+function Assignchange() {
+    const userNickname = "사용자 닉네임 데이터";
+    const [content, setContent] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation(); 
+    const assignmentId = location.state?.assignmentId;
   
-  const handleComplete = async () => {
-    try {
-      // API 호출 및 데이터 전송
-      await axios.post(
-        '/api/quiz/create',
-        {
-          title: title,
-          content: content,
-          author: userNickname,
-        },
-        {
-          headers: {
-            Authorization: 'YOUR_AUTH_TOKEN', // 실제 토큰 값으로 대체
-            'Content-Type': 'application/json',
-          },
-        }
-      );
 
-      // 완료 후 페이지 이동
-      navigate('/Quiz');
-    } catch (error) {
-      console.error('Error creating post:', error);
-    }
-  };
+
+    seEffect(() => {
+        const fetchAssignmentData = async () => {
+          try {
+            const response = await axios.get(`/api/assignments/${assignmentId}`, {
+              headers: {
+                Authorization: 'YOUR_AUTH_TOKEN',
+              },
+            });
+            setContent(response.data.content);
+          } catch (error) {
+            console.error('Error fetching assignment data:', error);
+          }
+        };
+    
+        fetchAssignmentData();
+      }, [assignmentId]);
+    
+      const handleComplete = async () => {
+        try {
+          await axios.put(
+            `/api/assignments/${assignmentId}`,
+            {
+              content: content,
+            },
+            {
+              headers: {
+                Authorization: 'YOUR_AUTH_TOKEN',
+                'Content-Type': 'application/json',
+              },
+            }
+          );
+    
+          // 수정 완료 후 페이지 이동
+          navigate('/Assign');
+        } catch (error) {
+          console.error('Error updating assignment:', error);
+        }
+      };
+    
+     
+
   
     return (
       <div id="body">
@@ -154,17 +174,18 @@ function QuizWrite() {
         <Header></Header>
       <Framediv>
         <Title>퀴즈 피드</Title>
-       <Back onClick={()=>{navigate("/Quiz");}}>{'<'}</Back> 
-       <Content>게시글 작성</Content>
-       <Complete  onClick={handleComplete}>완료</Complete>
+       <Back onClick={()=>{navigate("/Assign");}}>{'<'}</Back> 
+       <Content>게시글 수정</Content>
+       <Complete  onClick={handleComplete}>수정</Complete>
        <Line></Line>
       </Framediv>
       <WriteFrame>
         <Profile></Profile>
         <Nickname>{userNickname}</Nickname>
-        <Posttext  placeholder="퀴즈에 대한 내용을 작성해보세요."
-        value={content}
-        onChange={(e) => setContent(e.target.value)}></Posttext>
+        <Posttext
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          ></Posttext>
       </WriteFrame>
       <></>
       <Nav></Nav>
@@ -173,5 +194,5 @@ function QuizWrite() {
     );
   }
   
-  export default QuizWrite;
+  export default Assignchange;
   
