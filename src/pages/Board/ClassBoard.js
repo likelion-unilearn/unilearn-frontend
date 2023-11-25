@@ -4,7 +4,9 @@ import axios from 'axios';
 import pin from '../../img/pin.jpg';
 import PostButton from '../../BoradComponent/ButtonD';
 import QuizButton from '../../BoradComponent/ButtonE';
-
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
+import {useNavigate} from "react-router-dom";
 
 const TitleLineA=styled.div`
 position: absolute;
@@ -147,10 +149,23 @@ top: 468px;
 `
 
 
+const Back=styled.button`
+position:absolute;
+top:90px;
+left:10px;
+border:none;
+background-color:#ffffff;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 17px;
+z-index=1;
+`
 
 function ClassBoard() {
   const [assignments, setAssignments] = useState([]);
   const [quiz, setquiz]=useState([]);
+  const navigate = useNavigate();
 
   useEffect(()=>{
     const fetchQuiz=async()=>{
@@ -180,18 +195,22 @@ function ClassBoard() {
 
 
     return (
-      <div>
+      <div id="body">
+      <div id="iphone-frame">
+      <Header></Header>
       <TitleLineA/>
+     
       <TitleA>과목 게시판</TitleA>
+      <Back onClick={()=>{navigate("/OpenedCourses");}}>{'<'}</Back> 
       <TitleLineB></TitleLineB>
-      <TitleB>스터디 게시판</TitleB>
+      <TitleB onClick={()=>{navigate("/StudyBoard");}}>스터디 게시판</TitleB>
       <BoradTitle>과제 게시판</BoradTitle>
       <BoardA>
         {assignments.map((assignment) => (
           <PostButton key={assignment.id} content={assignment.content} />
         ))}
          </BoardA>
-      <PlusA>더보기</PlusA>
+      <PlusA onClick={()=>{navigate("/Assign");}}>더보기</PlusA>
       <BoardB>
         {quiz.map((q)=>(
            <QuizButton key={q.id} content={q.content}></QuizButton>
@@ -199,10 +218,12 @@ function ClassBoard() {
         )}
        
       </BoardB>
-      <PlusB>더보기</PlusB>
+      <PlusB onClick={()=>{navigate("/Quiz");}}>더보기</PlusB>
       <StudyTitle>퀴즈 게시판</StudyTitle>
       <PinA img src={pin}></PinA>
       <PinB img src={pin}></PinB>
+      <Nav></Nav>
+      </div>
       </div>
     );
   }

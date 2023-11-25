@@ -4,6 +4,10 @@ import axios from 'axios';
 import ButtonB from "../../BoradComponent/ButtonB";
 import simg from '../../img/search.png';
 import plus from '../../img/plusB.png';
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
+import {useNavigate} from "react-router-dom";
+
 
 const SearchContainer = styled.div`
   position: absolute;
@@ -168,11 +172,14 @@ function UnopenedCourses() {
     });
   };
 
+  const navigate = useNavigate();
   return (
-    <div>
+    <div id="body">
+    <div id="iphone-frame">
+      <Header></Header>
       <FrameA1>
         <FrameText>서울여자대학교</FrameText>
-        <FrameButtonA>개설 과목</FrameButtonA>
+        <FrameButtonA onClick={()=>{navigate("/openedCourses");}}>개설 과목</FrameButtonA>
         <FrameButtonB>비개설 과목</FrameButtonB>
       </FrameA1>
       <FrameA2>
@@ -196,7 +203,9 @@ function UnopenedCourses() {
         ))}
       </FrameA2>
       <PlusButton></PlusButton>
-    </div>
+      <Nav></Nav>
+      </div>
+      </div>
   );
 }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Commenter from '../../BoradComponent/Commenter';
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
 
 const Framediv=styled.div`
 position:relative;
@@ -129,7 +131,9 @@ position:relative;
 
 function QuizWrite() {
     return (
-      <div>
+      <div id="body">
+      <div id="iphone-frame">
+        <Header></Header>
       <Framediv>
         <Title>퀴즈 피드</Title>
        <Back>{'<'}</Back> 
@@ -149,8 +153,9 @@ function QuizWrite() {
         </Wr>
        
       </WriteFrame>
-      
-     
+    
+      <Nav></Nav>
+      </div>
       </div>
     );
   }

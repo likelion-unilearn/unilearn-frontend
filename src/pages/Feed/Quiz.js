@@ -1,7 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
 import QuizComponent from "../../BoradComponent/QuizComponent";
-
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
+import {useNavigate} from "react-router-dom";
 
 const Tiltlediv=styled.div`
 height:60px;
@@ -75,27 +77,44 @@ height: 25px;
 border:none;
 border-radius:30px;
 background:#FFEFEF;
-
+z-index: 1;
 `
-
+const Back=styled.button`
+position:absolute;
+top:90px;
+left:10px;
+border:none;
+background-color:#ffffff;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 17px;
+z-index=1;
+`
 function Quiz() {
+  const navigate = useNavigate();
     return (
-      <div>
+      <div id="body">
+      <div id="iphone-frame">
+      <Header></Header>
        <Tiltlediv>
       <TitleLineA/>
-      <TitleA>과제 피드</TitleA>
+      <TitleA onClick={()=>{navigate("/Assign");}}>과제 피드</TitleA>
       <TitleLineB></TitleLineB>
       <TitleB>퀴즈 피드</TitleB>
+      <Back onClick={()=>{navigate("/ClassBoard");}}>{'<'}</Back> 
       </Tiltlediv> 
       <PostAssign>
-      <QuizComponent></QuizComponent>
+      <QuizComponent onClick={()=>{navigate("/QuizCommentView");}}></QuizComponent>
       <QuizComponent></QuizComponent>
       <QuizComponent></QuizComponent>
       <QuizComponent></QuizComponent>
       <QuizComponent></QuizComponent>
       <QuizComponent></QuizComponent>
       </PostAssign>
-      <WriteButton>글 작성하기</WriteButton>
+      <WriteButton onClick={()=>{navigate("/QuizWrite");}}>글 작성하기</WriteButton>
+     <Nav></Nav>
+      </div>
       </div>
     );
   }

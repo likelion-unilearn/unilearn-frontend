@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
+import {useNavigate} from "react-router-dom";
 
 const Framediv=styled.div`
 position:relative;
@@ -115,13 +118,16 @@ overflow-wrap: break-word;
 }
 `
 function QuizWrite() {
+  const navigate = useNavigate();
     return (
-      <div>
+      <div id="body">
+      <div id="iphone-frame">
+        <Header></Header>
       <Framediv>
         <Title>퀴즈 피드</Title>
-       <Back>{'<'}</Back> 
+       <Back onClick={()=>{navigate("/Quiz");}}>{'<'}</Back> 
        <Content>게시글 작성</Content>
-       <Complete>완료</Complete>
+       <Complete onClick={()=>{navigate("/Quiz");}}>완료</Complete>
        <Line></Line>
       </Framediv>
       <WriteFrame>
@@ -130,6 +136,8 @@ function QuizWrite() {
         <Posttext  placeholder="과제에 대한 내용을 작성해보세요."></Posttext>
       </WriteFrame>
       <></>
+      <Nav></Nav>
+      </div>
       </div>
     );
   }

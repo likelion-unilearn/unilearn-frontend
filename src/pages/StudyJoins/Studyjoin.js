@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
+import {useNavigate} from "react-router-dom";
 
 
 const Info=styled.div`
@@ -328,6 +331,7 @@ color: ${props => props.isActive ? '#958F8F;' : '#ffffff'};
 
 
 function Studyjoin() {
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState('');
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -376,7 +380,9 @@ function Studyjoin() {
   }, []);
 
     return (
-      <div>
+      <div id="body">
+    <div id="iphone-frame">
+      <Header></Header>
         <Infotext>스터디 정보</Infotext>
         <Info> 
           <InfoDiv>
@@ -401,13 +407,15 @@ function Studyjoin() {
                <MoneyText>{studyData.deposit}원</MoneyText>
                <MoneyInfo>해당 스터디에는 예치금 제도가 {studyData.hasDepositSystem ? '있습니다' : '없습니다'}. 확인하셨나요?</MoneyInfo>
                <MoneyCheck type="checkbox"    checked={isChecked}  onChange={handleCheckboxChange}></MoneyCheck>
-               <ApplyButton isActive={isChecked}  >
+               <ApplyButton onClick={()=>{navigate("/StudyBoard");}} isActive={isChecked}  >
                 <ApplyText>스터디 지원하기</ApplyText>
                </ApplyButton>
                <ApplyStudyText isActive={isChecked} >스터디 참여가 확정되면 알림을 보내드려요!</ApplyStudyText>
             </Checking>
            
             
+            <Nav></Nav>
+      </div>
       </div>
      
     );
