@@ -21,7 +21,8 @@ import Quizchange from './pages/Write/Quizchange';;
 import MypageInfo from './pages/Mypage/MypageInfo';
 import RecerMypage from './pages/RecerMypage/RecerMypage';
 import SubjectList from './pages/SubjectList/SubjectList';
-import SubjectRegist from './pages/SubjectRegist/SubjectRegist'
+import SubjectRegist from './pages/SubjectRegist/SubjectRegist';
+import RecruitStudy from './pages/RecruitStudy/RecruitStudy';
 
 function App() {
   const pageStyle = {
@@ -57,8 +58,8 @@ function App() {
           <Route path="/RecerMypage" element={< RecerMypage />}/>
           <Route path='/SubjectList' element={<SubjectList/>}/>
           <Route path='/SubjectRegist' element={<SubjectRegist/>}/>
-          
-    
+          <Route path='/RecruitStudy' element={<RecruitStudy/>}/>
+
         </Routes>
 
       </div>
