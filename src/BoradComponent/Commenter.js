@@ -1,20 +1,21 @@
 import React from "react";
 import styled from 'styled-components';
-//버튼 D참고해서 할것
+
 const Postdiv=styled.div`
 position: relative;
 width: 390px;
-top:-30px;
 `
 const Profile=styled.div`
 position: absolute;
-width: 33px;
-height: 33px;
+width: 28px;
+height: 28px;
+left:-40px;
 margin:3px 0px 10px 20px;
-background: #FFEFEF;
+background: #D4D4D4;
 border-radius:20px;
 `
 const Nickname=styled.div`
+left:-50px;
 position: absolute;
 width: 200px;
 height: 16px;
@@ -25,27 +26,15 @@ font-weight: 600;
 font-size: 13px;
 line-height: 16px;
 `
-const PostTitle=styled.div`
-position: absolute;
-width: 300px;
-height: 56px;
-margin: 30px 0px 65px 65px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 13px;
-line-height: 28px;
-letter-spacing: -0.025em;
-color: #000000;
-`
+
 
 const Postcontent=styled.div`
 position: relative;
-top:70px;
-left:64px;
+top:30px;
+left:10px;
 display:flex;
 width: 290px;
-margin:60px 0px 65px 0px;
+margin:20px 0px 30px 0px;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -57,24 +46,25 @@ overflow-wrap: break-word;
 `
 const PostLine=styled.div`
 position: relative;
-top:30px;
-width: 389px;
+top:10px;
+left:-50px;
+width: 450px;
 height: 0px;
 border: 1px solid #EFEFEF;
 `
 
-function PostComponent() {
+function Commenter() {
     return (
       <div>
       <Postdiv>
         <Profile></Profile>
-        <Nickname>유니런(닉네임 데이터)</Nickname>
-        <PostTitle>과제 관련 제목 데이터</PostTitle>
-        <Postcontent>들어오는 데이터에 따라서 길이가 달라지도록 설정해</Postcontent>
+        <Nickname>익명</Nickname>
+        
+        <Postcontent>데이터가 들어오는 거에따라서 높이가 달라지게끔 설정해 두었음</Postcontent>
         <PostLine></PostLine>
       </Postdiv>
       </div>
     );
   }
   
-  export default PostComponent;
+  export default Commenter;

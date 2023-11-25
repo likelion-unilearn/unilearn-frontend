@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
-import pin from './img/pin.jpg'
+import axios from 'axios'; 
+import pin from '../../img/pin.jpg';
+import PostButton from '../../BoradComponent/ButtonD';
+import QuizButton from '../../BoradComponent/ButtonE';
+
 
 const TitleLineA=styled.div`
 position: absolute;
@@ -143,7 +147,38 @@ top: 468px;
 `
 
 
+
 function ClassBoard() {
+  const [assignments, setAssignments] = useState([]);
+  const [quiz, setquiz]=useState([]);
+
+  useEffect(()=>{
+    const fetchQuiz=async()=>{
+      try{
+        const response=await axios.get('/api/quiz');
+        setquiz(response.data.slice(0,6));
+      }catch(error){
+        console.error('퀴즈게시판 에러!',error);
+      }
+    };
+    fetchQuiz();
+  },[]);
+
+  useEffect(() => {
+    const fetchAssignments = async () => {
+      try {
+        const response = await axios.get('/api/assignments');
+        
+        setAssignments(response.data.slice(0, 6));
+      } catch (error) {
+        console.error('과제 게시판 에러!', error);
+      }
+    };
+
+    fetchAssignments();
+  }, []); 
+
+
     return (
       <div>
       <TitleLineA/>
@@ -151,9 +186,19 @@ function ClassBoard() {
       <TitleLineB></TitleLineB>
       <TitleB>스터디 게시판</TitleB>
       <BoradTitle>과제 게시판</BoradTitle>
-      <BoardA></BoardA>
+      <BoardA>
+        {assignments.map((assignment) => (
+          <PostButton key={assignment.id} content={assignment.content} />
+        ))}
+         </BoardA>
       <PlusA>더보기</PlusA>
-      <BoardB></BoardB>
+      <BoardB>
+        {quiz.map((q)=>(
+           <QuizButton key={q.id} content={q.content}></QuizButton>
+        )
+        )}
+       
+      </BoardB>
       <PlusB>더보기</PlusB>
       <StudyTitle>퀴즈 게시판</StudyTitle>
       <PinA img src={pin}></PinA>
