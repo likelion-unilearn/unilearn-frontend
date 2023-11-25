@@ -50,12 +50,58 @@ width: 389px;
 height: 0px;
 border: 1px solid #EFEFEF;
 `
+const Complete=styled.button`
+position:absolute;
+top:54px;
+left:300px;
+border:none;
+background-color:#ffffff;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 900;
+font-size: 12px;
+border:none;
+height:20px;
+width:80px;
+color:#8B8B8B;
+`
 
-function PostComponent({ id, content }) {
+const Change=styled.button`
+position:absolute;
+top:54px;
+left:230px;
+border:none;
+background-color:#ffffff;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 900;
+font-size: 12px;
+border:none;
+height:20px;
+width:80px;
+color:#8B8B8B;
+`
+function PostComponent({ id, content,onDelete,onEdit }) {
+
+  const handleDelete = () => {
+    // 삭제 버튼 클릭 시 onDelete 함수 호출
+    onDelete(id);
+  };
+  
+  const handleEdit = () => {
+    onEdit();
+  };
+
     return (
       <div>
       <Postdiv>
         <Profile></Profile>
+        {id === currentUserId && (
+          <>
+            <Change onClick={handleEdit}>수정하기</Change>
+            <Complete onClick={handleDelete}>삭제하기</Complete>
+          </>
+        )}
         <Nickname>{id}</Nickname>
         <Postcontent>{content}</Postcontent>
         <PostLine></PostLine>

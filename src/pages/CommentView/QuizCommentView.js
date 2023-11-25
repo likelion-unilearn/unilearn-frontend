@@ -191,7 +191,7 @@ function QuizCommentView() {
   const location = useLocation();
   const quizId = location.state?.quizId;
   const [quizData, setQuizData] = useState({}); // 받아온 퀴즈 데이터를 저장한 state임
-
+  const [currentUser, setCurrentUser] = useState({}); 
 
   
 
@@ -225,7 +225,10 @@ function QuizCommentView() {
       console.error("삭제 에러", error);
     }
   };
-
+  const handleEditQuiz = () => {
+    // 수정하기 버튼 클릭 시 Quizchange 페이지로 이동하도록!
+    navigate('/Quizchange', { state: { quizId: quizId } });
+  };
     return (
       <div id="body">
       <div id="iphone-frame">
@@ -233,8 +236,12 @@ function QuizCommentView() {
       <Framediv>
       <Title>퀴즈 피드</Title>
       <Back onClick={() => { navigate("/Assign"); }}>{'<'}</Back>
-          <Complete onClick={handleDeleteQuiz}>삭제하기</Complete>
-          <Change>수정하기</Change>
+      {currentUser.id === quizData.authorId && (
+            <Complete onClick={handleDeleteQuiz}>삭제하기</Complete>
+          )}
+          {currentUser.id === quizData.authorId && (
+            <Change onClick={handleEditQuiz}>수정하기</Change>
+          )}
           <Line></Line>
       </Framediv>
       <WriteFrame>

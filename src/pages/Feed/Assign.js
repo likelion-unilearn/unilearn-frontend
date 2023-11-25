@@ -116,6 +116,22 @@ function Assign() {
     fetchPosts();
   }, []);
  
+  const handleDeletePost = async (postId) => {
+    try {
+      await axios.delete(`/api/assignments/${postId}`, {
+        headers: {
+          Authorization: "YOUR_AUTH_TOKEN", // 토큰 값 넣어야 함
+        },
+      });
+      console.log("삭제 성공");
+
+      // 삭제 후 게시글 목록 갱신
+      const updatedPosts = posts.filter((post) => post.id !== postId);
+      setPosts(updatedPosts);
+    } catch (error) {
+      console.error("삭제 에러", error);
+    }
+  };
     return (
       <div id="body">
       <div id="iphone-frame">
@@ -128,11 +144,14 @@ function Assign() {
       <TitleB onClick={()=>{navigate("/Quiz");}}>퀴즈 피드</TitleB>
       </Tiltlediv>
       <PostAssign>
+        <PostComponent></PostComponent>
       {posts.map(post => (
             <PostComponent
               key={post.id}
               id={post.id}
               content={post.content}
+              onDelete={handleDeletePost} 
+              onEdit={() => navigate(`/Assignchange/${post.id}`, { state: { content: post.content } })}
             />
           ))}
       </PostAssign>

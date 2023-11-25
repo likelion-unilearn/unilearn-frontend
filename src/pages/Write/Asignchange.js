@@ -117,54 +117,54 @@ overflow-wrap: break-word;
     border-color: #000000;
 }
 `
-function Quizchange() {
+function Assignchange() {
     const userNickname = "사용자 닉네임 데이터";
     const [content, setContent] = useState('');
     const navigate = useNavigate();
     const location = useLocation(); 
-    const quizId = location.state?.quizId;
+    const assignmentId = location.state?.assignmentId;
   
 
 
-  useEffect(() => {
-    // 해당 퀴즈의 정보를 가져와서 content에 설정
-    const fetchQuizData = async () => {
-      try {
-        const response = await axios.get(`/api/quiz/${quizId}`, {
-          headers: {
-            Authorization: "YOUR_AUTH_TOKEN", // 토큰값 넣어야함!!
-          },
-        });
-        setContent(response.data.content);
-      } catch (error) {
-        console.error("Error fetching quiz data:", error);
-      }
-    };
-
-    fetchQuizData();
-  }, [quizId]);
-
-  const handleComplete = async () => {
-    try {
-      await axios.put(
-        `/api/quiz/${quizId}`,
-        {
-          content: content,
-        },
-        {
-          headers: {
-            Authorization: 'YOUR_AUTH_TOKEN', // 실제 토큰 값으로 대체
-            'Content-Type': 'application/json',
-          },
+    seEffect(() => {
+        const fetchAssignmentData = async () => {
+          try {
+            const response = await axios.get(`/api/assignments/${assignmentId}`, {
+              headers: {
+                Authorization: 'YOUR_AUTH_TOKEN',
+              },
+            });
+            setContent(response.data.content);
+          } catch (error) {
+            console.error('Error fetching assignment data:', error);
+          }
+        };
+    
+        fetchAssignmentData();
+      }, [assignmentId]);
+    
+      const handleComplete = async () => {
+        try {
+          await axios.put(
+            `/api/assignments/${assignmentId}`,
+            {
+              content: content,
+            },
+            {
+              headers: {
+                Authorization: 'YOUR_AUTH_TOKEN',
+                'Content-Type': 'application/json',
+              },
+            }
+          );
+    
+          // 수정 완료 후 페이지 이동
+          navigate('/Assign');
+        } catch (error) {
+          console.error('Error updating assignment:', error);
         }
-      );
-
-      // 완료 후 페이지 이동
-      navigate('/Quiz');
-    } catch (error) {
-      console.error('Error updating quiz:', error);
-    }
-  };
+      };
+    
      
 
   
@@ -174,7 +174,7 @@ function Quizchange() {
         <Header></Header>
       <Framediv>
         <Title>퀴즈 피드</Title>
-       <Back onClick={()=>{navigate("/Quiz");}}>{'<'}</Back> 
+       <Back onClick={()=>{navigate("/Assign");}}>{'<'}</Back> 
        <Content>게시글 수정</Content>
        <Complete  onClick={handleComplete}>수정</Complete>
        <Line></Line>
@@ -194,5 +194,5 @@ function Quizchange() {
     );
   }
   
-  export default Quizchange;
+  export default Assignchange;
   
