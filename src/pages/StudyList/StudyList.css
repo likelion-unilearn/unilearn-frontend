@@ -1,0 +1,9 @@
+.stateBtn{
+  width: 134px;
+  height: 33px;
+  background-color: #D9D9D9;
+  border-radius: 30px;
+  position: absolute;
+  top: 135px;
+  margin-left: 30px;
+}
