@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Nav from "../../HeaderNavComponent/Nav";
+import NavA from "../../HeaderNavComponent/NavA";
 import Header from "../../HeaderNavComponent/Header";
 
 const Title = styled.p`
@@ -147,7 +147,7 @@ const MystudyList = () => {
             </StudyPost>
           ))}
         </Board>
-        <Nav />
+        <NavA />
       </IphoneFrame>
   );
 };
