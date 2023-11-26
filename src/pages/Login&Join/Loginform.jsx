@@ -73,13 +73,15 @@ height: 43px;
 left: 121px;
 top: 256px;
 `;
+
+
 const Loginform = () => {
   const navigate = useNavigate();
   const [loginId, setLoginId] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLoginIdChange = (event) => {
-    setloginId(event.target.value);
+    setLoginId(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
@@ -88,17 +90,29 @@ const Loginform = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    
     try {
-      const response = await axios.get(`http://15.164.143.187:8080/login?loginId=${loginId}&password=${password}`);
+      const response = await axios.get(
+        "http://15.164.143.187:8080/login",{
+              params:{
+            "loginId": "user1234",
+            "password": "qwer1234"
+        }},{
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        }
+      );
       
       console.log('로그인 성공:', response.data);
       // 로그인 성공 시 어떤 작업 수행
-      
       // 예를 들어 로그인 성공 시 페이지 이동
-      navigate('/main');
+      navigate('/Mainpage');
     } catch (error) {
       console.error('로그인 실패:', error);
+
+      if (error.response) {
+        console.error('응답 데이터:', error.response.data);
+      }
       // 로그인 실패 시 어떤 작업 수행
     }
   };
@@ -107,16 +121,7 @@ const Loginform = () => {
     console.log('회원가입 페이지로 이동');
     navigate('/signupform');
   };
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('http://15.164.143.187:8080/login');
-      console.log('응답 데이터:', response.data);
-    } catch (error) {
-      console.error('에러 발생:', error);
-    }
-  };
-  
-  fetchData();
+
 
   return (
     <Index>

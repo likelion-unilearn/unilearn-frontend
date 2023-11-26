@@ -31,7 +31,6 @@ import SubjectRegist from './pages/SubjectRegist/SubjectRegist';
 import RecruitStudy from './pages/RecruitStudy/RecruitStudy';
 import Mainpage from './pages/Schedule/Mainpage'
 
-
 function App() {
   const pageStyle = {
     backgroundColor: '#bababa',
