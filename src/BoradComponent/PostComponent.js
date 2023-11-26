@@ -96,12 +96,10 @@ function PostComponent({ id, content,onDelete,onEdit }) {
       <div>
       <Postdiv>
         <Profile></Profile>
-        {id === currentUserId && (
-          <>
+       
             <Change onClick={handleEdit}>수정하기</Change>
             <Complete onClick={handleDelete}>삭제하기</Complete>
-          </>
-        )}
+        
         <Nickname>{id}</Nickname>
         <Postcontent>{content}</Postcontent>
         <PostLine></PostLine>

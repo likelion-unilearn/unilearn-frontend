@@ -6,6 +6,11 @@ import Signupform from "./pages/Login&Join/Signupform";
 import SignupVerification from "./pages/Login&Join/SignupVerification";
 import MystudyList from "./pages/Study/MystudyList";
 import StudyDetail from "./pages/Study/StudyDetail";
+import AssignmentEndDetail from "./pages/Assignment/AssignmentEndDetail";
+import AssignmentForm from "./pages/Assignment/AssignmentForm";
+import AssignmentList from "./pages/Assignment/AssignmentList";
+import AssignmentRate from "./pages/Assignment/AssignmentRate";
+import SurveyMain from './pages/Survey/SurveyMain';
 import Quiz from "./pages/Feed/Quiz";
 import Assign from "./pages/Feed/Assign";
 import AssignWrite from "./pages/Write/AssignWrite"
@@ -21,8 +26,11 @@ import Quizchange from './pages/Write/Quizchange';;
 import MypageInfo from './pages/Mypage/MypageInfo';
 import RecerMypage from './pages/RecerMypage/RecerMypage';
 import SubjectList from './pages/SubjectList/SubjectList';
+import Assignchange from './pages/Write/Asignchange';
 import SubjectRegist from './pages/SubjectRegist/SubjectRegist';
 import RecruitStudy from './pages/RecruitStudy/RecruitStudy';
+
+
 
 function App() {
   const pageStyle = {
@@ -59,7 +67,9 @@ function App() {
           <Route path='/SubjectList' element={<SubjectList/>}/>
           <Route path='/SubjectRegist' element={<SubjectRegist/>}/>
           <Route path='/RecruitStudy' element={<RecruitStudy/>}/>
-
+          <Route path='/Assignchange' element={<Assignchange/>}/>
+          
+    
         </Routes>
 
       </div>

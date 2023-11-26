@@ -33,16 +33,7 @@ top: 90px;
   }
 
 `;
-const Body = styled.body`
-  background-color: #dedede;
-  overflow: hidden;
-  margin: 0; 
-  padding: 0;
-  height: 100%; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+
 
 const IphoneFrame = styled.div`
   width: 390px;

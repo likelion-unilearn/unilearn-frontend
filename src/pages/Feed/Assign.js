@@ -144,7 +144,6 @@ function Assign() {
       <TitleB onClick={()=>{navigate("/Quiz");}}>퀴즈 피드</TitleB>
       </Tiltlediv>
       <PostAssign>
-        <PostComponent></PostComponent>
       {posts.map(post => (
             <PostComponent
               key={post.id}
