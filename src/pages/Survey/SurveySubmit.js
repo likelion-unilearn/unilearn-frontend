@@ -84,7 +84,7 @@ const SurveySubmit = () => {
         options: [
           { id: 1, text: 'Option 1' },
           { id: 2, text: 'Option 2' },
-          // Add more options as needed
+
         ],
       },
       {
@@ -93,10 +93,10 @@ const SurveySubmit = () => {
         options: [
           { id: 3, text: 'Option A' },
           { id: 4, text: 'Option B' },
-          // Add more options as needed
+       
         ],
       },
-      // Add more questions as needed
+   
     ],
   };
 
@@ -115,8 +115,7 @@ const SurveySubmit = () => {
   };
 
   const handleSurveySubmit = (selectedOptions) => {
-    // Handling the submission of survey data
-    // You can implement the logic to send the selected options to the server
+  
   };
 
   return (
