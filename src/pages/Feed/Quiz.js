@@ -89,15 +89,15 @@ function Quiz() {
   useEffect(() => {
     const QuizPosts = async () => {
       try {
-        const response = await axios.get("/api/quiz", {
+        const response = await axios.get("http://15.164.143.187:8080/api/quiz", {
           headers: {
-            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+            Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOi", 
           },
         });
         const data = response.data;
-        setQuiz(data); // API 응답 데이터를 상태에 설정
+        setQuiz(data); 
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error("에러!", error);
       }
     };
     QuizPosts();

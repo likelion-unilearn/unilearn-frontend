@@ -142,13 +142,13 @@ const SignUpForm = () => {
       setPasswordMismatch(true);
     } else {
       try {
-        const response = await axios.post('http://localhost:8080/signup', {
-          loginId: username,
-          Password: password,
-          Email: '92chanum@swu.ac.kr', 
-          Username: fullName,
-          Nickname: nickname,
-        });
+        const response = await axios.post('http://15.164.143.187:8080/signup', {
+          loginId: "user1234",
+          password: "qwer1234",
+          email: "92chanum@swu.ac.kr",
+          username: "양수빈",
+          nickname: "쑤양"
+      });
 
         console.log('회원가입 성공:', response.data);
        
@@ -167,7 +167,7 @@ const SignUpForm = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://15.164.143.187:8080/signup');
+      const response = await axios.get('/signup');
       console.log('응답 데이터:', response.data);
     } catch (error) {
       console.error('에러 발생:', error);
@@ -223,7 +223,7 @@ const SignUpForm = () => {
           {passwordMismatch && (
             <p style={{ color: 'red' }}>비밀번호가 일치하지 않습니다.</p>
           )}
-           <SubmitButton type="submit">다음</SubmitButton>
+           <SubmitButton type="submit" onClick={handleFormSubmit} >다음</SubmitButton>
       
           </FormContainer>
     </Index>

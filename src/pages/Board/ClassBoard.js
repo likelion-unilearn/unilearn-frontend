@@ -150,16 +150,17 @@ top: 468px;
 
 
 function ClassBoard() {
+  const navigate = useNavigate();
   const [assignments, setAssignments] = useState([]);
   const [quiz, setquiz]=useState([]);
 
   useEffect(()=>{
     const fetchQuiz=async()=>{
       try{
-        const response=await axios.get('/api/quiz',
+        const response=await axios.get('http://15.164.143.187:8080/api/quiz',
         {
           headers: {
-            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+            Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2", //토큰값넣어야함!!
           },
         }
         );
@@ -175,9 +176,9 @@ function ClassBoard() {
   useEffect(() => {
     const fetchAssignments = async () => {
       try {
-        const response = await axios.get('/api/assignments',{
+        const response = await axios.get('http://15.164.143.187:8080/api/assignments',{
           headers: {
-            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+            Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1", //토큰값넣어야함!!
           },
         });
         setAssignments(response.data.slice(0, 6));
