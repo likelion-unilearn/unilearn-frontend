@@ -30,6 +30,7 @@ import Assignchange from './pages/Write/Asignchange';
 import SubjectRegist from './pages/SubjectRegist/SubjectRegist';
 import RecruitStudy from './pages/RecruitStudy/RecruitStudy';
 import Mainpage from './pages/Schedule/Mainpage'
+import { AuthProvider } from './AuthContext';
 
 function App() {
   const pageStyle = {
@@ -37,7 +38,7 @@ function App() {
   };
 
   return (
-    
+    <AuthProvider> 
     <div id="body">
       <div id="iphone-frame">
       <BrowserRouter>
@@ -78,6 +79,7 @@ function App() {
       </div>
    
     </div>
+    </AuthProvider>
   );
 }
 

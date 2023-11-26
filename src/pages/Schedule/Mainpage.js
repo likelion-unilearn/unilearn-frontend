@@ -5,6 +5,8 @@ import "react-calendar/dist/Calendar.css";
 import Header from '../../HeaderNavComponent/Header';
 import Nav from '../../HeaderNavComponent/Nav';
 import axios from "axios";
+import { useAuth } from '../../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
 position:relative;
@@ -216,6 +218,8 @@ const mapWeekdayToAbbreviatedEnglish = (weekday) => {
 
 
     export const MainPage = ({ user }) => {
+      const { isLoggedIn } = useAuth();
+      const navigate = useNavigate();
         const [value, onChange] = useState(new Date());
         const [scheduledDates, setScheduledDates] = useState([]);
         const [todayScheduleCount, setTodayScheduleCount] = useState(0);
@@ -256,6 +260,11 @@ const mapWeekdayToAbbreviatedEnglish = (weekday) => {
 
         useEffect(() => {
 
+          if (!isLoggedIn) {
+            console.log('isLoggedIn:', isLoggedIn);
+            // 로그인 상태가 아니라면 로그인 페이지로 이동
+            navigate('/Login');
+          }
             const fetchSchedules = async () => {
                 try {
                   const response = await axios.get(

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import unilearnLogo from '../../img/unilearn.png'; 
+import { useAuth } from '../../AuthContext';
 
 
 const Index = styled.div`
@@ -79,6 +80,7 @@ const Loginform = () => {
   const navigate = useNavigate();
   const [loginId, setLoginId] = useState('');
   const [password, setPassword] = useState('');
+  const { login } = useAuth();
 
   const handleLoginIdChange = (event) => {
     setLoginId(event.target.value);
@@ -104,6 +106,7 @@ const Loginform = () => {
       );
       
       console.log('로그인 성공:', response.data);
+      login();
       // 로그인 성공 시 어떤 작업 수행
       // 예를 들어 로그인 성공 시 페이지 이동
       navigate('/Mainpage');
