@@ -82,18 +82,6 @@ background:#FFEFEF;
 z-index: 1;
 `
 
-const Back=styled.button`
-position:absolute;
-top:90px;
-left:10px;
-border:none;
-background-color:#ffffff;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 17px;
-z-index=1;
-`
 
 function Assign() {
   const navigate = useNavigate();
@@ -139,7 +127,7 @@ function Assign() {
         <Tiltlediv>
       <TitleLineA/>
       <TitleA>과제 피드</TitleA>
-      <Back onClick={()=>{navigate("/ClassBoard");}}>{'<'}</Back> 
+      
       <TitleLineB></TitleLineB>
       <TitleB onClick={()=>{navigate("/Quiz");}}>퀴즈 피드</TitleB>
       </Tiltlediv>

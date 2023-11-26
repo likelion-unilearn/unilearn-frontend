@@ -20,17 +20,7 @@ font-size: 15px;
 color: #7B7878;
 `
 
-const Back=styled.button`
-position:absolute;
-top:48px;
-left:20px;
-border:none;
-background-color:#ffffff;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 17px;
-`
+
 const Complete=styled.button`
 position:absolute;
 top:52px;
@@ -174,7 +164,6 @@ function Assignchange() {
         <Header></Header>
       <Framediv>
         <Title>퀴즈 피드</Title>
-       <Back onClick={()=>{navigate("/Assign");}}>{'<'}</Back> 
        <Content>게시글 수정</Content>
        <Complete  onClick={handleComplete}>수정</Complete>
        <Line></Line>

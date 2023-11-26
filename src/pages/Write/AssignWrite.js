@@ -21,18 +21,6 @@ font-weight: 600;
 font-size: 15px;
 color: #7B7878;
 `
-
-const Back=styled.button`
-position:absolute;
-top:48px;
-left:20px;
-border:none;
-background-color:#ffffff;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 17px;
-`
 const Complete=styled.button`
 position:absolute;
 top:52px;
@@ -154,7 +142,6 @@ function AssignWrite() {
         <Header></Header>
       <Framediv>
         <Title>과제 피드</Title>
-       <Back onClick={()=>{navigate("/Assign");}}>{'<'}</Back> 
        <Content>게시글 작성</Content>
        <Complete  onClick={handleComplete} >완료</Complete>
        <Line></Line>

@@ -149,23 +149,9 @@ top: 468px;
 `
 
 
-const Back=styled.button`
-position:absolute;
-top:90px;
-left:10px;
-border:none;
-background-color:#ffffff;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 17px;
-z-index=1;
-`
-
 function ClassBoard() {
   const [assignments, setAssignments] = useState([]);
   const [quiz, setquiz]=useState([]);
-  const navigate = useNavigate();
 
   useEffect(()=>{
     const fetchQuiz=async()=>{
@@ -209,8 +195,7 @@ function ClassBoard() {
       <Header></Header>
       <TitleLineA/>
      
-      <TitleA>과목 게시판</TitleA>
-      <Back onClick={()=>{navigate("/OpenedCourses");}}>{'<'}</Back> 
+      <TitleA>과목 게시판</TitleA> 
       <TitleLineB></TitleLineB>
       <TitleB onClick={()=>{navigate("/StudyBoard");}}>스터디 게시판</TitleB>
       <BoradTitle>과제 게시판</BoradTitle>

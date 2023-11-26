@@ -80,18 +80,6 @@ border-radius:30px;
 background:#FFEFEF;
 z-index: 1;
 `
-const Back=styled.button`
-position:absolute;
-top:90px;
-left:10px;
-border:none;
-background-color:#ffffff;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 17px;
-z-index=1;
-`
 function Quiz() {
   const navigate = useNavigate();
 
@@ -125,7 +113,6 @@ function Quiz() {
       <TitleA onClick={()=>{navigate("/Assign");}}>과제 피드</TitleA>
       <TitleLineB></TitleLineB>
       <TitleB>퀴즈 피드</TitleB>
-      <Back onClick={()=>{navigate("/ClassBoard");}}>{'<'}</Back> 
       </Tiltlediv> 
       <PostAssign>
       {quizs.map(quiz => (
