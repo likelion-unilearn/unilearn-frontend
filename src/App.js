@@ -10,7 +10,6 @@ import AssignmentEndDetail from "./pages/Assignment/AssignmentEndDetail";
 import AssignmentForm from "./pages/Assignment/AssignmentForm";
 import AssignmentList from "./pages/Assignment/AssignmentList";
 import AssignmentRate from "./pages/Assignment/AssignmentRate";
-import Survey from "./pages/Survey/SurveyMain";
 import SurveyMain from './pages/Survey/SurveyMain';
 
 
