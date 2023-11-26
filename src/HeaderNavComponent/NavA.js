@@ -4,15 +4,15 @@ import Main from '../icons/Main';
 import Board from '../icons/Board';
 import Mypage from '../icons/Mypage';
 
-function Nav(){
+function NavA(){
 
     return(
     <div className='nav'>
       <div className='border-div2'></div>
       <div className="downbar" >
         <button style={{cursor: 'pointer'}} className='downbarBtn'>
-          <Pencil/>
-          <br /><b className='text-color'>스터디</b>
+          <Pencil color='#9EB7AB'/>
+          <br /><b style={{color:'#9EB7AB'}}>스터디</b>
         </button>
 
         <button style={{cursor: 'pointer'}} className='downbarBtn'>
@@ -34,4 +34,4 @@ function Nav(){
     );
 }
 
-export default Nav;
+export default NavA;

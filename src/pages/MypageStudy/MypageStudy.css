@@ -1,0 +1,86 @@
+.tab-container {
+    width: 307px;
+    height: 34px;
+    border-radius: 50px;
+    background: #EAEAEA;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+
+.tab-slider {
+    position: absolute;
+    width: 159px;
+    height: 34px;
+    border-radius: 50px;
+    background: #9EB7AB;
+    transition: all 0.3s ease;
+
+}
+
+.tab-slider.left {
+    left: 0;
+}
+
+.tab-slider.right {
+    right: 0;
+}
+
+.tab-button {
+    width: 159px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: #547980;
+    position: absolute;
+    top: 0;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.tab-container .tab-button:first-child {
+    left: 0;
+}
+
+.tab-container .tab-button:last-child {
+    right: 0;
+}
+
+.tab-container .tab-button:hover {
+    color: white;
+}
+
+
+.participantContnt{
+    width: 315px;
+    height: 465px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 1px solid #C7C7C7;
+    background: #FFF;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 100px;
+}
+
+.operatorContnt{
+    width: 315px;
+    height: 465px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 1px solid #C7C7C7;
+    background: #FFF;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 100px;
+}

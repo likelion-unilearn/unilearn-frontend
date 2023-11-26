@@ -4,7 +4,7 @@ import Main from '../icons/Main';
 import Board from '../icons/Board';
 import Mypage from '../icons/Mypage';
 
-function Nav(){
+function NavA(){
 
     return(
     <div className='nav'>
@@ -21,8 +21,8 @@ function Nav(){
         </button>
 
         <button style={{cursor: 'pointer'}} className='downbarBtn'>
-          <Main/>
-          <br /><b className='text-color'>메인</b>
+          <Main color='#9EB7AB'/>
+          <br /><b style={{color:'#9EB7AB'}}>메인</b>
         </button>
 
         <button style={{cursor: 'pointer'}} className='downbarBtn'>
@@ -34,4 +34,4 @@ function Nav(){
     );
 }
 
-export default Nav;
+export default NavA;
