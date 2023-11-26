@@ -29,7 +29,7 @@ import SubjectList from './pages/SubjectList/SubjectList';
 import Assignchange from './pages/Write/Asignchange';
 import SubjectRegist from './pages/SubjectRegist/SubjectRegist';
 import RecruitStudy from './pages/RecruitStudy/RecruitStudy';
-
+import Mainpage from './pages/Schedule/Mainpage'
 
 
 function App() {
@@ -68,6 +68,7 @@ function App() {
           <Route path='/SubjectRegist' element={<SubjectRegist/>}/>
           <Route path='/RecruitStudy' element={<RecruitStudy/>}/>
           <Route path='/Assignchange' element={<Assignchange/>}/>
+          <Route path='/Mainpage' element={<Mainpage/>}/>
           
     
         </Routes>
