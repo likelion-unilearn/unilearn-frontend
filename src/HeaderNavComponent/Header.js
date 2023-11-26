@@ -1,21 +1,25 @@
+import React from 'react';
 import './Header.css';
-import Alarm from '../icons/Alarm';
-import unilearn from '../img/unilearn.png'
-import {Routes, Route, Link} from 'react-router-dom'
-function Header(){
-    return(
-    
-      <div className='header'>
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import unilearn from '../img/unilearn.png';
+import backButton from '../img/back.png'; 
+
+const Header = () => {
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
+  return (
+    <div className='header'>
       <div className="logo-container">
         <img className='logo' src={unilearn} alt="unilearn" />
-        <button className="alarmBtn" style={{ borderStyle: 'none', backgroundColor: '#ffffff', cursor: 'pointer', transform: 'translateX(50%)' }}>
-          <Alarm />
-        </button>
+        <img className='backButton' src={backButton} alt="Back" onClick={handleBackClick} />
       </div><br />
       <div className='border-div1'></div>
-      </div>
-      
-    );
+    </div>
+  );
 }
 
 export default Header;

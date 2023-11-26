@@ -1,43 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-
+import axios from 'axios';
 import unilearnLogo from '../../img/unilearn.png'; 
-import backButton from '../../img/back.png';
 
-const BackButton = ({ onClick }) => {
-  const StyledBackButton = styled.img`
-    width: 7px;
-    height: 14px;
-    left: 27px;
-    top: 66px;
-    cursor: pointer;
-    position: absolute;
-  `;
-  
-  return (
-    <StyledBackButton src={backButton} alt="Back" onClick={onClick} />
-  );
-};
-const Body = styled.body`
-  background-color: #dedede;
-  overflow: hidden;
-  margin: 0; 
-  padding: 0;
-  height: 100%; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const IphoneFrame = styled.div`
-  width: 390px;
-  height: 844px;
-  background: #ffffff;
-  position: relative;
-  justify-content: center;
-  align-items: center;
 
-`;
 const Index = styled.div`
   display: flex;
   justify-content: center;
@@ -45,29 +12,6 @@ const Index = styled.div`
   height: 100vh;
 `;
 
-const Top = styled.div`
-  position: absolute;
-  width: 390px;
-  height: 102px;
-  left: 0px;
-  top: 0px;
-  background: #FFFFFF;
-  border: 1px solid #eeeef0;
-`;
-
-const UnilearnImage = styled.img`
-  width: 99px;
-  height: 25px;
-  left: 148px;
-  top: 55px;
-  font-family: 'Oleo Script Swash Caps';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 41px;
-  color: #547980;
-  position: absolute;
-`;
 
 const FormContainer = styled.div`
   display: flex;
@@ -120,52 +64,71 @@ const SignupLink = styled.p`
 
 const SignupText = styled.span`
   color: #748c70;
+  cursor: pointer;
 `;
-
-
+const LogoImage = styled.img`
+position: absolute;
+width: 150px;
+height: 43px;
+left: 121px;
+top: 256px;
+`;
 const Loginform = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
+  const [loginId, setLoginId] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
+  const handleLoginIdChange = (event) => {
+    setloginId(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log('아이디:', username);
-    console.log('비밀번호:', password);
+    
+    try {
+      const response = await axios.get(`http://15.164.143.187:8080/login?loginId=${loginId}&password=${password}`);
+      
+      console.log('로그인 성공:', response.data);
+      // 로그인 성공 시 어떤 작업 수행
+      
+      // 예를 들어 로그인 성공 시 페이지 이동
+      navigate('/main');
+    } catch (error) {
+      console.error('로그인 실패:', error);
+      // 로그인 실패 시 어떤 작업 수행
+    }
   };
 
   const handleSignupClick = () => {
     console.log('회원가입 페이지로 이동');
-    navigate('/signupform'); // 실제 회원가입 페이지로 이동하는 코드
+    navigate('/signupform');
   };
-
-  const handleBackClick = () => {
-    console.log('뒤로 가기 버튼 클릭됨');
-    // navigate('/');
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://15.164.143.187:8080/login');
+      console.log('응답 데이터:', response.data);
+    } catch (error) {
+      console.error('에러 발생:', error);
+    }
   };
+  
+  fetchData();
 
   return (
     <Index>
-      <Top>
-        <UnilearnImage src={unilearnLogo} alt="Unilearn" />
-        <BackButton onClick={handleBackClick} />
-      </Top>
       <FormContainer>
+        <LogoImage src={unilearnLogo} alt="Unilearn" />
         <LoginForm onSubmit={handleFormSubmit}>
           <InputField
             type="text"
             id="username"
             placeholder="아이디"
-            value={username}
-            onChange={handleUsernameChange}
+            value={loginId}
+            onChange={handleLoginIdChange}
           />
           <InputField
             type="password"
