@@ -1,7 +1,7 @@
 import './MypageInfo.css';
 import temper from '../../img/temper.png';
 import Header from '../../HeaderNavComponent/Header';
-import Nav from '../../HeaderNavComponent/Nav';
+import NavD from '../../HeaderNavComponent/NavD';
 import { useAuth } from '../../AuthContext';
 
 
@@ -46,7 +46,7 @@ function MypageInfo(){
             <button className="subjectList">수강 과목</button>
             <button className="studyRecruit">스터디 모집</button>
 
-        <Nav/>
+        <NavD/>
         </div>
 
     );
