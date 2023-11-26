@@ -41,11 +41,11 @@ color: #000000;
 
 const Postcontent=styled.div`
 position: relative;
-top:70px;
+top:40px;
 left:64px;
 display:flex;
 width: 290px;
-margin:60px 0px 65px 0px;
+margin:60px 0px 50px 0px;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -66,14 +66,14 @@ height: 0px;
 border: 1px solid #EFEFEF;
 `
 
-function QuizComponent() {
+function QuizComponent({ author, content }) {
+
     return (
       <div>
       <Postdiv>
         <Profile></Profile>
-        <Nickname>유니런(닉네임 데이터)</Nickname>
-        <PostTitle>과제 관련 제목 데이터</PostTitle>
-        <Postcontent>데이터가 들어와도 넓이에 맞춰서 텍스트가 보임 이렇게</Postcontent>
+        <Nickname>{author}</Nickname>
+        <Postcontent>{content}</Postcontent>
         <PostLine></PostLine>
       </Postdiv>
       </div>

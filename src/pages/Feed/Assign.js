@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import PostComponent from "../../BoradComponent/PostComponent";
+import {useNavigate} from "react-router-dom";
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
+import axios from 'axios'; 
 
 const Tiltlediv=styled.div`
 height:60px;
@@ -75,29 +79,84 @@ height: 25px;
 border:none;
 border-radius:30px;
 background:#FFEFEF;
+z-index: 1;
+`
 
+const Back=styled.button`
+position:absolute;
+top:90px;
+left:10px;
+border:none;
+background-color:#ffffff;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 17px;
+z-index=1;
 `
 
 function Assign() {
+  const navigate = useNavigate();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get("/api/assignments", {
+          headers: {
+            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+          },
+        });
+        const data = response.data;
+        setPosts(data); // API 응답 데이터를 상태에 설정
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    fetchPosts();
+  }, []);
+ 
+  const handleDeletePost = async (postId) => {
+    try {
+      await axios.delete(`/api/assignments/${postId}`, {
+        headers: {
+          Authorization: "YOUR_AUTH_TOKEN", // 토큰 값 넣어야 함
+        },
+      });
+      console.log("삭제 성공");
+
+      // 삭제 후 게시글 목록 갱신
+      const updatedPosts = posts.filter((post) => post.id !== postId);
+      setPosts(updatedPosts);
+    } catch (error) {
+      console.error("삭제 에러", error);
+    }
+  };
     return (
-      <div>
+      <div id="body">
+      <div id="iphone-frame">
+      <Header></Header>
         <Tiltlediv>
       <TitleLineA/>
       <TitleA>과제 피드</TitleA>
+      <Back onClick={()=>{navigate("/ClassBoard");}}>{'<'}</Back> 
       <TitleLineB></TitleLineB>
-      <TitleB>퀴즈 피드</TitleB>
+      <TitleB onClick={()=>{navigate("/Quiz");}}>퀴즈 피드</TitleB>
       </Tiltlediv>
       <PostAssign>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
-      <PostComponent></PostComponent>
+      {posts.map(post => (
+            <PostComponent
+              key={post.id}
+              id={post.id}
+              content={post.content}
+              onDelete={handleDeletePost} 
+              onEdit={() => navigate(`/Assignchange/${post.id}`, { state: { content: post.content } })}
+            />
+          ))}
       </PostAssign>
-      <WriteButton>글 작성하기</WriteButton>
+      <WriteButton onClick={()=>{navigate("/AssignWrite");}}>글 작성하기</WriteButton>
+      <Nav></Nav>
+      </div>
       </div>
     );
   }

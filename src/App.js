@@ -6,12 +6,6 @@ import Signupform from "./pages/Login&Join/Signupform";
 import SignupVerification from "./pages/Login&Join/SignupVerification";
 import MystudyList from "./pages/Study/MystudyList";
 import StudyDetail from "./pages/Study/StudyDetail";
-import AssignmentEndDetail from "./pages/Assignment/AssignmentEndDetail";
-import AssignmentForm from "./pages/Assignment/AssignmentForm";
-import AssignmentList from "./pages/Assignment/AssignmentList";
-import AssignmentRate from "./pages/Assignment/AssignmentRate";
-import SurveyMain from './pages/Survey/SurveyMain';
-
 
 
 function App() {
@@ -32,11 +26,6 @@ function App() {
           <Route path="/SignupVerification" element={< SignupVerification />} />
           <Route path="/MystudyList" element={< MystudyList />} />
           <Route path="/StudyDetail/:id" element={< StudyDetail />} />
-          <Route path="/AssignmentEndDetail" element={< AssignmentEndDetail />} />
-          <Route path="/AssignmentForm" element={< AssignmentForm />} />
-          <Route path="/AssignmentList" element={< AssignmentList />} />
-          <Route path="/AssignmentRate" element={< AssignmentRate />} />
-          <Route path="/SurveyMain" element={< SurveyMain />} />
           
     
         </Routes>

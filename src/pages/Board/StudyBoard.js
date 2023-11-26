@@ -3,6 +3,11 @@ import styled from "styled-components";
 import ButtonC from "../../BoradComponent/ButtonC";
 import axios from "axios";
 import plus from '../../img/plusB.png';
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
+import {useNavigate} from "react-router-dom";
+
+
 
 const PlusButton=styled.button`
 position: absolute;
@@ -76,7 +81,21 @@ const Main = styled.div`
   width:0px;
 `;
 
+const Back=styled.button`
+position:absolute;
+top:90px;
+left:10px;
+border:none;
+background-color:#ffffff;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 17px;
+z-index=1;
+`
+
 function StudyBoard() {
+  const navigate = useNavigate();
   const [studyData, setStudyData] = useState([]);
 
   useEffect(() => {
@@ -100,9 +119,12 @@ function StudyBoard() {
   }, []);
 
   return (
-    <div>
+    <div id="body">
+    <div id="iphone-frame">
+      <Header></Header>
       <TitleLineA />
-      <TitleA>과목 게시판</TitleA>
+      <TitleA onClick={()=>{navigate("/ClassBoard");}}>과목 게시판</TitleA>
+      <Back onClick={()=>{navigate("/OpenedCourses");}}>{'<'}</Back> 
       <TitleLineB></TitleLineB>
       <TitleB>스터디 게시판</TitleB>
       <Main>
@@ -116,7 +138,9 @@ function StudyBoard() {
         ))}
       </Main>
       <PlusButton></PlusButton>
-    </div>
+      <Nav></Nav>
+      </div>
+      </div>
   );
 }
 

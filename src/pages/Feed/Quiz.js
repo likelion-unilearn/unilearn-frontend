@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import QuizComponent from "../../BoradComponent/QuizComponent";
-
+import Header from "../../HeaderNavComponent/Header";
+import Nav from "../../HeaderNavComponent/Nav";
+import {useNavigate} from "react-router-dom";
+import axios from 'axios'; 
 
 const Tiltlediv=styled.div`
 height:60px;
@@ -75,27 +78,67 @@ height: 25px;
 border:none;
 border-radius:30px;
 background:#FFEFEF;
-
+z-index: 1;
 `
-
+const Back=styled.button`
+position:absolute;
+top:90px;
+left:10px;
+border:none;
+background-color:#ffffff;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 17px;
+z-index=1;
+`
 function Quiz() {
+  const navigate = useNavigate();
+
+  
+  const [quizs, setQuiz] = useState([]);
+
+  useEffect(() => {
+    const QuizPosts = async () => {
+      try {
+        const response = await axios.get("/api/quiz", {
+          headers: {
+            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+          },
+        });
+        const data = response.data;
+        setQuiz(data); // API 응답 데이터를 상태에 설정
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    QuizPosts();
+  }, []);
+
+
     return (
-      <div>
+      <div id="body">
+      <div id="iphone-frame">
+      <Header></Header>
        <Tiltlediv>
       <TitleLineA/>
-      <TitleA>과제 피드</TitleA>
+      <TitleA onClick={()=>{navigate("/Assign");}}>과제 피드</TitleA>
       <TitleLineB></TitleLineB>
       <TitleB>퀴즈 피드</TitleB>
+      <Back onClick={()=>{navigate("/ClassBoard");}}>{'<'}</Back> 
       </Tiltlediv> 
       <PostAssign>
-      <QuizComponent></QuizComponent>
-      <QuizComponent></QuizComponent>
-      <QuizComponent></QuizComponent>
-      <QuizComponent></QuizComponent>
-      <QuizComponent></QuizComponent>
-      <QuizComponent></QuizComponent>
+      {quizs.map(quiz => (
+            <QuizComponent onClick={()=>{ navigate('/QuizCommentView', { state: { quizId: quiz.id } });;}}
+            key={quiz.id}
+            id={quiz.id}
+            content={quiz.content}
+            ></QuizComponent>
+          ))}
       </PostAssign>
-      <WriteButton>글 작성하기</WriteButton>
+      <WriteButton onClick={()=>{navigate("/QuizWrite");}}>글 작성하기</WriteButton>
+     <Nav></Nav>
+      </div>
       </div>
     );
   }
