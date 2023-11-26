@@ -28,8 +28,12 @@ import SubjectList from './pages/SubjectList/SubjectList';
 import Assignchange from './pages/Write/Asignchange';
 import SubjectRegist from './pages/SubjectRegist/SubjectRegist';
 import RecruitStudy from './pages/RecruitStudy/RecruitStudy';
-
-
+import SurveySubmit from './pages/Survey/SurveySubmit';
+import SurveyMain from './pages/Survey/SurveyMain';
+import MypageStudy from './pages/MypageStudy/MypageStudy';
+import MypageStudyDetail from './pages/MypageStudyDetail/MypageStudyDetail';   
+import Mainpage from './pages/Schedule/Mainpage'
+import { AuthProvider } from './AuthContext';
 
 function App() {
   const pageStyle = {
@@ -67,8 +71,16 @@ function App() {
           <Route path='/SubjectRegist' element={<SubjectRegist/>}/>
           <Route path='/RecruitStudy' element={<RecruitStudy/>}/>
           <Route path='/Assignchange' element={<Assignchange/>}/>
-          
-    
+          <Route path='/AssignmentEndDetail' element={<AssignmentEndDetail/>}/>
+          <Route path='/AssignmentForm' element={<AssignmentForm/>}/>
+          <Route path='/AssignmentList' element={<AssignmentList/>}/>
+          <Route path='/AssignmentRate' element={<AssignmentRate/>}/>
+          <Route path='/SurveySubmit' element={<SurveySubmit/>}/>
+          <Route path='/SurveyMain' element={<SurveyMain/>}/>
+          <Route path='/MypageStudy' element={<MypageStudy/>}/>
+          <Route path='/MypageStudyDetail' element={<MypageStudyDetail/>}/>
+          <Route path='/Mainpage' element={<Mainpage/>}/>
+
         </Routes>
 
       </div>
