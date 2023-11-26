@@ -3,8 +3,9 @@ import styled from "styled-components";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Header from '../../HeaderNavComponent/Header';
-import Nav from '../../HeaderNavComponent/Nav';
+import NavC from '../../HeaderNavComponent/NavC';
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const Container = styled.div`
 position:relative;
@@ -216,6 +217,7 @@ const mapWeekdayToAbbreviatedEnglish = (weekday) => {
 
 
     export const MainPage = ({ user }) => {
+      const navigate = useNavigate();
         const [value, onChange] = useState(new Date());
         const [scheduledDates, setScheduledDates] = useState([]);
         const [todayScheduleCount, setTodayScheduleCount] = useState(0);
@@ -337,8 +339,7 @@ const mapWeekdayToAbbreviatedEnglish = (weekday) => {
 
       <ScheduleList schedules={scheduledItems} /> {/* ScheduleList 컴포넌트 사용 */}
 
-      <Nav></Nav>
-        <Nav></Nav>
+      <NavC ></NavC>
 
 
       </div>
