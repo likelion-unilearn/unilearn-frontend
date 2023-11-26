@@ -80,18 +80,6 @@ border-radius:30px;
 background:#FFEFEF;
 z-index: 1;
 `
-const Back=styled.button`
-position:absolute;
-top:90px;
-left:10px;
-border:none;
-background-color:#ffffff;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 17px;
-z-index=1;
-`
 function Quiz() {
   const navigate = useNavigate();
 
@@ -101,15 +89,15 @@ function Quiz() {
   useEffect(() => {
     const QuizPosts = async () => {
       try {
-        const response = await axios.get("/api/quiz", {
+        const response = await axios.get("http://15.164.143.187:8080/api/quiz", {
           headers: {
-            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+            Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOi", 
           },
         });
         const data = response.data;
-        setQuiz(data); // API 응답 데이터를 상태에 설정
+        setQuiz(data); 
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error("에러!", error);
       }
     };
     QuizPosts();
@@ -125,7 +113,6 @@ function Quiz() {
       <TitleA onClick={()=>{navigate("/Assign");}}>과제 피드</TitleA>
       <TitleLineB></TitleLineB>
       <TitleB>퀴즈 피드</TitleB>
-      <Back onClick={()=>{navigate("/ClassBoard");}}>{'<'}</Back> 
       </Tiltlediv> 
       <PostAssign>
       {quizs.map(quiz => (

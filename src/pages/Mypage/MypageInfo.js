@@ -2,6 +2,8 @@ import './MypageInfo.css';
 import temper from '../../img/temper.png';
 import Header from '../../HeaderNavComponent/Header';
 import Nav from '../../HeaderNavComponent/Nav';
+import { useAuth } from '../../AuthContext';
+
 
 
 function MypageInfo(){

@@ -149,31 +149,18 @@ top: 468px;
 `
 
 
-const Back=styled.button`
-position:absolute;
-top:90px;
-left:10px;
-border:none;
-background-color:#ffffff;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 17px;
-z-index=1;
-`
-
 function ClassBoard() {
+  const navigate = useNavigate();
   const [assignments, setAssignments] = useState([]);
   const [quiz, setquiz]=useState([]);
-  const navigate = useNavigate();
 
   useEffect(()=>{
     const fetchQuiz=async()=>{
       try{
-        const response=await axios.get('/api/quiz',
+        const response=await axios.get('http://15.164.143.187:8080/api/quiz',
         {
           headers: {
-            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+            Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2", //토큰값넣어야함!!
           },
         }
         );
@@ -189,9 +176,9 @@ function ClassBoard() {
   useEffect(() => {
     const fetchAssignments = async () => {
       try {
-        const response = await axios.get('/api/assignments',{
+        const response = await axios.get('http://15.164.143.187:8080/api/assignments',{
           headers: {
-            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+            Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1", //토큰값넣어야함!!
           },
         });
         setAssignments(response.data.slice(0, 6));
@@ -209,8 +196,7 @@ function ClassBoard() {
       <Header></Header>
       <TitleLineA/>
      
-      <TitleA>과목 게시판</TitleA>
-      <Back onClick={()=>{navigate("/OpenedCourses");}}>{'<'}</Back> 
+      <TitleA>과목 게시판</TitleA> 
       <TitleLineB></TitleLineB>
       <TitleB onClick={()=>{navigate("/StudyBoard");}}>스터디 게시판</TitleB>
       <BoradTitle>과제 게시판</BoradTitle>

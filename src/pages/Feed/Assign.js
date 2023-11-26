@@ -82,18 +82,6 @@ background:#FFEFEF;
 z-index: 1;
 `
 
-const Back=styled.button`
-position:absolute;
-top:90px;
-left:10px;
-border:none;
-background-color:#ffffff;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 17px;
-z-index=1;
-`
 
 function Assign() {
   const navigate = useNavigate();
@@ -102,15 +90,15 @@ function Assign() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("/api/assignments", {
+        const response = await axios.get("http://15.164.143.187:8080/api/assignments", {
           headers: {
-            Authorization: "YOUR_AUTH_TOKEN", //토큰값넣어야함!!
+            Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ", 
           },
         });
         const data = response.data;
-        setPosts(data); // API 응답 데이터를 상태에 설정
+        setPosts(data);
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error("응답에러", error);
       }
     };
     fetchPosts();
@@ -118,9 +106,9 @@ function Assign() {
  
   const handleDeletePost = async (postId) => {
     try {
-      await axios.delete(`/api/assignments/${postId}`, {
+      await axios.delete(`http://15.164.143.187:8080/api/assignments/${postId}`, {
         headers: {
-          Authorization: "YOUR_AUTH_TOKEN", // 토큰 값 넣어야 함
+          Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ", 
         },
       });
       console.log("삭제 성공");
@@ -139,7 +127,7 @@ function Assign() {
         <Tiltlediv>
       <TitleLineA/>
       <TitleA>과제 피드</TitleA>
-      <Back onClick={()=>{navigate("/ClassBoard");}}>{'<'}</Back> 
+      
       <TitleLineB></TitleLineB>
       <TitleB onClick={()=>{navigate("/Quiz");}}>퀴즈 피드</TitleB>
       </Tiltlediv>

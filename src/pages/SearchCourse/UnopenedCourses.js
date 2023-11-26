@@ -7,6 +7,7 @@ import plus from '../../img/plusB.png';
 import Header from "../../HeaderNavComponent/Header";
 import Nav from "../../HeaderNavComponent/Nav";
 import {useNavigate} from "react-router-dom";
+import { useAuth } from '../../AuthContext';
 
 
 const SearchContainer = styled.div`
@@ -143,18 +144,32 @@ background-repeat: no-repeat;
 `
 
 function UnopenedCourses() {
+  const { isLoggedIn } = useAuth();
   const [filter, setFilter] = useState('');
   const [studyData, setStudyData] = useState([]);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
+
+    if (!isLoggedIn) {
+      console.log('isLoggedIn:', isLoggedIn);
+      // 로그인 상태가 아니라면 로그인 페이지로 이동
+      navigate('/Login');
+    }
+
     const fetchData = async () => {
       try {
-        const response = await axios.get('/studies/freedom/all', {
+        const response = await axios.get('http://15.164.143.187:8080/studies/freedom/all',
+         {
+            params:{
+        
+      }}, {
           headers: {
-            Authorization: 'Your_Auth_Key',
             'Content-Type': 'application/json',
           },
         });
+
         setStudyData(response.data);
       } catch (error) {
         console.error('Error fetching study data:', error);
@@ -162,7 +177,7 @@ function UnopenedCourses() {
     };
 
     fetchData();
-  }, []);
+  }, [isLoggedIn]);
 
   const filteredData = () => {
     return studyData.filter(study => {
@@ -172,7 +187,6 @@ function UnopenedCourses() {
     });
   };
 
-  const navigate = useNavigate();
   return (
     <div id="body">
     <div id="iphone-frame">

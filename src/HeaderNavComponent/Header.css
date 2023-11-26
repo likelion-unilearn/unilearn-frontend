@@ -1,29 +1,29 @@
-  .header{
-    width: 390px;
-    height: 71px;    
-  }
-  
-  .logo {
-    width: 115px;
-    height: 30px;
-    position: relative;
-    margin-top: 13px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
+.header{
+  width: 390px;
+  height: 71px;    
+}
 
- .backButton{ 
-  position: absolute;
-  width: 7px;
-  height: 14px;
-  left: 27px;
-  top: 26px;
-  cursor: pointer;
- }
+.logo {
+  width: 115px;
+  height: 30px;
+  position: relative;
+  margin-top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-  .border-div1 {
-    width: 100%;
-    background: #F0F0F0;
-    height: 2px;
-  }
+
+.backButton{ 
+position: absolute;
+width: 7px;
+height: 14px;
+left: 27px;
+top: 26px;
+cursor: pointer;
+}
+
+.border-div1 {
+  width: 100%;
+  background: #F0F0F0;
+  height: 2px;
+}

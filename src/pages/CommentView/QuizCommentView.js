@@ -24,17 +24,6 @@ font-size: 15px;
 color: #7B7878;
 `
 
-const Back=styled.button`
-position:absolute;
-top:48px;
-left:20px;
-border:none;
-background-color:#ffffff;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 17px;
-`
 const Complete=styled.button`
 position:absolute;
 top:54px;
@@ -289,7 +278,6 @@ function QuizCommentView() {
         <Header></Header>
       <Framediv>
       <Title>퀴즈 피드</Title>
-      <Back onClick={() => { navigate("/Assign"); }}>{'<'}</Back>
       {currentUser.id === quizData.authorId && (
             <Complete onClick={handleDeleteQuiz}>삭제하기</Complete>
           )}
