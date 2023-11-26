@@ -192,8 +192,62 @@ function QuizCommentView() {
   const quizId = location.state?.quizId;
   const [quizData, setQuizData] = useState({}); // 받아온 퀴즈 데이터를 저장한 state임
   const [currentUser, setCurrentUser] = useState({}); 
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState(""); 
 
+  const handleDeleteComment = async (commentId) => {
+    try {
+      // 댓글 삭제 API 호출
+      await axios.delete(`/api/comments/${commentId}`, {
+        headers: {
+          Authorization: "YOUR_AUTH_TOKEN", // 토큰값 넣어야함!!
+        },
+      });
   
+      // 삭제된 댓글을 현재 상태에서 제거
+      setComments(comments.filter(comment => comment.comment_id !== commentId));
+    } catch (error) {
+      console.error("Error deleting comment:", error);
+    }
+  };
+
+  const handlePostComment = async () => {
+    try {
+      // 댓글 작성 API 호출
+      const response = await axios.post(`/api/quiz/${quizId}/comments`, {
+        text: newComment, // 사용자가 입력한 댓글 내용을 여기에 넣어야 합니다.
+      }, {
+        headers: {
+          Authorization: "YOUR_AUTH_TOKEN", // 토큰값 넣어야함!!
+          "Content-Type": "application/json",
+        },
+      });
+  
+      // 작성된 댓글을 현재 상태에 추가
+      setComments([...comments, response.data]);
+  
+      // 입력 창 비우기
+      setNewComment("");
+    } catch (error) {
+      console.error("Error posting comment:", error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get(`/api/quiz/${quizId}/comments`, {
+          headers: {
+            Authorization: "YOUR_AUTH_TOKEN", // 토큰값 넣어야함!!
+          },
+        });
+        setComments(response.data.comments); // API 응답 데이터를 상태에 설정
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+      }
+    };
+    fetchComments();
+  }, [quizId]);  
 
   useEffect(() => {
     const fetchQuizData = async () => {
@@ -250,19 +304,23 @@ function QuizCommentView() {
         <Nickname>{quizData.author}</Nickname>
         <Posttext>{quizData.content}
             <PostLine></PostLine>
-            <Commenter></Commenter>
-            <Commenter></Commenter>
-            <Commenter></Commenter>
-            <Commenter></Commenter>
-            <Commenter></Commenter>
-            <Commenter></Commenter>
-            <Commenter></Commenter>
+            {comments.map(comment => (
+            <Commenter
+              key={comment.comment_id}
+              text={comment.text}
+              author={comment.author}
+              created_at={comment.created_at}
+              onDelete={handleDeleteComment}
+            />
+          ))}
         </Posttext>
         </Wr>
       </WriteFrame>
       <Postarea>
-        <Post></Post>
-        <Postbtn>작성</Postbtn>
+        <Post 
+        value={newComment}
+        onChange={(e) => setNewComment(e.target.value)}></Post>
+        <Postbtn  onClick={handlePostComment}>작성</Postbtn>
         </Postarea>
         
       <Nav></Nav>

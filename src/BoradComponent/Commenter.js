@@ -68,14 +68,21 @@ width:80px;
 color:#8B8B8B;
 `
 
-function Commenter() {
+function Commenter(text, author,currentUser, onDelete ) {
+
+  const handleDeleteComment = () => {
+    // 댓글 삭제 버튼 클릭 시 onDelete 함수 호출
+    onDelete(commentId);
+  };
     return (
       <div>
       <Postdiv>
         <Profile></Profile>
-        <Nickname>익명</Nickname>
-        <Complete>삭제하기</Complete>
-        <Postcontent>데이터가 들어오는 거에따라서 높이가 달라지게끔 설정해 두었음</Postcontent>
+        <Nickname>{author}</Nickname>
+        {currentUser.id === author && (
+          <Complete onClick={handleDeleteComment}>삭제하기</Complete>
+        )}
+        <Postcontent>{text}</Postcontent>
         <PostLine></PostLine>
       </Postdiv>
       </div>
