@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom'; // 필요한 경우 라우터 모듈로 변경해야 할 수도 있습니다.
+import { useParams } from 'react-router-dom'; 
 import styled from 'styled-components';
 import Nav from "../../HeaderNavComponent/Nav";
 import Header from "../../HeaderNavComponent/Header";
@@ -79,16 +79,6 @@ height: 70px;
 `;
 
 
-const Body = styled.body`
-  background-color: #dedede;
-  overflow: hidden;
-  margin: 0; 
-  padding: 0;
-  height: 100%; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const IphoneFrame = styled.div`
   width: 390px;

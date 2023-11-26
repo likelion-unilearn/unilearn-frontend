@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import axios from 'axios';
 import unilearnLogo from '../../img/unilearn.png'; 
 import backButton from '../../img/back.png';
 
@@ -114,6 +115,7 @@ const SignUpForm = () => {
   const [nickname, setNickname] = useState('');
   const [passwordMismatch, setPasswordMismatch] = useState(false);
 
+
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
@@ -134,17 +136,27 @@ const SignUpForm = () => {
     setNickname(event.target.value);
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
       setPasswordMismatch(true);
     } else {
-      // 비밀번호 일치하는 경우
-      console.log('아이디:', username);
-      console.log('비밀번호:', password);
-      console.log('이름:', fullName);
-      console.log('닉네임:', nickname);
-      navigate('/SignupVerification'); // 다음 페이지로 이동
+      try {
+        const response = await axios.post('http://localhost:8080/signup', {
+          loginId: username,
+          Password: password,
+          Email: '92chanum@swu.ac.kr', 
+          Username: fullName,
+          Nickname: nickname,
+        });
+
+        console.log('회원가입 성공:', response.data);
+       
+        navigate('/SignupVerification');
+      } catch (error) {
+        console.error('회원가입 실패:', error);
+     
+      }
     }
   };
 
@@ -152,6 +164,16 @@ const SignUpForm = () => {
     console.log('뒤로 가기 버튼 클릭됨');
     navigate('/Login'); 
   };
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://15.164.143.187:8080/signup');
+      console.log('응답 데이터:', response.data);
+    } catch (error) {
+      console.error('에러 발생:', error);
+    }
+  };
+  fetchData();
 
   return (
     <Index>
