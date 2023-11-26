@@ -17,13 +17,13 @@ function NavB(){
         </button>
 
         <button style={{cursor: 'pointer'}} onClick={()=>{navigate("/OpenedCourses");}} className='downbarBtn'>
-          <Board/>
-          <br /><b className='text-color'>게시판</b>
+          <Board color='#9EB7AB'/>
+          <br /><b style={{color:'#9EB7AB'}} >게시판</b>
         </button>
 
         <button style={{cursor: 'pointer'}} onClick={()=>{navigate("/Mainpage");}} className='downbarBtn'>
-          <Main color='#9EB7AB'/>
-          <br /><b style={{color:'#9EB7AB'}} >메인</b>
+          <Main />
+          <br /><b className='text-color'>메인</b>
         </button>
 
         <button style={{cursor: 'pointer'}}  onClick={()=>{navigate("/MypageInfo");}} className='downbarBtn'>

@@ -223,7 +223,9 @@ const mapWeekdayToAbbreviatedEnglish = (weekday) => {
         const [todayScheduleCount, setTodayScheduleCount] = useState(0);
         const [newSchedule, setNewSchedule] = useState(""); 
         const [scheduledItems, setScheduledItems] = useState([]);
-
+        const { isLoggedIn } = useAuth();
+        const navigate = useNavigate();
+        
         const enrollSchedule = () => {
           
             const scheduleText = newSchedule;

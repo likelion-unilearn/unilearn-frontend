@@ -11,9 +11,10 @@ function NavA(){
     <div className='nav'>
       <div className='border-div2'></div>
       <div className="downbar" >
+
         <button style={{cursor: 'pointer'}} onClick={()=>{navigate("/MystudyList");}} className='downbarBtn'>
-          <Pencil/>
-          <br /><b className='text-color' >스터디</b>
+          <Pencil color='#9EB7AB'/>
+          <br /><b style={{color:'#9EB7AB'}} >스터디</b>
         </button>
 
         <button style={{cursor: 'pointer'}} onClick={()=>{navigate("/OpenedCourses");}} className='downbarBtn'>
@@ -22,8 +23,8 @@ function NavA(){
         </button>
 
         <button style={{cursor: 'pointer'}} onClick={()=>{navigate("/Mainpage");}} className='downbarBtn'>
-          <Main color='#9EB7AB'/>
-          <br /><b style={{color:'#9EB7AB'}} >메인</b>
+          <Main />
+          <br /><b className='text-color'>메인</b>
         </button>
 
         <button style={{cursor: 'pointer'}}  onClick={()=>{navigate("/MypageInfo");}} className='downbarBtn'>

@@ -5,9 +5,9 @@ import plus from '../../img/plusA.png';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from "../../HeaderNavComponent/Header";
-import Nav from "../../HeaderNavComponent/Nav";
-import {useNavigate} from "react-router-dom";
-
+import NavB from "../../HeaderNavComponent/NavB";
+import { useAuth } from '../../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const SearchContainer = styled.div`
   position: absolute;
@@ -145,9 +145,16 @@ function OpenedCourses() {
   const [filter, setFilter] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('subjectName');
   const [courseData, setCourseData] = useState([]);
+  const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
+
+    if (!isLoggedIn) {
+      console.log('isLoggedIn:', isLoggedIn);
+      // 로그인 상태가 아니라면 로그인 페이지로 이동
+      navigate('/Login');
+    }
     const fetchData = async () => {
       try {
         const response = await axios.get(`/api/courseOfferings`);
@@ -207,7 +214,7 @@ function OpenedCourses() {
          ))} 
           </FrameA2>
           <PlusButton/>
-          <Nav></Nav>
+          <NavB></NavB>
       </div>
       </div>
     );

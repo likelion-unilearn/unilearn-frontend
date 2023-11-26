@@ -17,18 +17,18 @@ function NavD(){
         </button>
 
         <button style={{cursor: 'pointer'}} onClick={()=>{navigate("/OpenedCourses");}} className='downbarBtn'>
-          <Board/>
+          <Board />
           <br /><b className='text-color'>게시판</b>
         </button>
 
         <button style={{cursor: 'pointer'}} onClick={()=>{navigate("/Mainpage");}} className='downbarBtn'>
-          <Main color='#9EB7AB'/>
-          <br /><b style={{color:'#9EB7AB'}} >메인</b>
+          <Main />
+          <br /><b className='text-color'>메인</b>
         </button>
 
         <button style={{cursor: 'pointer'}}  onClick={()=>{navigate("/MypageInfo");}} className='downbarBtn'>
-          <Mypage/>
-          <br/><b className='text-color'>마이페이지</b>
+          <Mypage color='#9EB7AB'/>
+          <br/><b style={{color:'#9EB7AB'}} >마이페이지</b>
         </button>
       </div>
     </div>
