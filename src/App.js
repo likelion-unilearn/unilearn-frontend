@@ -59,6 +59,8 @@ function App() {
           <Route path="/RecerMypage" element={< RecerMypage />}/>
           <Route path='/SubjectList' element={<SubjectList/>}/>
           <Route path='/SubjectRegist' element={<SubjectRegist/>}/>
+          <Route path='/RecruitStudy' element={<RecruitStudy/>}/>
+          <Route path='/Assignchange' element={<Assignchange/>}/>
           
     
         </Routes>
