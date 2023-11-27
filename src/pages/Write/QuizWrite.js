@@ -109,57 +109,79 @@ overflow-wrap: break-word;
 `
 function QuizWrite() {
   const userNickname = "사용자 닉네임 데이터"; 
-  const [content, setContent] = useState('');
+  // const [content, setContent] = useState('');
   const navigate = useNavigate();
   
-  const handleComplete = async () => {
-    try {
-      // API 호출 및 데이터 전송
-      await axios.post(
-        '/api/quiz/create',
-        {
-          title: title,
-          content: content,
-          author: userNickname,
-        },
-        {
-          headers: {
-            Authorization: 'YOUR_AUTH_TOKEN', // 실제 토큰 값으로 대체
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+  // const handleComplete = async () => {
+  //   try {
+  //     // API 호출 및 데이터 전송
+  //     await axios.post(
+  //       '/api/quiz/create',
+  //       {
+  //         title: title,
+  //         content: content,
+  //         author: userNickname,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: 'YOUR_AUTH_TOKEN', // 실제 토큰 값으로 대체
+  //           'Content-Type': 'application/json',
+  //         },
+  //       }
+  //     );
 
-      // 완료 후 페이지 이동
-      navigate('/Quiz');
-    } catch (error) {
-      console.error('Error creating post:', error);
-    }
-  };
+  //     // 완료 후 페이지 이동
+  //     navigate('/Quiz');
+  //   } catch (error) {
+  //     console.error('Error creating post:', error);
+  //   }
+  // };
   
-    return (
-      <div id="body">
-      <div id="iphone-frame">
-        <Header></Header>
-      <Framediv>
-        <Title>퀴즈 피드</Title>
-       <Content>게시글 작성</Content>
-       <Complete  onClick={handleComplete}>완료</Complete>
-       <Line></Line>
-      </Framediv>
-      <WriteFrame>
-        <Profile></Profile>
-        <Nickname>{userNickname}</Nickname>
-        <Posttext  placeholder="퀴즈에 대한 내용을 작성해보세요."
-        value={content}
-        onChange={(e) => setContent(e.target.value)}></Posttext>
-      </WriteFrame>
-      <></>
-      <Nav></Nav>
-      </div>
-      </div>
-    );
-  }
+  //   return (
+  //     <div id="body">
+  //     <div id="iphone-frame">
+  //       <Header></Header>
+  //     <Framediv>
+  //       <Title>퀴즈 피드</Title>
+  //      <Content>게시글 작성</Content>
+  //      <Complete>완료</Complete>
+  //      <Line></Line>
+  //     </Framediv>
+  //     <WriteFrame>
+  //       <Profile></Profile>
+  //       <Nickname>김멋사</Nickname>
+  //       <Posttext  placeholder="퀴즈에 대한 내용을 작성해보세요."
+  //       value={content}
+  //       onChange={(e) => setContent(e.target.value)}></Posttext>
+  //     </WriteFrame>
+  //     <></>
+  //     <Nav></Nav>
+  //     </div>
+  //     </div>
+  //   );
+  // }
+
+  return (
+    <div id="body">
+    <div id="iphone-frame">
+      <Header></Header>
+    <Framediv>
+      <Title>퀴즈 피드</Title>
+     <Content>게시글 작성</Content>
+     <Complete onClick={()=>{navigate("/Quiz");}}>완료</Complete>
+     <Line></Line>
+    </Framediv>
+    <WriteFrame>
+      <Profile></Profile>
+      <Nickname>김멋사</Nickname>
+      <Posttext  placeholder="퀴즈에 대한 내용을 작성해보세요."></Posttext>
+    </WriteFrame>
+    <></>
+    <Nav></Nav>
+    </div>
+    </div>
+  );
+}
   
   export default QuizWrite;
   

@@ -4,7 +4,7 @@ import ButtonC from "../../BoradComponent/ButtonC";
 import axios from "axios";
 import plus from '../../img/plusB.png';
 import Header from "../../HeaderNavComponent/Header";
-import Nav from "../../HeaderNavComponent/Nav";
+import NavB from "../../HeaderNavComponent/NavB";
 import {useNavigate} from "react-router-dom";
 
 
@@ -123,9 +123,10 @@ function StudyBoard() {
             study_recruited_num={study.study_recruited_num}
           />
         ))}
+        <ButtonC></ButtonC>
       </Main>
       <PlusButton></PlusButton>
-      <Nav></Nav>
+      <NavB></NavB>
       </div>
       </div>
   );

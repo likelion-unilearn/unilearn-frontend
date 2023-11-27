@@ -1,0 +1,42 @@
+.detail_box{
+    width: 307px;
+    height: 121px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 1px solid #C7C7C7;
+    background: #FFF;
+    display: block;
+    
+}
+
+.infoCheckBtn{
+    display: flex;
+    width: 62px;
+    height: 23px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #C2D6C5;
+    font-size: 8px;
+    font-weight: bold;
+    border-style: none;
+    margin-left: 70%;
+    position: relative;
+    top: 55px;
+    cursor: pointer;
+}
+
+.checkBtn{
+    width: 23px;
+    height: 19px;
+    flex-shrink: 0;
+    fill: #9EB7AB;
+}
+
+.closeBtn{
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    fill: #FFC8C8;
+}

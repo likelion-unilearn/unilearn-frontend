@@ -1,6 +1,6 @@
 import './RecruitStudy.css';
 import Header from '../../HeaderNavComponent/Header';
-import Nav from '../../HeaderNavComponent/Nav';
+import NavD from '../../HeaderNavComponent/NavD';
 import React, { useState } from 'react';
 
 function RecruitStudy(){
@@ -41,9 +41,6 @@ function RecruitStudy(){
         });
     };
     
-
-
-
     return(
     <div >
         <Header/>
@@ -199,10 +196,10 @@ function RecruitStudy(){
                             onClick={() => toggleDay(day)}
                             style={{ 
                                 background: selectedDays[day] ? '#547980' : '#A9BBBF',
-                                marginRight: '10px',
-                                borderRadius: '5px',
+                                marginRight: '0px',
+                                borderRadius: '1px',
                                 height: '35px',
-                                width:'35px',
+                                width:'45px',
                                 borderStyle: 'none'
                             }}
                         >
@@ -215,7 +212,7 @@ function RecruitStudy(){
                         <label style={{marginLeft:'10px'}}>{day}</label>
                         <input
                             type="text"
-                            placeholder={`${day}요일 시간`}
+                            placeholder={`0 0 : 0 0`}
                             style={{marginLeft: '25px'}}
                             className='input_time'
                         />
@@ -226,7 +223,7 @@ function RecruitStudy(){
             <button className='recruitBtn'>스터디 모집하기</button>
             <br/>
           </div>
-          <Nav/>
+          <NavD/>
           
     </div>
     );

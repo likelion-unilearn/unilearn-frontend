@@ -98,13 +98,17 @@
     height: 94px;
     display: flex;
     margin: 0 auto;
+    font-size: 15px;
 }
 
 .modify{
-    margin-left: 230px;
+    margin-left: 290px;
     border-style: none;
     background-color: #fff;
     cursor: pointer;
+    text-decoration: underline;
+    font-size: 12px;
+    margin-bottom: 2px;
 }
 
 .studyList{

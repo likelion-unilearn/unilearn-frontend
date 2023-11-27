@@ -145,16 +145,16 @@ function OpenedCourses() {
   const [filter, setFilter] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('subjectName');
   const [courseData, setCourseData] = useState([]);
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
 
-    if (!isLoggedIn) {
-      console.log('isLoggedIn:', isLoggedIn);
-      // 로그인 상태가 아니라면 로그인 페이지로 이동
-      navigate('/Login');
-    }
+    // if (!isLoggedIn) {
+    //   console.log('isLoggedIn:', isLoggedIn);
+
+    //   navigate('/Login');
+    // }
     const fetchData = async () => {
       try {
         const response = await axios.get(`/api/courseOfferings`);
@@ -204,14 +204,13 @@ function OpenedCourses() {
         </SearchContainer>
           <Line>
           </Line>
-          {filteredData().map(course => (
+          {/* {filteredData().map(course => (
           <ButtonA key={course.id}>
             <p>subjectName= {course.subject_name}</p>
             <p>professorName={course.subject_professor}</p>
-            <p>subjectMajor={course.subject_major}</p>
-            <p>subjectYear= {course.subject_year}</p>
           </ButtonA>
-         ))} 
+         ))} */}
+         <ButtonA></ButtonA>
           </FrameA2>
           <PlusButton/>
           <NavB></NavB>

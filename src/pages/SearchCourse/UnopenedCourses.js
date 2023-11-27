@@ -152,11 +152,11 @@ function UnopenedCourses() {
 
   useEffect(() => {
 
-    if (!isLoggedIn) {
-      console.log('isLoggedIn:', isLoggedIn);
-      // 로그인 상태가 아니라면 로그인 페이지로 이동
-      navigate('/Login');
-    }
+    // if (!isLoggedIn) {
+    //   console.log('isLoggedIn:', isLoggedIn);
+    //   // 로그인 상태가 아니라면 로그인 페이지로 이동
+    //   navigate('/Login');
+    // }
 
     const fetchData = async () => {
       try {
@@ -207,14 +207,16 @@ function UnopenedCourses() {
           />
         </SearchContainer>
         <Line></Line>
-         {filteredData().map(study => (
+         {/* {filteredData().map(study => (
           <ButtonB
             key={study.study_id}
             study_name={study.study_name}
             is_offline={study.is_offline}
             study_recruited_num={study.study_recruited_num}
           />
-        ))}
+        ))} */}
+        <ButtonB></ButtonB>
+
       </FrameA2>
       <PlusButton></PlusButton>
       <Nav></Nav>

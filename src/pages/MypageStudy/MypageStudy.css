@@ -7,7 +7,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 
@@ -68,7 +68,7 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    top: 100px;
+    top: 40px;
 }
 
 .operatorContnt{
@@ -82,5 +82,21 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    top: 100px;
+    top: 40px;
+}
+
+.blueCir1{
+    text-align: center;
+    width: 300px;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.blueCir2{
+    text-align: center;
+
 }

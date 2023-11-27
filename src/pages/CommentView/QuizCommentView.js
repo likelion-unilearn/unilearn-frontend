@@ -289,8 +289,8 @@ function QuizCommentView() {
       <WriteFrame>
         <Wr>
         <Profile></Profile>
-        <Nickname>{quizData.author}</Nickname>
-        <Posttext>{quizData.content}
+        <Nickname>{quizData.author}김멋사</Nickname>
+        <Posttext>{quizData.content}퀴즈 진짜 어렵지 않았어?? 난 너무 어렵다.
             <PostLine></PostLine>
             {comments.map(comment => (
             <Commenter
@@ -301,6 +301,7 @@ function QuizCommentView() {
               onDelete={handleDeleteComment}
             />
           ))}
+          
         </Posttext>
         </Wr>
       </WriteFrame>

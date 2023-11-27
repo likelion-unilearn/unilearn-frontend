@@ -5,7 +5,7 @@ import pin from '../../img/pin.jpg';
 import PostButton from '../../BoradComponent/ButtonD';
 import QuizButton from '../../BoradComponent/ButtonE';
 import Header from "../../HeaderNavComponent/Header";
-import Nav from "../../HeaderNavComponent/Nav";
+import NavB from "../../HeaderNavComponent/NavB";
 import {useNavigate} from "react-router-dom";
 
 const TitleLineA=styled.div`
@@ -200,24 +200,29 @@ function ClassBoard() {
       <TitleLineB></TitleLineB>
       <TitleB onClick={()=>{navigate("/StudyBoard");}}>스터디 게시판</TitleB>
       <BoradTitle>과제 게시판</BoradTitle>
-      <BoardA>
+      {/* <BoardA>
         {assignments.map((assignment) => (
           <PostButton key={assignment.id} content={assignment.content} />
         ))}
-         </BoardA>
+         </BoardA> */}
+        <BoardA>
+          <PostButton></PostButton></BoardA>
       <PlusA onClick={()=>{navigate("/Assign");}}>더보기</PlusA>
-      <BoardB>
+      {/* <BoardB>
         {quiz.map((q)=>(
            <QuizButton key={q.id} content={q.content}></QuizButton>
         )
         )}
-       
+
+      </BoardB> */}
+      <BoardB>
+        <QuizButton></QuizButton>
       </BoardB>
       <PlusB onClick={()=>{navigate("/Quiz");}}>더보기</PlusB>
       <StudyTitle>퀴즈 게시판</StudyTitle>
       <PinA img src={pin}></PinA>
       <PinB img src={pin}></PinB>
-      <Nav></Nav>
+      <NavB></NavB>
       </div>
       </div>
     );

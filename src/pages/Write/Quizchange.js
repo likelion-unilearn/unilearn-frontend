@@ -107,7 +107,7 @@ overflow-wrap: break-word;
 }
 `
 function Quizchange() {
-    const userNickname = "사용자 닉네임 데이터";
+    const userNickname = "김멋사";
     const [content, setContent] = useState('');
     const navigate = useNavigate();
     const location = useLocation(); 
@@ -115,45 +115,45 @@ function Quizchange() {
   
 
 
-  useEffect(() => {
-    // 해당 퀴즈의 정보를 가져와서 content에 설정
-    const fetchQuizData = async () => {
-      try {
-        const response = await axios.get(`/api/quiz/${quizId}`, {
-          headers: {
-            Authorization: "YOUR_AUTH_TOKEN", // 토큰값 넣어야함!!
-          },
-        });
-        setContent(response.data.content);
-      } catch (error) {
-        console.error("Error fetching quiz data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   // 해당 퀴즈의 정보를 가져와서 content에 설정
+  //   const fetchQuizData = async () => {
+  //     try {
+  //       const response = await axios.get(`/api/quiz/${quizId}`, {
+  //         headers: {
+  //           Authorization: "YOUR_AUTH_TOKEN", // 토큰값 넣어야함!!
+  //         },
+  //       });
+  //       setContent(response.data.content);
+  //     } catch (error) {
+  //       console.error("Error fetching quiz data:", error);
+  //     }
+  //   };
 
-    fetchQuizData();
-  }, [quizId]);
+  //   fetchQuizData();
+  // }, [quizId]);
 
-  const handleComplete = async () => {
-    try {
-      await axios.put(
-        `/api/quiz/${quizId}`,
-        {
-          content: content,
-        },
-        {
-          headers: {
-            Authorization: 'YOUR_AUTH_TOKEN', // 실제 토큰 값으로 대체
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+  // const handleComplete = async () => {
+  //   try {
+  //     await axios.put(
+  //       `/api/quiz/${quizId}`,
+  //       {
+  //         content: content,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: 'YOUR_AUTH_TOKEN', // 실제 토큰 값으로 대체
+  //           'Content-Type': 'application/json',
+  //         },
+  //       }
+  //     );
 
-      // 완료 후 페이지 이동
-      navigate('/Quiz');
-    } catch (error) {
-      console.error('Error updating quiz:', error);
-    }
-  };
+  //     // 완료 후 페이지 이동
+  //     navigate('/Quiz');
+  //   } catch (error) {
+  //     console.error('Error updating quiz:', error);
+  //   }
+  // };
      
 
   
@@ -164,16 +164,17 @@ function Quizchange() {
       <Framediv>
         <Title>퀴즈 피드</Title>
        <Content>게시글 수정</Content>
-       <Complete  onClick={handleComplete}>수정</Complete>
+       <Complete onClick={()=>{navigate("/QuizCommentView");}}>수정</Complete>
        <Line></Line>
       </Framediv>
       <WriteFrame>
         <Profile></Profile>
         <Nickname>{userNickname}</Nickname>
-        <Posttext
+        {/* <Posttext
             value={content}
             onChange={(e) => setContent(e.target.value)}
-          ></Posttext>
+          ></Posttext> */}
+          <Posttext>퀴즈 진짜 어렵지 않았어?? 난 너무 어렵다.</Posttext> 
       </WriteFrame>
       <></>
       <Nav></Nav>

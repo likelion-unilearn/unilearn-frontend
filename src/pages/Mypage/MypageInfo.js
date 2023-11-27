@@ -2,11 +2,12 @@ import './MypageInfo.css';
 import temper from '../../img/temper.png';
 import Header from '../../HeaderNavComponent/Header';
 import NavD from '../../HeaderNavComponent/NavD';
-import { useAuth } from '../../AuthContext';
+import {useNavigate} from "react-router-dom";
 
 
 
 function MypageInfo(){
+    const navigate = useNavigate();
     return(
         <div>
             <Header/>
@@ -23,7 +24,7 @@ function MypageInfo(){
                 <button className="recer">재인증</button>
                 </div>
                 <div className="profile">
-                    <p className="user">사용자</p>
+                    <p className="user">김멋사</p>
                     <p className="major">소프트웨어융합학과</p>
                     <p className="academicNumber">20학번</p>
                 </div>
@@ -37,14 +38,16 @@ function MypageInfo(){
             <br/>
 
             <div className="container">
-            <div className="introduce-text">자기소개</div>
+            <div className="introduce-text"></div>
             <button className="modify">수정</button>
             </div>
-            <textarea className="introduce"></textarea>
+            <div className="introduce">
+            <p style={{marginLeft:'20px', marginRight:'20px'}}>현재 기업 코딩 스터디 및 C++ 기초 단기완성 스터디에 참여 중입니다!</p>
+            </div>
 
-            <button className="studyList">스터디 목록</button>
-            <button className="subjectList">수강 과목</button>
-            <button className="studyRecruit">스터디 모집</button>
+            <button className="studyList" onClick={()=>{navigate("/MypageStudy");}}>스터디 목록</button>
+            <button className="subjectList" onClick={()=>{navigate("/SubjectList");}}>수강 과목</button>
+            <button className="studyRecruit" onClick={()=>{navigate("/RecruitStudy");}}>스터디 모집</button>
 
         <NavD/>
         </div>
