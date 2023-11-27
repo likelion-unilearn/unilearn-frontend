@@ -5,7 +5,7 @@ import pin from '../../img/pin.jpg';
 import PostButton from '../../BoradComponent/ButtonD';
 import QuizButton from '../../BoradComponent/ButtonE';
 import Header from "../../HeaderNavComponent/Header";
-import Nav from "../../HeaderNavComponent/Nav";
+import NavB from "../../HeaderNavComponent/NavB";
 import {useNavigate} from "react-router-dom";
 
 const TitleLineA=styled.div`
@@ -222,7 +222,7 @@ function ClassBoard() {
       <StudyTitle>퀴즈 게시판</StudyTitle>
       <PinA img src={pin}></PinA>
       <PinB img src={pin}></PinB>
-      <Nav></Nav>
+      <NavB></NavB>
       </div>
       </div>
     );

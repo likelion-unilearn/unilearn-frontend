@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from "../../HeaderNavComponent/Header";
-import Nav from "../../HeaderNavComponent/Nav";
+import NavB from "../../HeaderNavComponent/NavB";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
@@ -157,7 +157,7 @@ function AssignWrite() {
           ></Posttext>
         </WriteFrame>
         <></>
-        <Nav></Nav>
+        <NavB></NavB>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import QuizComponent from "../../BoradComponent/QuizComponent";
 import Header from "../../HeaderNavComponent/Header";
-import Nav from "../../HeaderNavComponent/Nav";
+import NavB from "../../HeaderNavComponent/NavB";
 import {useNavigate} from "react-router-dom";
 import axios from 'axios'; 
 
@@ -125,7 +125,7 @@ function Quiz() {
           <QuizComponent></QuizComponent>
       </PostAssign>
       <WriteButton onClick={()=>{navigate("/QuizWrite");}}>글 작성하기</WriteButton>
-     <Nav></Nav>
+     <NavB></NavB>
       </div>
       </div>
     );

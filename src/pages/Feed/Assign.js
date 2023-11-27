@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PostComponent from "../../BoradComponent/PostComponent";
 import {useNavigate} from "react-router-dom";
 import Header from "../../HeaderNavComponent/Header";
-import Nav from "../../HeaderNavComponent/Nav";
+import NavB from "../../HeaderNavComponent/NavB";
 import axios from 'axios'; 
 
 const Tiltlediv=styled.div`
@@ -144,7 +144,7 @@ function Assign() {
       </PostAssign>
       <PostComponent></PostComponent>
       <WriteButton onClick={()=>{navigate("/AssignWrite");}}>글 작성하기</WriteButton>
-      <Nav></Nav>
+      <NavB></NavB>
       </div>
       </div>
     );

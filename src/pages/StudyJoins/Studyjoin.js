@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Header from "../../HeaderNavComponent/Header";
-import Nav from "../../HeaderNavComponent/Nav";
+import NavB from "../../HeaderNavComponent/NavB";
 import {useNavigate} from "react-router-dom";
 
 
@@ -411,10 +411,8 @@ function Studyjoin() {
                 <ApplyText>스터디 지원하기</ApplyText>
                </ApplyButton>
                <ApplyStudyText isActive={isChecked} >스터디 참여가 확정되면 알림을 보내드려요!</ApplyStudyText>
-            </Checking>
-           
-            
-            <Nav></Nav>
+            </Checking> 
+            <NavB></NavB>
       </div>
       </div>
      
