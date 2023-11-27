@@ -1,0 +1,15 @@
+.textContainer{
+    text-align: center;
+}
+.appintro{
+    width: 324px;
+    height: 126px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #9EB7AB;
+    background: #FFF;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}

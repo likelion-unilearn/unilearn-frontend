@@ -33,6 +33,9 @@ import MypageStudy from './pages/MypageStudy/MypageStudy';
 import MypageStudyDetail from './pages/MypageStudyDetail/MypageStudyDetail';   
 import Mainpage from './pages/Schedule/Mainpage'
 import { AuthProvider } from './AuthContext';
+import RecruitStudymember from './pages/RecruitStudymember/RecruitStudymember';
+import ManageStudymember from './pages/ManageStudymember/ManageStudymember';
+import StudyApplicant from './pages/StudyApplicant/StudyApplicant';
 
 function App() {
   const pageStyle = {
@@ -73,6 +76,10 @@ function App() {
           <Route path='/MypageStudy' element={<MypageStudy/>}/>
           <Route path='/MypageStudyDetail' element={<MypageStudyDetail/>}/>
           <Route path='/Mainpage' element={<Mainpage/>}/>
+          <Route path='/ManageStudymember' element={<ManageStudymember/>}/>
+          <Route path='/RecruitStudymember' element={<RecruitStudymember/>}/>
+          <Route path='/StudyApplicant' element={<StudyApplicant/>}/>
+          
 
         </Routes>
 
