@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import NavD from "../../HeaderNavComponent/NavA";
+import NavC from "../../HeaderNavComponent/NavA";
 import Header from "../../HeaderNavComponent/Header";
 
 const Title = styled.p`
@@ -160,7 +160,7 @@ const MystudyList = () => {
           </StudyPostLink>
         ))}
       </Board>
-      <NavD />
+      <NavC />
     </div>
   );
 };
