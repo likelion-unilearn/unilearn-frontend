@@ -22,15 +22,15 @@
     margin-right: auto;
 }
 
-.addBtn1{
+.addBtn{
     width: 45px;
     height: 45px;
-    flex-shrink: 0;
-    background-color: #9EB7AB;
     border-style: none;
     border-radius: 50%;
     position: absolute;
     top: 85%;
     left: 80%;
     cursor: pointer;
+    background-color: #FFF;
+    z-index: 1;
 }

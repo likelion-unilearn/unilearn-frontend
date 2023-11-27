@@ -49,6 +49,7 @@
     font-weight: bold;
     font-size: 16px;
     color: #645D5D;
+    cursor: pointer;
 }
 
 .input_time{

@@ -1,8 +1,10 @@
 import './RecerMypage.css';
 import Header from '../../HeaderNavComponent/Header';
 import Nav from '../../HeaderNavComponent/Nav';
+import {useNavigate} from "react-router-dom";
 
 function RecerMypage(){
+    const navigate = useNavigate();
     return(
         <div>
             <Header/>
@@ -40,7 +42,9 @@ function RecerMypage(){
             <div className='studentCard'>학생증을 올려주세요</div>
 
             <br/><br/>
-            <button className='approvalBtn'>승인신청 하기</button>
+            <button 
+            onClick={()=>{navigate("/MypageInfo");}}
+            className='approvalBtn'>승인신청 하기</button>
 
         <Nav/>
         </div>

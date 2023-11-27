@@ -2,8 +2,10 @@ import './RecruitStudy.css';
 import Header from '../../HeaderNavComponent/Header';
 import NavD from '../../HeaderNavComponent/NavD';
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
 
 function RecruitStudy(){
+    let navigate = useNavigate();
     const [isDepositChecked, setIsDepositChecked] = useState(false);
 
     const handleCheckboxChange = (event) => {
@@ -220,7 +222,8 @@ function RecruitStudy(){
                 ))}
             </div>
 
-            <button className='recruitBtn'>스터디 모집하기</button>
+            <button onClick={()=>{navigate("/MypageStudy");}}
+            className='recruitBtn'>스터디 모집하기</button>
             <br/>
           </div>
           <NavD/>

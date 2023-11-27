@@ -21,7 +21,9 @@ function MypageInfo(){
                 <svg xmlns="http://www.w3.org/2000/svg" width="70" height="72" viewBox="0 0 71 71" fill="none">
                 <path d="M70.5 35.5C70.5 54.83 54.83 70.5 35.5 70.5C16.17 70.5 0.5 54.83 0.5 35.5C0.5 16.17 16.17 0.5 35.5 0.5C54.83 0.5 70.5 16.17 70.5 35.5Z" stroke="#BFBFBF"/>
                 </svg>
-                <button className="recer">재인증</button>
+                <button
+                onClick={()=>{navigate("/RecerMypage");}}
+                className="recer">재인증</button>
                 </div>
                 <div className="profile">
                     <p className="user">김멋사</p>
