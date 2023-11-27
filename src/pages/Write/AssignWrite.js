@@ -112,7 +112,7 @@ const Posttext = styled.textarea`
 function AssignWrite() {
   const [content, setContent] = useState('');
   const navigate = useNavigate();
-  const userNickname = "사용자 닉네임 데이터";
+  const userNickname = "김멋사";
   const temporaryToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMTIzNCIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3MDEwMDM3NjYsImV4cCI6MTcwMTAwNzM2Nn0.ymMoTN5ovtQmwFo9Z4E7JOCZ-ow2dJPl9yuH73DmJOc';  // 여기에 실제 토큰 값을 입력하세요.
 
   const handleComplete = async () => {
