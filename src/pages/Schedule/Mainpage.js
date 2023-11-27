@@ -5,7 +5,7 @@ import "react-calendar/dist/Calendar.css";
 import Header from '../../HeaderNavComponent/Header';
 import NavC from '../../HeaderNavComponent/NavC';
 import axios from "axios";
-import { useAuth } from '../../AuthContext';
+// import { useAuth } from '../../AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
@@ -159,7 +159,7 @@ const CustomCalendar = styled(Calendar)`
   }
 
   & .react-calendar__tile--active {
-    background-color: #2A6B69;
+    background-color: #C6F1E7;
     color: #fff;
     border-radius:5px;
   }
@@ -223,7 +223,7 @@ const mapWeekdayToAbbreviatedEnglish = (weekday) => {
         const [todayScheduleCount, setTodayScheduleCount] = useState(0);
         const [newSchedule, setNewSchedule] = useState(""); 
         const [scheduledItems, setScheduledItems] = useState([]);
-        const { isLoggedIn } = useAuth();
+        // const { isLoggedIn } = useAuth();
         const navigate = useNavigate();
         
         const enrollSchedule = () => {
@@ -260,11 +260,11 @@ const mapWeekdayToAbbreviatedEnglish = (weekday) => {
 
         useEffect(() => {
 
-          if (!isLoggedIn) {
-            console.log('isLoggedIn:', isLoggedIn);
-            // 로그인 상태가 아니라면 로그인 페이지로 이동
-            navigate('/Login');
-          }
+          // if (!isLoggedIn) {
+          //   console.log('isLoggedIn:', isLoggedIn);
+          //   // 로그인 상태가 아니라면 로그인 페이지로 이동
+          //   navigate('/Login');
+          // }
             const fetchSchedules = async () => {
                 try {
                   const response = await axios.get(
@@ -345,7 +345,6 @@ const mapWeekdayToAbbreviatedEnglish = (weekday) => {
       </Schduleenrolldiv>
 
       <ScheduleList schedules={scheduledItems} /> {/* ScheduleList 컴포넌트 사용 */}
-
       <NavC ></NavC>
 
 
