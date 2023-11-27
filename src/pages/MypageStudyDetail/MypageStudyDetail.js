@@ -2,8 +2,10 @@ import './MypageStudyDetail.css'
 import Header from '../../HeaderNavComponent/Header';
 import Nav from '../../HeaderNavComponent/Nav';
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
 
 function MypageStudyDetail(){
+    let navigate = useNavigate();
     const [isMemberFull, setIsMemberFull] = useState(false);
 
     const handleButtonClick = () => {
@@ -33,10 +35,11 @@ function MypageStudyDetail(){
                 취준생 우대합니다.
                 탈주하지 않고 꾸준히 공부할 분들만 신청해주세요</div>
 
-            <div className='member'>모집인원: </div>
-            <div className='stdPeriod'>기간: </div>
+            <div className='member'>모집인원: 100명</div>
+            <div className='stdPeriod'>기간:  23 년9월 ~ 2월</div>
 
-            <button className='memberRecruit' onClick={handleButtonClick}>
+            <button 
+            className='memberRecruit' onClick={()=>{navigate("/RecruitStudymember");}}>
                 <b>{isMemberFull ? '스터디원 관리하기' : '스터디원 모집하기'}</b>
             </button>
 

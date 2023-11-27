@@ -1,8 +1,10 @@
 import './SubjectRegist.css'
 import Header from '../../HeaderNavComponent/Header';
 import Nav from '../../HeaderNavComponent/Nav';
+import {useNavigate} from "react-router-dom";
 
 function SubjectRegist(){
+    let navigate = useNavigate();
     return(
         <div>
             <Header/>
@@ -61,7 +63,8 @@ function SubjectRegist(){
                 ></input>
             </div>
             
-            <button className='registBtn'>수강 정보 등록하기</button>
+            <button onClick={()=>{navigate("/SubjectList");}} 
+            className='registBtn'>수강 정보 등록하기</button>
         <Nav/>
         </div>
 
