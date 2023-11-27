@@ -32,7 +32,6 @@ import SurveySubmit from './pages/Survey/SurveySubmit';
 import SurveyMain from './pages/Survey/SurveyMain';
 import MypageStudy from './pages/MypageStudy/MypageStudy';
 import MypageStudyDetail from './pages/MypageStudyDetail/MypageStudyDetail';   
-import Mainpage from './pages/Schedule/Mainpage'
 import { AuthProvider } from './AuthContext';
 
 function App() {
