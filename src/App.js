@@ -33,6 +33,7 @@ import SurveyMain from './pages/Survey/SurveyMain';
 import MypageStudy from './pages/MypageStudy/MypageStudy';
 import MypageStudyDetail from './pages/MypageStudyDetail/MypageStudyDetail';   
 import { AuthProvider } from './AuthContext';
+import Mainpage from './pages/Schedule/Mainpage';
 
 function App() {
   const pageStyle = {
@@ -79,6 +80,7 @@ function App() {
           <Route path='/MypageStudy' element={<MypageStudy/>}/>
           <Route path='/MypageStudyDetail' element={<MypageStudyDetail/>}/>
           <Route path='/Mainpage' element={<Mainpage/>}/>
+          {/* <Route path='/SurveyForm' element={<SurveyForm/>}/> */}
 
         </Routes>
 

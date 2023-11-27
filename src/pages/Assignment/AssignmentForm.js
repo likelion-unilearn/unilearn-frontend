@@ -242,7 +242,7 @@ const AssignmentForm = () => {
   };
 
   return (
-    <IphoneFrame>
+<div>
       <Header />
       <Top>
         <Title>과제 제출</Title>
@@ -285,7 +285,7 @@ const AssignmentForm = () => {
         </form>
       </AssignmentContainer>
       <Nav />
-    </IphoneFrame>
+    </div>
   );
 };
 
