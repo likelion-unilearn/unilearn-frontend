@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import {useNavigate} from "react-router-dom";
 
 const Postdiv=styled.div`
 position: relative;
@@ -67,13 +68,25 @@ border: 1px solid #EFEFEF;
 `
 
 function QuizComponent({ author, content }) {
-
+  const navigate = useNavigate();
     return (
       <div>
+      <Postdiv onClick={()=>{navigate("/QuizCommentView");}}>
+        <Profile></Profile>
+        <Nickname>김멋사</Nickname>
+        <Postcontent>퀴즈 진짜 어렵지 않았어?? 난 너무 어렵다.</Postcontent>
+        <PostLine></PostLine>
+      </Postdiv>
       <Postdiv>
         <Profile></Profile>
-        <Nickname>{author}</Nickname>
-        <Postcontent>{content}</Postcontent>
+        <Nickname>박멋사</Nickname>
+        <Postcontent>이거 퀴즈 푼 사람들 어떤식으로 풀었어??알려주면 좋을 것 같은데..</Postcontent>
+        <PostLine></PostLine>
+      </Postdiv>
+      <Postdiv>
+        <Profile></Profile>
+        <Nickname>최멋사</Nickname>
+        <Postcontent>운영체제 5주차 때 교수님이 내주신 과제에서 이 부분 참고할까?</Postcontent>
         <PostLine></PostLine>
       </Postdiv>
       </div>

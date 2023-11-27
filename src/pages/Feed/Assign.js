@@ -142,6 +142,7 @@ function Assign() {
             />
           ))}
       </PostAssign>
+      <PostComponent></PostComponent>
       <WriteButton onClick={()=>{navigate("/AssignWrite");}}>글 작성하기</WriteButton>
       <Nav></Nav>
       </div>
