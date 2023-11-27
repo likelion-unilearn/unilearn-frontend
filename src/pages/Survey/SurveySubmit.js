@@ -76,27 +76,27 @@ const SurveySubmit = () => {
   const [surveyData, setSurveyData] = useState(null);
 
   const placeholderSurveyData = {
-    title: 'Your Survey Title',
+    title: '운영체제 뿌셔뿌셔',
     questions: [
       {
         id: 1,
-        title: 'Question 1 Title',
+        title: '김멋사',
         options: [
-          { id: 1, text: 'Option 1' },
-          { id: 2, text: 'Option 2' },
-          // Add more options as needed
+          { id: 1, text: '과제 제출은 성실하였는가?' },
+          { id: 2, text: '과제를 시간 안에 제출하였는가?' },
+
         ],
       },
       {
         id: 2,
-        title: 'Question 2 Title',
+        title: '김사월',
         options: [
-          { id: 3, text: 'Option A' },
-          { id: 4, text: 'Option B' },
-          // Add more options as needed
+          { id: 3, text: '과제 제출은 성실하였는가?' },
+          { id: 4, text: '과제를 시간 안에 제출하였는가?' },
+       
         ],
       },
-      // Add more questions as needed
+   
     ],
   };
 
@@ -115,8 +115,7 @@ const SurveySubmit = () => {
   };
 
   const handleSurveySubmit = (selectedOptions) => {
-    // Handling the submission of survey data
-    // You can implement the logic to send the selected options to the server
+  
   };
 
   return (
@@ -125,7 +124,7 @@ const SurveySubmit = () => {
         <UnilearnImage src={unilearnLogo} alt="Unilearn" />
         <BackButton onClick={handleBackClick} />
       </Top>
-      <Title>Survey</Title>
+      <Title>설문조사</Title>
       <FormContainer>
         {surveyData ? (
           <form onSubmit={handleSurveySubmit}>

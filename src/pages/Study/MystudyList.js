@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import NavA from "../../HeaderNavComponent/NavA";
+import { Link } from 'react-router-dom';
+import NavC from "../../HeaderNavComponent/NavA";
 import Header from "../../HeaderNavComponent/Header";
 
 const Title = styled.p`
-
-width: 82px;
-height: 18px;
-left: 157px;
-top: 90px;
+  width: 82px;
+  height: 18px;
+  left: 157px;
+  top: 90px;
   font-family: 'Abhaya Libre ExtraBold';
   font-style: normal;
   font-weight: 800;
@@ -27,13 +27,20 @@ top: 90px;
     left: 158px;
     top: 126px;
     background: #C2D6C5;
-    bottom: -5px; /* 텍스트 아래에서의 거리 조절 */
-    left: 50%; /* 텍스트 가로 중앙 정렬을 위한 설정 */
-    transform: translateX(-50%); /* 텍스트 가로 중앙 정렬을 위한 설정 */
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
   }
-
 `;
 
+const Index = styled.div`
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 390px;
+  background: #ffffff;
+  position: relative;
+`;
 
 const IphoneFrame = styled.div`
   width: 390px;
@@ -42,24 +49,23 @@ const IphoneFrame = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
+`;
 
-`;
 const Top = styled.div`
-width: 390px;
-height: 70px;
+  width: 390px;
+  height: 70px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  
 `;
+
 const Board = styled.div`
-width: 390px;
-height: 570px;
+  width: 390px;
+  height: 570px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  overflow-y: auto; /* 스크롤 추가 */
-  
+  overflow-y: auto;
 `;
 
 const StudyPost = styled.div`
@@ -87,17 +93,25 @@ const StudyDetails = styled.div`
   color: #888;
 `;
 
+const StudyPostLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 const MystudyList = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-  
     const mockData = [
       {
         imageUrl: 'https://via.placeholder.com/150',
         title: 'Sample Study Title',
         dateTime: '월요일 14:00-15:00',
-        nickname: 'Jiyoon',
+        nickname: '김멋사',
         participants: 5,
         createdAt: '1일전',
       },
@@ -105,7 +119,7 @@ const MystudyList = () => {
         imageUrl: 'https://via.placeholder.com/150',
         title: 'Sample Study Title 2',
         dateTime: '화요일 14:00-15:00',
-        nickname: '홍길동',
+        nickname: '김멋사',
         participants: 8,
         createdAt: '3일전',
       },
@@ -117,25 +131,23 @@ const MystudyList = () => {
         participants: 8,
         createdAt: '3일전',
       }
-      
-      
-
     ];
 
     setPosts(mockData);
   }, []);
 
   return (
-      <IphoneFrame>
-        <Header />
-        <Top>
+    <div>
+      <Header />
+      <Top>
         <Title>나의 스터디</Title>
-        </Top>
-        <Board>
-          {posts.map((post, index) => (
-            <StudyPost key={index}>
+      </Top>
+      <Board>
+        {posts.map((post, index) => (
+          <StudyPostLink key={index} to={`/studyDetail/${index}`}>
+            <StudyPost>
               <ImageContainer>
-                <img src={post.imageUrl} alt={`Study ${index}`} />
+                <img src={post.imageUrl} alt={`studyDetail ${index}`} />
               </ImageContainer>
               <StudyTitle>{post.title}</StudyTitle>
               <StudyDetails>
@@ -145,10 +157,11 @@ const MystudyList = () => {
                 <span>{post.createdAt}</span>
               </StudyDetails>
             </StudyPost>
-          ))}
-        </Board>
-        <NavA />
-      </IphoneFrame>
+          </StudyPostLink>
+        ))}
+      </Board>
+      <NavC />
+    </div>
   );
 };
 

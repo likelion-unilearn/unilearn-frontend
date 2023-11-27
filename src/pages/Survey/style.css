@@ -1,0 +1,440 @@
+.index {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .index .div {
+    background-color: #ffffff;
+    height: 844px;
+    overflow: hidden;
+    position: relative;
+    width: 390px;
+  }
+  
+  .index .overlap {
+    height: 96px;
+    left: 0;
+    position: absolute;
+    top: 15px;
+    width: 560px;
+  }
+  
+  .index .tab-bar-top {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 51px;
+    width: 390px;
+  }
+  
+  .index .text-wrapper {
+    color: #547980;
+    font-family: "Oleo Script Swash Caps", Helvetica;
+    font-size: 30px;
+    font-weight: 400;
+    left: 141px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 419px;
+  }
+  
+  .index .p {
+    color: #4b4949;
+    font-family: "Inter", Helvetica;
+    font-size: 17px;
+    font-weight: 400;
+    left: 128px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 54px;
+  }
+  
+  .index .span {
+    font-weight: 600;
+  }
+  
+  .index .text-wrapper-2 {
+    font-weight: 700;
+  }
+  
+  .index .icon-notification {
+    height: 20px;
+    left: 348px;
+    position: absolute;
+    top: 11px;
+    width: 18px;
+  }
+  
+  .index .overlap-group {
+    background-image: url(https://cdn.animaapp.com/projects/6562cafc4e4ddfb844c5d1d9/releases/65645df78adc4ddd302b0545/img/tab-bar--top--1.svg);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 1px;
+    left: 4px;
+    position: absolute;
+    top: 774px;
+    width: 386px;
+  }
+  
+  .index .img {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 386px;
+  }
+  
+  .index .rectangle {
+    background-color: #dce1df;
+    height: 2px;
+    left: 160px;
+    position: absolute;
+    top: 121px;
+    width: 69px;
+  }
+  
+  .index .text-wrapper-3 {
+    color: #00000096;
+    font-family: "Noto Sans", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 35px;
+    letter-spacing: -0.33px;
+    line-height: normal;
+    position: absolute;
+    top: 180px;
+  }
+  
+  .index .text-wrapper-4 {
+    color: #00000096;
+    font-family: "Noto Sans", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 35px;
+    letter-spacing: -0.33px;
+    line-height: normal;
+    position: absolute;
+    top: 467px;
+  }
+  
+  .index .overlap-2 {
+    height: 165px;
+    left: 0;
+    position: absolute;
+    top: 600px;
+    width: 390px;
+  }
+  
+  .index .text-wrapper-5 {
+    color: #00000096;
+    font-family: "Noto Sans", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 35px;
+    letter-spacing: -0.33px;
+    line-height: normal;
+    position: absolute;
+    top: 140px;
+  }
+  
+  .index .group {
+    height: 141px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 390px;
+  }
+  
+  .index .div-wrapper {
+    height: 18px;
+    left: 36px;
+    position: absolute;
+    top: 6px;
+    width: 170px;
+  }
+  
+  .index .text-wrapper-6 {
+    color: var(--main-black);
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 300;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .index .element {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: inline-flex;
+    gap: 5px;
+    justify-content: center;
+    left: 279px;
+    padding: 7px 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .index .text-wrapper-7 {
+    color: #615151;
+    font-family: "Inter", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    width: fit-content;
+  }
+  
+  .index .div-2 {
+    background-color: #fbfbfc;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 45px;
+    width: 390px;
+  }
+  
+  .index .group-2 {
+    height: 94px;
+    left: 0;
+    position: absolute;
+    top: 47px;
+    width: 390px;
+  }
+  
+  .index .group-3 {
+    height: 47px;
+    left: 0;
+    position: absolute;
+    top: 47px;
+    width: 390px;
+  }
+  
+  .index .line {
+    height: 2px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 137px;
+    width: 390px;
+  }
+  
+  .index .overlap-3 {
+    height: 47px;
+    left: 0;
+    position: absolute;
+    top: 219px;
+    width: 390px;
+  }
+  
+  .index .group-4 {
+    height: 47px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 390px;
+  }
+  
+  .index .group-5 {
+    height: 18px;
+    left: 36px;
+    position: absolute;
+    top: 6px;
+    width: 198px;
+  }
+  
+  .index .group-6 {
+    height: 41px;
+    left: 0;
+    position: absolute;
+    top: 6px;
+    width: 390px;
+  }
+  
+  .index .group-7 {
+    height: 18px;
+    left: 36px;
+    position: absolute;
+    top: 0;
+    width: 198px;
+  }
+  
+  .index .div-3 {
+    background-color: #fbfbfc;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 39px;
+    width: 390px;
+  }
+  
+  .index .group-8 {
+    height: 47px;
+    left: 0;
+    position: absolute;
+    top: 266px;
+    width: 390px;
+  }
+  
+  .index .overlap-4 {
+    height: 141px;
+    left: 0;
+    position: absolute;
+    top: 314px;
+    width: 390px;
+  }
+  
+  .index .line-2 {
+    height: 2px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 138px;
+    width: 390px;
+  }
+  
+  .index .overlap-5 {
+    height: 47px;
+    left: 0;
+    position: absolute;
+    top: 505px;
+    width: 390px;
+  }
+  
+  .index .group-9 {
+    height: 47px;
+    left: 0;
+    position: absolute;
+    top: 552px;
+    width: 390px;
+  }
+  
+  .index .text-wrapper-8 {
+    color: #7b7878;
+    font-family: "Inter", Helvetica;
+    font-size: 10px;
+    font-weight: 600;
+    left: 68px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 131px;
+  }
+  
+  .index .view {
+    height: 46px;
+    left: 41px;
+    position: absolute;
+    top: 784px;
+    width: 322px;
+  }
+  
+  .index .icon {
+    height: 24px !important;
+    left: 274px !important;
+    position: absolute !important;
+    top: 7px !important;
+    width: 24px !important;
+  }
+  
+  .index .component-1 {
+    height: 24px !important;
+    left: 185px !important;
+    position: absolute !important;
+    top: 5px !important;
+    width: 24px !important;
+  }
+  
+  .index .text-wrapper-9 {
+    color: #9eb7ab;
+    font-family: "Inter", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    left: 186px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 31px;
+  }
+  
+  .index .icon-2 {
+    height: 24px !important;
+    left: 98px !important;
+    position: absolute !important;
+    top: 5px !important;
+    width: 24px !important;
+  }
+  
+  .index .text-wrapper-10 {
+    color: #9eb6ab;
+    font-family: "Inter", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    left: 93px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 31px;
+  }
+  
+  .index .text-wrapper-11 {
+    color: #9eb6ab;
+    font-family: "Inter", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    left: 258px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 31px;
+  }
+  
+  .index .overlap-group-2 {
+    height: 46px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 39px;
+  }
+  
+  .index .text-wrapper-12 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 31px;
+  }
+  
+  .index .ei-pencil {
+    height: 35px;
+    left: 4px;
+    position: absolute;
+    top: 0;
+    width: 35px;
+  }
+  

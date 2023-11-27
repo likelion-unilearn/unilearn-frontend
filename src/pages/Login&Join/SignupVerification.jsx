@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import unilearnLogo from '../../img/unilearn.png'; 
 import backButton from '../../img/back.png';
+import axios from 'axios';
 
 const Index = styled.div`
   display: flex;
@@ -136,7 +137,7 @@ const BackButton = ({ onClick }) => {
 
 const SignupVerification = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const [isCodeSent, setIsCodeSent] = useState(false);
   const [isCodeVerified, setIsCodeVerified] = useState(false);
@@ -144,8 +145,9 @@ const SignupVerification = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [isAuthVisible, setIsAuthVisible] = useState(false);
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
 
   const handleSendVerificationCode = () => {
@@ -157,10 +159,18 @@ const SignupVerification = () => {
     setIsCodeVerified(true);
   };
 
-  const handleVerifyCode = () => {
-    setIsClicked(true);
-    setIsAuthVisible(true);
-    setIsVerified(true);
+
+  const handleVerifyCode = async () => {
+    try {
+      const response = await axios.get(`http://15.164.143.187:8080/signup?email=${email}&code=${verificationCode}`);
+      console.log('인증 요청 결과:', response.data);
+      setIsVerified(true);
+      setIsAuthVisible(true);
+      navigate('/Login'); 
+    } catch (error) {
+      console.error('인증 요청 실패:', error);
+      alert('인증에 실패했습니다. 다시 시도해주세요.');
+    }
   };
 
   const handleBackClick = () => {
@@ -169,7 +179,7 @@ const SignupVerification = () => {
 
   
   return (
-    <Index>
+  <div>
       <Top>
         <UnilearnImage src={unilearnLogo} alt="Unilearn" />
         <BackButton onClick={handleBackClick} />
@@ -194,8 +204,8 @@ const SignupVerification = () => {
             <Input
               type="text"
               placeholder="이메일을 입력하세요"
-              value={username}
-              onChange={handleUsernameChange}
+              value={email}
+              onChange={handleEmailChange}
             />
              <p style={{
                 position: 'absolute',
@@ -214,7 +224,7 @@ const SignupVerification = () => {
             <SubmitButton
               type="button"
               onClick={handleSendVerificationCode}
-              disabled={!username}
+              disabled={!email}
               isCodeSent={isCodeSent}
             >
               전송
@@ -251,7 +261,7 @@ const SignupVerification = () => {
           )}
         </form>
       </div>
-    </Index>
+    </div>
   );
 };
 

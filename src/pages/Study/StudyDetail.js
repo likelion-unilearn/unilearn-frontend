@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useParams } from 'react-router-dom'; 
 import styled from 'styled-components';
 import Nav from "../../HeaderNavComponent/Nav";
 import Header from "../../HeaderNavComponent/Header";
+import AssignmentForm from '../Assignment/AssignmentForm';
+import { useNavigate } from 'react-router-dom';
+
 
 const Title = styled.p`
   width: 82px;
@@ -160,7 +163,7 @@ const BottomButton = styled.button`
 const mockData = [
   {
     imageUrl: 'https://via.placeholder.com/150',
-    title: 'Sample Study Title 1',
+    title: '운영체제 뿌시기',
     dateTime: '월요일 14:00-15:00',
     nickname: 'Jiyoon',
     participants: 5,
@@ -171,7 +174,7 @@ const mockData = [
   },
   {
     imageUrl: 'https://via.placeholder.com/150',
-    title: 'Sample Study Title 2',
+    title: '구글링 탈출하고 개발자 되자',
     dateTime: '화요일 10:00-12:00',
     nickname: '홍길동',
     participants: 8,
@@ -185,7 +188,8 @@ const mockData = [
 
 const StudyDetail = () => {
   const { id } = useParams();
-
+  const navigate = useNavigate();
+  const [posts, setPosts] = useState([]);
   const isValidId = id >= 0 && id < mockData.length;
   const post = isValidId ? mockData[id] : null;
 
@@ -203,9 +207,7 @@ const StudyDetail = () => {
               <StudyDetailTitle>{post.title}</StudyDetailTitle>
               <StudyDetailInfo>스터디시간: {post.dateTime}</StudyDetailInfo>
               <StudyDetailInfo>스터디원: {post.nickname}</StudyDetailInfo>
-              {/* <StudyDetailInfo>참여 인원: {post.participants}명</StudyDetailInfo>
-              <StudyDetailInfo>장소: {post.location}</StudyDetailInfo>
-              <StudyDetailInfo>설명: {post.description}</StudyDetailInfo> */}
+
 
             </StudyDetail1>
             <Middle>
@@ -213,7 +215,7 @@ const StudyDetail = () => {
       </Middle>
             <BottomButtons>
         <BottomButton>공부방</BottomButton>
-        <BottomButton>과제제출</BottomButton>
+        <BottomButton onClick={()=>{navigate("/AssignmentList");}}>과제제출</BottomButton>
         <BottomButton>일정</BottomButton>
         <BottomButton>스터디원</BottomButton>
       </BottomButtons>

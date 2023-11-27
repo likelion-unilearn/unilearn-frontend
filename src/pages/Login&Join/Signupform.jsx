@@ -113,8 +113,10 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [nickname, setNickname] = useState('');
+  // const [email, setEmail] = useState('');
   const [passwordMismatch, setPasswordMismatch] = useState(false);
-
+  
+  
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -136,29 +138,32 @@ const SignUpForm = () => {
     setNickname(event.target.value);
   };
 
+  //데이터 넘겨주기
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
       setPasswordMismatch(true);
     } else {
       try {
-        const response = await axios.post('http://15.164.143.187:8080/signup', {
-          loginId: "user1234",
-          password: "qwer1234",
-          email: "92chanum@swu.ac.kr",
-          username: "양수빈",
-          nickname: "쑤양"
-      });
+        // 회원가입 요청 전에 사용자가 입력한 정보를 저장
+        const userData = {
+          loginId: username,
+          Password: password,
+          // Email: email, 
+          Username: fullName,
+          Nickname: nickname,
+        };
 
-        console.log('회원가입 성공:', response.data);
-       
-        navigate('/SignupVerification');
+        // userData를 넘겨주는 방법을 추가
+        // 네비게이션 state를 이용해서 데이터를 전달
+        navigate('/SignupVerification', { userData });
       } catch (error) {
         console.error('회원가입 실패:', error);
-     
       }
     }
   };
+
+
 
   const handleBackClick = () => {
     console.log('뒤로 가기 버튼 클릭됨');
