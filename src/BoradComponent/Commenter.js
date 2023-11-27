@@ -75,7 +75,36 @@ function Commenter(text, author,currentUser, onDelete ) {
     onDelete(commentId);
   };
     return (
+      // <div>
+      // <Postdiv>
+      //   <Profile></Profile>
+      //   <Nickname>{author}</Nickname>
+      //   {currentUser.id === author && (
+      //     <Complete onClick={handleDeleteComment}>삭제하기</Complete>
+      //   )}
+      //   <Postcontent>{text}</Postcontent>
+      //   <PostLine></PostLine>
+      // </Postdiv>
+      // </div>
       <div>
+      <Postdiv>
+        <Profile></Profile>
+        <Nickname>김멋사</Nickname>
+        {currentUser.id === author && (
+          <Complete onClick={handleDeleteComment}>삭제하기</Complete>
+        )}
+        <Postcontent>{text}</Postcontent>
+        <PostLine></PostLine>
+      </Postdiv>
+      <Postdiv>
+        <Profile></Profile>
+        <Nickname>{author}</Nickname>
+        {currentUser.id === author && (
+          <Complete onClick={handleDeleteComment}>삭제하기</Complete>
+        )}
+        <Postcontent>{text}</Postcontent>
+        <PostLine></PostLine>
+      </Postdiv>
       <Postdiv>
         <Profile></Profile>
         <Nickname>{author}</Nickname>
@@ -86,6 +115,7 @@ function Commenter(text, author,currentUser, onDelete ) {
         <PostLine></PostLine>
       </Postdiv>
       </div>
+      
     );
   }
   

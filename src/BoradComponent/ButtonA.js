@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const ButtonDiv=styled.div`
 display: flex;
@@ -37,11 +38,20 @@ letter-spacing: 0.024em;
 `;
 
 function ButtonA({ subjectName, professorName }) {
+  const navigate = useNavigate();
   return (
     <div>
-      <ButtonDiv>
+      {/* <ButtonDiv>
         <ButtonText>{subjectName}-{professorName}</ButtonText>
         <PostButton>게시판</PostButton>
+      </ButtonDiv> */}
+      <ButtonDiv>
+        <ButtonText>운영체제-유니런 교수님</ButtonText>
+        <PostButton  onClick={()=>{navigate("/ClassBoard")}}>게시판</PostButton>
+      </ButtonDiv>
+      <ButtonDiv>
+        <ButtonText>C++프로그래밍-유니런 교수님</ButtonText>
+        <PostButton onClick={()=>{navigate("/ClassBoard")}}>게시판</PostButton>
       </ButtonDiv>
     </div>
   );

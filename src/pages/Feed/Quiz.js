@@ -122,6 +122,7 @@ function Quiz() {
             content={quiz.content}
             ></QuizComponent>
           ))}
+          <QuizComponent></QuizComponent>
       </PostAssign>
       <WriteButton onClick={()=>{navigate("/QuizWrite");}}>글 작성하기</WriteButton>
      <Nav></Nav>

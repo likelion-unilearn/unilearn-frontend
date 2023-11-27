@@ -386,8 +386,8 @@ function Studyjoin() {
         <Infotext>스터디 정보</Infotext>
         <Info> 
           <InfoDiv>
-          <StudyInfo>{studyData.studyName}</StudyInfo>
-          <StudyInfoText>{studyData.studyDescription}
+          <StudyInfo>{studyData.studyName}운영체제 뿌실꺼야</StudyInfo>
+          <StudyInfoText>{studyData.studyDescription} 저희는 운영체제 수업을 소인원인 4명으로 제한해 두었고,높은 예치금으로 스터디원간에 책임감을 불어 넣을 예정입니다.
          </StudyInfoText>
             </InfoDiv></Info>
             <Speak>
@@ -397,14 +397,14 @@ function Studyjoin() {
             </Speak>
 
             <Checking>
-               <Place>장소</Place>
-               <PlaceText>{studyData.place}</PlaceText>
+               <Place>장소 </Place>
+               <PlaceText>{studyData.place}도서관</PlaceText>
                <Person>모집인원</Person>
-               <PersonText>{studyData.recruitedNum}명</PersonText>
+               <PersonText>{studyData.recruitedNum}4명</PersonText>
                <Dstudy>스터디 기간</Dstudy>
-               <DstudyText>{studyData.studyPeriod}</DstudyText>
+               <DstudyText>{studyData.studyPeriod}2023.12.10~2024.03.01</DstudyText>
                <Money>예치금</Money>
-               <MoneyText>{studyData.deposit}원</MoneyText>
+               <MoneyText>{studyData.deposit}30000원</MoneyText>
                <MoneyInfo>해당 스터디에는 예치금 제도가 {studyData.hasDepositSystem ? '있습니다' : '없습니다'}. 확인하셨나요?</MoneyInfo>
                <MoneyCheck type="checkbox"    checked={isChecked}  onChange={handleCheckboxChange}></MoneyCheck>
                <ApplyButton onClick={()=>{navigate("/StudyBoard");}} isActive={isChecked}  >

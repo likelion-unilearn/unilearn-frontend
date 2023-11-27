@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-
+import { useNavigate } from 'react-router-dom';
 const ButtonDiv=styled.div`
 display: flex;
 flex-direction: row;
@@ -58,16 +58,40 @@ letter-spacing: 0.024em;
 `;
 
 function ButtonC({ study_name,is_offline ,study_recruited_num}) {
+  const navigate = useNavigate();
   return (
+    // <div>
+    //   <ButtonDiv>
+    //     <TextDiv>
+    //       <ButtonTextA>{study_name}</ButtonTextA>
+    //       <ButtonTextB>{is_offline},{study_recruited_num}명</ButtonTextB>
+    //     </TextDiv>
+    //     <PostButton>join</PostButton>
+    //   </ButtonDiv>
+    // </div>
     <div>
-      <ButtonDiv>
-        <TextDiv>
-          <ButtonTextA>{study_name}</ButtonTextA>
-          <ButtonTextB>{is_offline},{study_recruited_num}명</ButtonTextB>
-        </TextDiv>
-        <PostButton>join</PostButton>
-      </ButtonDiv>
-    </div>
+    <ButtonDiv onClick={()=>{navigate("/StudyJoin")}}>
+      <TextDiv>
+        <ButtonTextA>운영체제 뿌실꺼야</ButtonTextA>
+        <ButtonTextB>대면,4명</ButtonTextB>
+      </TextDiv>
+      <PostButton>join</PostButton>
+    </ButtonDiv>
+    <ButtonDiv onClick={()=>{navigate("/StudyJoin")}}>
+      <TextDiv>
+        <ButtonTextA>우리반은 운영체제 ALL A+</ButtonTextA>
+        <ButtonTextB>대면,4명</ButtonTextB>
+      </TextDiv>
+      <PostButton>join</PostButton>
+    </ButtonDiv>
+    <ButtonDiv onClick={()=>{navigate("/StudyJoin")}}>
+      <TextDiv>
+        <ButtonTextA>운영체제야 내가 간다.</ButtonTextA>
+        <ButtonTextB>비대면,15명</ButtonTextB>
+      </TextDiv>
+      <PostButton>join</PostButton>
+    </ButtonDiv>
+  </div>
   );
 }
   export default ButtonC;

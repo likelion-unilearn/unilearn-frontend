@@ -32,7 +32,15 @@ function ButtonE({ content }) {
     return (
       <div>
         <ButtonDiv>
-          <ButtonText>{content}</ButtonText>
+          <ButtonText>퀴즈 진짜 어렵지 않았어?? 난 너무 어렵다.</ButtonText>
+          <TitleLineA></TitleLineA>
+        </ButtonDiv>
+        <ButtonDiv>
+          <ButtonText>이거 퀴즈 푼 사람들 어떤식으로 풀었어??알려주면 좋을 것 같은데</ButtonText>
+          <TitleLineA></TitleLineA>
+        </ButtonDiv>
+        <ButtonDiv>
+          <ButtonText>운영체제 5주차 때 교수님이 내주신 과제에서 이 부분 참고할까?</ButtonText>
           <TitleLineA></TitleLineA>
         </ButtonDiv>
       </div>

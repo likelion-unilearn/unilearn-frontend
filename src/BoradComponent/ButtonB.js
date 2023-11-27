@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const ButtonDiv=styled.div`
 display: flex;
@@ -58,15 +59,38 @@ letter-spacing: 0.024em;
 `;
 
 function ButtonB({ study_name,is_offline ,study_recruited_num}) {
+  const navigate = useNavigate();
   return (
     <div>
-      <ButtonDiv>
+      {/* <ButtonDiv>
         <TextDiv>
           <ButtonTextA>{study_name}</ButtonTextA>
           <ButtonTextB>{is_offline},{study_recruited_num}명</ButtonTextB>
         </TextDiv>
         <PostButton>join</PostButton>
+      </ButtonDiv> */}
+      <ButtonDiv>
+        <TextDiv>
+          <ButtonTextA>sqld</ButtonTextA>
+          <ButtonTextB>스터디룸 305호 ,5명</ButtonTextB>
+        </TextDiv>
+        <PostButton  onClick={()=>{navigate("/NoneStudyJoin")}}>join</PostButton>
       </ButtonDiv>
+      <ButtonDiv>
+        <TextDiv>
+          <ButtonTextA>정보처리기사</ButtonTextA>
+          <ButtonTextB>비대면 ,107px명</ButtonTextB>
+        </TextDiv>
+        <PostButton onClick={()=>{navigate("/NoneStudyJoin")}} >join</PostButton>
+      </ButtonDiv>
+      <ButtonDiv>
+        <TextDiv>
+          <ButtonTextA>취업을 위한 리액트 스터디</ButtonTextA>
+          <ButtonTextB>비대면 ,100명</ButtonTextB>
+        </TextDiv>
+        <PostButton onClick={()=>{navigate("/NoneStudyJoin")}} >join</PostButton>
+      </ButtonDiv>
+  
     </div>
   );
 }

@@ -123,6 +123,7 @@ function StudyBoard() {
             study_recruited_num={study.study_recruited_num}
           />
         ))}
+        <ButtonC></ButtonC>
       </Main>
       <PlusButton></PlusButton>
       <Nav></Nav>

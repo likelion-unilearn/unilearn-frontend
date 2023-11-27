@@ -324,95 +324,186 @@ color: ${props => props.isActive ? '#958F8F;' : '#ffffff'};
 
 
 
-function NoneStudyJoin() {
- const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState('');
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-  const [isChecked, setIsChecked] = useState(false);
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
-  const [studyData, setStudyData] = useState({
-    studyName: '',
-    studyDescription: '',
-    place: '',
-    recruitedNum: '',
-    studyPeriod: '',
-    deposit: '',
-    hasDepositSystem: false,
-  });
-  useEffect(() => {
+// function NoneStudyJoin() {
+//  const navigate = useNavigate();
+//   const [inputValue, setInputValue] = useState('');
+//   const handleInputChange = (e) => {
+//     setInputValue(e.target.value);
+//   };
+//   const [isChecked, setIsChecked] = useState(false);
+//   const handleCheckboxChange = () => {
+//     setIsChecked(!isChecked);
+//   };
+//   const [studyData, setStudyData] = useState({
+//     studyName: '',
+//     studyDescription: '',
+//     place: '',
+//     recruitedNum: '',
+//     studyPeriod: '',
+//     deposit: '',
+//     hasDepositSystem: false,
+//   });
+//   useEffect(() => {
     
-    const fetchStudyData = async () => {
-      try {
+//     const fetchStudyData = async () => {
+//       try {
         
-        const response = await axios.get('/studies/{study_id}', {
-          headers: {
-            Authorization: '인증키',
-            'Content-Type': 'application/json',
-          },
-        });
+//         const response = await axios.get('/studies/{study_id}', {
+//           headers: {
+//             Authorization: '인증키',
+//             'Content-Type': 'application/json',
+//           },
+//         });
 
-        // API에서 받은 데이터로 state 업데이트
-        setStudyData({
-          studyName: response.data.study_name,
-          studyDescription: response.data.study_detail,
-          place: response.data.study_location,
-          recruitedNum: response.data.study_current_num,
-          studyPeriod: `${response.data.study_start_day}~${response.data.study_deadline}`,
-          deposit: response.data.study_deposit,
-          hasDepositSystem: response.data.study_deposit > 0,
-        });
-      } catch (error) {
-        console.error('스터디 데이터를 불러오는 중 오류 발생:', error);
-      }
-    };
+//         // API에서 받은 데이터로 state 업데이트
+//         setStudyData({
+//           studyName: response.data.study_name,
+//           studyDescription: response.data.study_detail,
+//           place: response.data.study_location,
+//           recruitedNum: response.data.study_current_num,
+//           studyPeriod: `${response.data.study_start_day}~${response.data.study_deadline}`,
+//           deposit: response.data.study_deposit,
+//           hasDepositSystem: response.data.study_deposit > 0,
+//         });
+//       } catch (error) {
+//         console.error('스터디 데이터를 불러오는 중 오류 발생:', error);
+//       }
+//     };
 
-    fetchStudyData();
-  }, []);
+//     fetchStudyData();
+//   }, []);
 
-    return (
-      <div id="body">
-      <div id="iphone-frame">
-        <Header></Header>
-        <Infotext>스터디 정보</Infotext>
-        <Info> 
-          <InfoDiv>
-          <StudyInfo>{studyData.studyName}</StudyInfo>
-          <StudyInfoText>{studyData.studyDescription}</StudyInfoText>
-            </InfoDiv></Info>
-            <Speak>
-            <SpeakText>스터디장에게 하고싶은 한마디</SpeakText>
-            <SpeakFrame value={inputValue} onChange={handleInputChange} placeholder="입력해주세요.">
-            </SpeakFrame>
-            </Speak>
+//     return (
+//       <div id="body">
+//       <div id="iphone-frame">
+//         <Header></Header>
+//         <Infotext>스터디 정보</Infotext>
+//         <Info> 
+//           <InfoDiv>
+//           <StudyInfo>{studyData.studyName}</StudyInfo>
+//           <StudyInfoText>{studyData.studyDescription}</StudyInfoText>
+//             </InfoDiv></Info>
+//             <Speak>
+//             <SpeakText>스터디장에게 하고싶은 한마디</SpeakText>
+//             <SpeakFrame value={inputValue} onChange={handleInputChange} placeholder="입력해주세요.">
+//             </SpeakFrame>
+//             </Speak>
 
-            <Checking>
-               <Place>장소</Place>
-               <PlaceText>{studyData.place}</PlaceText>
-               <Person>모집인원</Person>
-               <PersonText>{studyData.recruitedNum}명</PersonText>
-               <Dstudy>스터디 기간</Dstudy>
-               <DstudyText>{studyData.studyPeriod}</DstudyText>
-               <Money>예치금</Money>
-               <MoneyText>{studyData.deposit}원</MoneyText>
-               <MoneyInfo>해당 스터디에는 예치금 제도가 {studyData.hasDepositSystem ? '있습니다' : '없습니다'}. 확인하셨나요?</MoneyInfo>
-               <MoneyCheck type="checkbox"    checked={isChecked}  onChange={handleCheckboxChange}></MoneyCheck>
-               <ApplyButton onClick={()=>{navigate("/UnopenedCourses");}} isActive={isChecked}  >
-                <ApplyText>스터디 지원하기</ApplyText>
-               </ApplyButton>
-               <ApplyStudyText isActive={isChecked} >스터디 참여가 확정되면 알림을 보내드려요!</ApplyStudyText>
-            </Checking>
+//             <Checking>
+//                <Place>장소</Place>
+//                <PlaceText>{studyData.place}</PlaceText>
+//                <Person>모집인원</Person>
+//                <PersonText>{studyData.recruitedNum}명</PersonText>
+//                <Dstudy>스터디 기간</Dstudy>
+//                <DstudyText>{studyData.studyPeriod}</DstudyText>
+//                <Money>예치금</Money>
+//                <MoneyText>{studyData.deposit}원</MoneyText>
+//                <MoneyInfo>해당 스터디에는 예치금 제도가 {studyData.hasDepositSystem ? '있습니다' : '없습니다'}. 확인하셨나요?</MoneyInfo>
+//                <MoneyCheck type="checkbox"    checked={isChecked}  onChange={handleCheckboxChange}></MoneyCheck>
+//                <ApplyButton onClick={()=>{navigate("/UnopenedCourses");}} isActive={isChecked}  >
+//                 <ApplyText>스터디 지원하기</ApplyText>
+//                </ApplyButton>
+//                <ApplyStudyText isActive={isChecked} >스터디 참여가 확정되면 알림을 보내드려요!</ApplyStudyText>
+//             </Checking>
            
             
-            <Nav></Nav>
-      </div>
-      </div>
+//             <Nav></Nav>
+//       </div>
+//       </div>
      
-    );
-  }
+//     );
+//   }
   
-  export default  NoneStudyJoin;
-  
+//   export default  NoneStudyJoin;
+function NoneStudyJoin() {
+  const navigate = useNavigate();
+   const [inputValue, setInputValue] = useState('');
+   const handleInputChange = (e) => {
+     setInputValue(e.target.value);
+   };
+   const [isChecked, setIsChecked] = useState(false);
+   const handleCheckboxChange = () => {
+     setIsChecked(!isChecked);
+   };
+   const [studyData, setStudyData] = useState({
+     studyName: '',
+     studyDescription: '',
+     place: '',
+     recruitedNum: '',
+     studyPeriod: '',
+     deposit: '',
+     hasDepositSystem: false,
+   });
+   useEffect(() => {
+     
+     const fetchStudyData = async () => {
+       try {
+         
+         const response = await axios.get('/studies/{study_id}', {
+           headers: {
+             Authorization: '인증키',
+             'Content-Type': 'application/json',
+           },
+         });
+ 
+         // API에서 받은 데이터로 state 업데이트
+         setStudyData({
+           studyName: response.data.study_name,
+           studyDescription: response.data.study_detail,
+           place: response.data.study_location,
+           recruitedNum: response.data.study_current_num,
+           studyPeriod: `${response.data.study_start_day}~${response.data.study_deadline}`,
+           deposit: response.data.study_deposit,
+           hasDepositSystem: response.data.study_deposit > 0,
+         });
+       } catch (error) {
+         console.error('스터디 데이터를 불러오는 중 오류 발생:', error);
+       }
+     };
+ 
+     fetchStudyData();
+   }, []);
+ 
+     return (
+       <div id="body">
+       <div id="iphone-frame">
+         <Header></Header>
+         <Infotext>스터디 정보</Infotext>
+         <Info> 
+           <InfoDiv>
+           <StudyInfo>sqld</StudyInfo>
+           <StudyInfoText>sqld는 데이터베이스 기초를 수강한 학과생들을 바탕으로 진행될 예정입니다.</StudyInfoText>
+             </InfoDiv></Info>
+             <Speak>
+             <SpeakText>스터디장에게 하고싶은 한마디</SpeakText>
+             <SpeakFrame value={inputValue} onChange={handleInputChange} placeholder="입력해주세요.">
+             </SpeakFrame>
+             </Speak>
+ 
+             <Checking>
+                <Place>장소</Place>
+                <PlaceText>{studyData.place}스터디룸 305호</PlaceText>
+                <Person>모집인원</Person>
+                <PersonText>{studyData.recruitedNum}5명</PersonText>
+                <Dstudy>스터디 기간</Dstudy>
+                <DstudyText>{studyData.studyPeriod}2023.11.37-2024.02.10</DstudyText>
+                <Money>예치금</Money>
+                <MoneyText>{studyData.deposit}10000원</MoneyText>
+                <MoneyInfo>해당 스터디에는 예치금 제도가 {studyData.hasDepositSystem ? '있습니다' : '없습니다'}. 확인하셨나요?</MoneyInfo>
+                <MoneyCheck type="checkbox"    checked={isChecked}  onChange={handleCheckboxChange}></MoneyCheck>
+                <ApplyButton onClick={()=>{navigate("/UnopenedCourses");}} isActive={isChecked}  >
+                 <ApplyText>스터디 지원하기</ApplyText>
+                </ApplyButton>
+                <ApplyStudyText isActive={isChecked} >스터디 참여가 확정되면 알림을 보내드려요!</ApplyStudyText>
+             </Checking>
+            
+             
+             <Nav></Nav>
+       </div>
+       </div>
+      
+     );
+   }
+   
+   export default  NoneStudyJoin;
+   

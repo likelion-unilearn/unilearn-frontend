@@ -100,8 +100,21 @@ function PostComponent({ id, content,onDelete,onEdit }) {
             <Change onClick={handleEdit}>수정하기</Change>
             <Complete onClick={handleDelete}>삭제하기</Complete>
         
-        <Nickname>{id}</Nickname>
-        <Postcontent>{content}</Postcontent>
+        <Nickname>김멋사</Nickname>
+        <Postcontent>{content}운영체제 너무 어렵다.</Postcontent>
+        <PostLine></PostLine>
+      </Postdiv>
+      <Postdiv>
+        <Profile></Profile>
+        
+        <Nickname>박멋사</Nickname>
+        <Postcontent>이거 과제 푼 사람들 어떤식으로 풀었어??알려주면 좋을 것 같은데 흠..</Postcontent>
+        <PostLine></PostLine>
+      </Postdiv>
+      <Postdiv>
+        <Profile></Profile>
+        <Nickname>주멋사</Nickname>
+        <Postcontent>운영체제 5주차 때 교수님이 내주신 과제에서 이 부분 참고할 때 이게 맞나?</Postcontent>
         <PostLine></PostLine>
       </Postdiv>
       </div>
